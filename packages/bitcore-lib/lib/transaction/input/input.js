@@ -120,6 +120,21 @@ Input.prototype.toBufferWriter = function(writer) {
   return writer;
 };
 
+// john
+Input.prototype.toBufferWriter1 = function(writer) {
+  if (!writer) {
+    writer = new BufferWriter();
+  }
+  writer.writeReverse(this.prevTxId);
+  writer.writeUInt32LE(this.outputIndex);
+  var script = this.output._scriptBuffer;
+  writer.writeVarintNum(script.length);
+  writer.write(script);
+  writer.writeUInt32LE(this.sequenceNumber);
+  return writer;
+};
+
+
 Input.prototype.setScript = function(script) {
   this._script = null;
   if (script instanceof Script) {

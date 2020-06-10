@@ -160,7 +160,8 @@ export class Verifier {
     var hash;
     if (parseInt(txp.version) >= 3) {
       var t = Utils.buildTx(txp);
-      hash = t.uncheckedSerialize();
+      // john
+      hash = t.uncheckedSerialize1();
     } else {
       throw new Error('Transaction proposal not supported');
     }

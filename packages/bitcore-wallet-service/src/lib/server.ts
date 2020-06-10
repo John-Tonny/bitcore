@@ -2295,7 +2295,7 @@ export class WalletService {
 
           let raw;
           try {
-            raw = txp.getRawTx();
+            raw = txp.getRawTx1();
           } catch (ex) {
             return cb(ex);
           }

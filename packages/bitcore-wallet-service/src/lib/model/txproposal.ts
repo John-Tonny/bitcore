@@ -306,6 +306,12 @@ export class TxProposal {
     return t.uncheckedSerialize();
   }
 
+  // john
+  getRawTx1() {
+    const t = ChainService.getBitcoreTx(this);
+    return t.uncheckedSerialize1();
+  }
+
   /**
    * getTotalAmount
    *

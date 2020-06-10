@@ -97,7 +97,6 @@ export class BtcChain implements IChain {
           walletN: wallet.n,
           feePerKb
         });
-
         const baseTxpSize = this.getEstimatedSize(txp);
         const sizePerInput = this.getEstimatedSizeForSingleInput(txp);
         const feePerInput = (sizePerInput * txp.feePerKb) / 1000;

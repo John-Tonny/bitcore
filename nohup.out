@@ -1,0 +1,846 @@
+
+> @8.20.4 node /home/john/bitcore
+> cd packages/bitcore-node && npm start
+
+
+> bitcore-node@8.20.4 start /home/john/bitcore/packages/bitcore-node
+> npm run tsc && node build/src/server.js
+
+
+> bitcore-node@8.20.4 tsc /home/john/bitcore/packages/bitcore-node
+> npm run clean && tsc
+
+
+> bitcore-node@8.20.4 clean /home/john/bitcore/packages/bitcore-node
+> rm -rf build
+
+{"message":"Starting Event Service","level":"info"}
+{"message":"Starting P2P Manager","level":"info"}
+{"message":"Starting BTC p2p worker","level":"info"}
+(node:32012) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+{"message":"2020-06-09 19:04:28.351 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"Starting Event Service","level":"info"}
+{"message":"Starting Event Service","level":"info"}
+{"message":"Starting API Service on port 3000","level":"info"}
+{"message":"Starting Socket Service","level":"info"}
+{"message":"Starting API Service on port 3000","level":"info"}
+{"message":"Starting Socket Service","level":"info"}
+{"message":"Started Socket Service","level":"info"}
+{"message":"Started Socket Service","level":"info"}
+
+> @8.20.4 insight /home/john/bitcore
+> cd ./packages/insight && npm start
+
+
+> @bitpay/insight-previous@8.20.4 start /home/john/bitcore/packages/insight
+> npm run ionic:serve
+
+
+> @bitpay/insight-previous@8.20.4 ionic:serve /home/john/bitcore/packages/insight
+> ionic-app-scripts serve --port 8200
+
+
+> @8.20.4 insight /home/john/bitcore
+> cd ./packages/insight && npm start
+
+
+> @bitpay/insight-previous@8.20.4 start /home/john/bitcore/packages/insight
+> npm run ionic:serve
+
+
+> @bitpay/insight-previous@8.20.4 ionic:serve /home/john/bitcore/packages/insight
+> ionic-app-scripts serve --port 8200
+
+[19:06:02]  ionic-app-scripts 3.2.3 
+[19:06:02]  watch started ... 
+[19:06:02]  build dev started ... 
+[19:06:03]  Proxy added:/api => http://localhost:3000/api 
+[19:06:03]  clean started ... 
+[19:06:03]  clean finished in 1 ms 
+[19:06:03]  copy started ... 
+[19:06:03]  deeplinks started ... 
+[19:06:03]  deeplinks finished in 211 ms 
+[19:06:03]  transpile started ... 
+[19:06:25]  transpile finished in 21.52 s 
+[19:06:25]  preprocess started ... 
+[19:06:25]  preprocess finished in 1 ms 
+[19:06:25]  webpack started ... 
+[19:06:26]  copy finished in 23.34 s 
+[19:06:38]  webpack finished in 13.14 s 
+[19:06:38]  sass started ... 
+[19:06:39]  sass finished in 1.14 s 
+[19:06:39]  postprocess started ... 
+[19:06:39]  postprocess finished in 12 ms 
+[19:06:39]  lint started ... 
+[19:06:39]  build dev finished in 36.52 s 
+[19:06:42]  dev server running: http://localhost:8200/ 
+
+[19:06:42]  Failed to open the browser: Command failed: xdg-open "http://localhost:8200" /bin/sh: 1: xdg-open: not found 
+no-use-before-declare is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |      1 open","level":"info"}
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/status/enabled-chains |      1 open","level":"info"}
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      55 ms |    GET |   304 | /api/status/enabled-chains |      0 open","level":"info"}
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      56 ms |    GET |   304 | /api/status/enabled-chains |     -1 open","level":"info"}
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |     119 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |      0 open","level":"info"}
+{"message":"19:06:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |     132 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -1 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |      0 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      26 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |     -1 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      38 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |     -2 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/tip |      0 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -1 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -2 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |     -1 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |     274 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |     -2 open","level":"info"}
+{"message":"19:06:51 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |     274 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |     -3 open","level":"info"}
+[19:06:51]  lint finished in 12.07 s 
+{"message":"This worker is now the syncing node for BTC mainnet","level":"info"}
+{"message":"2020-06-09 19:09:28.659 PDT | Syncing 17 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:09:29.333 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:09:58.884 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:09:58.947 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"2020-06-09 19:10:33.462 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:10:34.430 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:10:34.630 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:10:49.175 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"2020-06-09 19:11:23.433 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:11:25.700 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"2020-06-09 19:11:58.439 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:13:14.546 PDT | Syncing 2 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:13:14.627 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"2020-06-09 19:13:48.452 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:13:48.707 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4 |     -1 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      81 ms |    GET |   200 | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4 |     -2 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      81 ms |    GET |   200 | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4 |     -3 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/tip |     -2 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -3 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -4 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4/coins/100/1 |     -2 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      94 ms |    GET |   200 | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4/coins/100/1 |     -3 open","level":"info"}
+{"message":"19:14:06 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      94 ms |    GET |   200 | /api/BTC/mainnet/block/000000098c8e9f4ec51d0bd7ffe21cee7b8a0df030933514a485cb536268d7d4/coins/100/1 |     -4 open","level":"info"}
+{"message":"19:14:07 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/tx/10185a4b90bc2346b579fbf6a9f1418adb43aa18dd1411169c99fff09dcfc93b/coins |     -3 open","level":"info"}
+{"message":"19:14:07 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      14 ms |    GET |   200 | /api/BTC/mainnet/tx/10185a4b90bc2346b579fbf6a9f1418adb43aa18dd1411169c99fff09dcfc93b/coins |     -4 open","level":"info"}
+{"message":"19:14:07 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      14 ms |    GET |   200 | /api/BTC/mainnet/tx/10185a4b90bc2346b579fbf6a9f1418adb43aa18dd1411169c99fff09dcfc93b/coins |     -5 open","level":"info"}
+{"message":"2020-06-09 19:14:08.620 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:14:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -3 open","level":"info"}
+{"message":"19:14:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -4 open","level":"info"}
+{"message":"19:14:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -5 open","level":"info"}
+{"message":"19:14:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -4 open","level":"info"}
+{"message":"19:14:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      10 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -5 open","level":"info"}
+{"message":"19:14:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      11 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -6 open","level":"info"}
+{"message":"2020-06-09 19:14:43.457 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:14:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -4 open","level":"info"}
+{"message":"19:14:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -5 open","level":"info"}
+{"message":"19:14:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -6 open","level":"info"}
+{"message":"19:15:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -5 open","level":"info"}
+{"message":"19:15:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -6 open","level":"info"}
+{"message":"19:15:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -7 open","level":"info"}
+{"message":"2020-06-09 19:15:06.442 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:15:06.466 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:15:06.725 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:15:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -5 open","level":"info"}
+{"message":"19:15:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -6 open","level":"info"}
+{"message":"19:15:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -7 open","level":"info"}
+{"message":"19:15:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -6 open","level":"info"}
+{"message":"19:15:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -7 open","level":"info"}
+{"message":"19:15:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -8 open","level":"info"}
+{"message":"2020-06-09 19:15:38.464 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:15:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -6 open","level":"info"}
+{"message":"19:15:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -7 open","level":"info"}
+{"message":"19:15:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |     -8 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/tip |     -7 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -8 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/tip |     -9 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |     -7 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      32 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |     -8 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      32 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |     -9 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |     -8 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      28 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |     -9 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      28 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -10 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |     -8 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |     -9 open","level":"info"}
+{"message":"19:15:53 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -10 open","level":"info"}
+{"message":"19:16:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -9 open","level":"info"}
+{"message":"19:16:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -10 open","level":"info"}
+{"message":"19:16:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -11 open","level":"info"}
+{"message":"2020-06-09 19:16:09.892 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:16:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |     -9 open","level":"info"}
+{"message":"19:16:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      10 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -10 open","level":"info"}
+{"message":"19:16:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      11 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -11 open","level":"info"}
+{"message":"19:16:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -10 open","level":"info"}
+{"message":"19:16:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -11 open","level":"info"}
+{"message":"19:16:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -12 open","level":"info"}
+{"message":"2020-06-09 19:16:43.473 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:16:45.465 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:16:45.549 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:16:45.627 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:16:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -10 open","level":"info"}
+{"message":"19:16:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -11 open","level":"info"}
+{"message":"19:16:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -12 open","level":"info"}
+{"message":"19:17:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -11 open","level":"info"}
+{"message":"19:17:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -12 open","level":"info"}
+{"message":"19:17:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -13 open","level":"info"}
+{"message":"19:17:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -11 open","level":"info"}
+{"message":"19:17:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -12 open","level":"info"}
+{"message":"19:17:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -13 open","level":"info"}
+{"message":"2020-06-09 19:17:18.478 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:17:25.832 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:17:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -12 open","level":"info"}
+{"message":"19:17:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -13 open","level":"info"}
+{"message":"19:17:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -14 open","level":"info"}
+{"message":"19:17:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -12 open","level":"info"}
+{"message":"19:17:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -13 open","level":"info"}
+{"message":"19:17:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -14 open","level":"info"}
+{"message":"2020-06-09 19:17:58.484 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:18:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -13 open","level":"info"}
+{"message":"19:18:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -14 open","level":"info"}
+{"message":"19:18:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -15 open","level":"info"}
+{"message":"2020-06-09 19:18:15.632 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:18:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -13 open","level":"info"}
+{"message":"19:18:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -14 open","level":"info"}
+{"message":"19:18:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -15 open","level":"info"}
+{"message":"19:18:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -14 open","level":"info"}
+{"message":"19:18:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -15 open","level":"info"}
+{"message":"19:18:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -16 open","level":"info"}
+{"message":"19:18:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -14 open","level":"info"}
+{"message":"19:18:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -15 open","level":"info"}
+{"message":"19:18:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -16 open","level":"info"}
+{"message":"2020-06-09 19:18:48.492 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:19:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -15 open","level":"info"}
+{"message":"19:19:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -16 open","level":"info"}
+{"message":"19:19:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -17 open","level":"info"}
+{"message":"2020-06-09 19:19:09.912 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:19:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -15 open","level":"info"}
+{"message":"19:19:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -16 open","level":"info"}
+{"message":"19:19:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -17 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -16 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      10 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -17 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      10 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -18 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -16 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      26 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -17 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      26 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -18 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -17 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      19 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -18 open","level":"info"}
+{"message":"19:19:29 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      20 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -19 open","level":"info"}
+{"message":"19:19:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -17 open","level":"info"}
+{"message":"19:19:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -18 open","level":"info"}
+{"message":"19:19:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -19 open","level":"info"}
+{"message":"2020-06-09 19:19:43.496 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:19:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -18 open","level":"info"}
+{"message":"19:19:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -19 open","level":"info"}
+{"message":"19:19:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -20 open","level":"info"}
+{"message":"19:20:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -18 open","level":"info"}
+{"message":"19:20:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -19 open","level":"info"}
+{"message":"19:20:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -20 open","level":"info"}
+{"message":"2020-06-09 19:20:08.419 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:20:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -19 open","level":"info"}
+{"message":"19:20:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -20 open","level":"info"}
+{"message":"19:20:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -21 open","level":"info"}
+{"message":"19:20:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -19 open","level":"info"}
+{"message":"19:20:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -20 open","level":"info"}
+{"message":"19:20:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -21 open","level":"info"}
+{"message":"2020-06-09 19:20:43.506 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:20:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -20 open","level":"info"}
+{"message":"19:20:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -21 open","level":"info"}
+{"message":"19:20:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -22 open","level":"info"}
+{"message":"19:21:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -20 open","level":"info"}
+{"message":"19:21:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -21 open","level":"info"}
+{"message":"19:21:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -22 open","level":"info"}
+{"message":"19:21:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -21 open","level":"info"}
+{"message":"19:21:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -22 open","level":"info"}
+{"message":"19:21:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -23 open","level":"info"}
+{"message":"2020-06-09 19:21:25.885 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:21:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -21 open","level":"info"}
+{"message":"19:21:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -22 open","level":"info"}
+{"message":"19:21:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -23 open","level":"info"}
+{"message":"19:21:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -22 open","level":"info"}
+{"message":"19:21:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -23 open","level":"info"}
+{"message":"19:21:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -24 open","level":"info"}
+{"message":"2020-06-09 19:21:58.517 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:22:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -22 open","level":"info"}
+{"message":"19:22:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -23 open","level":"info"}
+{"message":"19:22:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -24 open","level":"info"}
+{"message":"2020-06-09 19:22:09.971 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:22:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -23 open","level":"info"}
+{"message":"19:22:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -24 open","level":"info"}
+{"message":"19:22:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -25 open","level":"info"}
+{"message":"19:22:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -23 open","level":"info"}
+{"message":"19:22:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -24 open","level":"info"}
+{"message":"19:22:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -25 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -24 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      19 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -25 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      19 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -26 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -24 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      14 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -25 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      14 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -26 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -25 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      18 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -26 open","level":"info"}
+{"message":"19:22:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      19 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -27 open","level":"info"}
+{"message":"2020-06-09 19:22:43.527 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:22:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -25 open","level":"info"}
+{"message":"19:22:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      13 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -26 open","level":"info"}
+{"message":"19:22:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      13 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -27 open","level":"info"}
+{"message":"2020-06-09 19:22:49.311 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:23:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -26 open","level":"info"}
+{"message":"19:23:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -27 open","level":"info"}
+{"message":"19:23:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -28 open","level":"info"}
+{"message":"19:23:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -26 open","level":"info"}
+{"message":"19:23:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -27 open","level":"info"}
+{"message":"19:23:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -28 open","level":"info"}
+{"message":"2020-06-09 19:23:23.531 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:23:25.838 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:23:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -27 open","level":"info"}
+{"message":"19:23:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -28 open","level":"info"}
+{"message":"19:23:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -29 open","level":"info"}
+{"message":"19:23:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -27 open","level":"info"}
+{"message":"19:23:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -28 open","level":"info"}
+{"message":"19:23:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -29 open","level":"info"}
+{"message":"2020-06-09 19:23:58.536 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:24:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -28 open","level":"info"}
+{"message":"19:24:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -29 open","level":"info"}
+{"message":"19:24:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -30 open","level":"info"}
+{"message":"19:24:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -28 open","level":"info"}
+{"message":"19:24:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -29 open","level":"info"}
+{"message":"19:24:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -30 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -29 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -30 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -31 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -29 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      21 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -30 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      21 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -31 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -30 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -31 open","level":"info"}
+{"message":"19:24:25 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -32 open","level":"info"}
+{"message":"2020-06-09 19:24:27.290 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:24:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -30 open","level":"info"}
+{"message":"19:24:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -31 open","level":"info"}
+{"message":"19:24:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -32 open","level":"info"}
+{"message":"19:24:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -31 open","level":"info"}
+{"message":"19:24:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -32 open","level":"info"}
+{"message":"19:24:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -33 open","level":"info"}
+{"message":"2020-06-09 19:24:58.548 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -31 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -32 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -33 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -32 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      22 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -33 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      22 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -34 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -32 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       9 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -33 open","level":"info"}
+{"message":"19:24:59 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       9 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -34 open","level":"info"}
+{"message":"19:25:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -33 open","level":"info"}
+{"message":"19:25:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -34 open","level":"info"}
+{"message":"19:25:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -35 open","level":"info"}
+{"message":"2020-06-09 19:25:09.260 PDT | Syncing 4 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:25:09.189 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:25:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -33 open","level":"info"}
+{"message":"19:25:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -34 open","level":"info"}
+{"message":"19:25:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -35 open","level":"info"}
+{"message":"19:25:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -34 open","level":"info"}
+{"message":"19:25:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -35 open","level":"info"}
+{"message":"19:25:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -36 open","level":"info"}
+{"message":"2020-06-09 19:25:43.548 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:25:44.244 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:25:44.312 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:25:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -34 open","level":"info"}
+{"message":"19:25:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -35 open","level":"info"}
+{"message":"19:25:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -36 open","level":"info"}
+{"message":"2020-06-09 19:25:52.460 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:25:52.910 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:25:52.130 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:26:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -35 open","level":"info"}
+{"message":"19:26:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -36 open","level":"info"}
+{"message":"19:26:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -37 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -35 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -36 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -37 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -36 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      10 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -37 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      10 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -38 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -36 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -37 open","level":"info"}
+{"message":"19:26:14 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      12 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -38 open","level":"info"}
+{"message":"19:26:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -37 open","level":"info"}
+{"message":"19:26:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -38 open","level":"info"}
+{"message":"19:26:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -39 open","level":"info"}
+{"message":"2020-06-09 19:26:23.554 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:26:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -37 open","level":"info"}
+{"message":"19:26:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -38 open","level":"info"}
+{"message":"19:26:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -39 open","level":"info"}
+{"message":"19:26:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -38 open","level":"info"}
+{"message":"19:26:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -39 open","level":"info"}
+{"message":"19:26:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -40 open","level":"info"}
+{"message":"19:27:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -38 open","level":"info"}
+{"message":"19:27:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -39 open","level":"info"}
+{"message":"19:27:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -40 open","level":"info"}
+{"message":"19:27:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -39 open","level":"info"}
+{"message":"19:27:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -40 open","level":"info"}
+{"message":"19:27:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -41 open","level":"info"}
+{"message":"2020-06-09 19:27:27.905 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:27:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -39 open","level":"info"}
+{"message":"19:27:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -40 open","level":"info"}
+{"message":"19:27:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -41 open","level":"info"}
+{"message":"19:27:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -40 open","level":"info"}
+{"message":"19:27:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      13 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -41 open","level":"info"}
+{"message":"19:27:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      14 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -42 open","level":"info"}
+{"message":"2020-06-09 19:27:58.563 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:28:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -40 open","level":"info"}
+{"message":"19:28:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -41 open","level":"info"}
+{"message":"19:28:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -42 open","level":"info"}
+{"message":"2020-06-09 19:28:10.890 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:28:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -41 open","level":"info"}
+{"message":"19:28:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -42 open","level":"info"}
+{"message":"19:28:17 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -43 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -41 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      14 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -42 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      14 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -43 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -42 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      11 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -43 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      11 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -44 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -42 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      25 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -43 open","level":"info"}
+{"message":"19:28:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      25 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -44 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -43 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      15 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -44 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      15 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -45 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -43 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      33 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -44 open","level":"info"}
+{"message":"19:28:32 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      33 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -45 open","level":"info"}
+{"message":"19:28:40 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/tx/send |    -44 open","level":"info"}
+{"message":"19:28:40 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |     360 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -45 open","level":"info"}
+{"message":"19:28:40 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |     360 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -46 open","level":"info"}
+{"message":"2020-06-09 19:28:43.570 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:28:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -44 open","level":"info"}
+{"message":"19:28:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -45 open","level":"info"}
+{"message":"19:28:47 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -46 open","level":"info"}
+{"message":"19:29:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -45 open","level":"info"}
+{"message":"19:29:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -46 open","level":"info"}
+{"message":"19:29:02 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -47 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/status/enabled-chains |    -45 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   304 | /api/status/enabled-chains |    -46 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   304 | /api/status/enabled-chains |    -47 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -46 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -47 open","level":"info"}
+{"message":"19:29:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -48 open","level":"info"}
+{"message":"19:29:21 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -46 open","level":"info"}
+{"message":"19:29:21 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -47 open","level":"info"}
+{"message":"19:29:21 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -48 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -47 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -48 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -49 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -47 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -48 open","level":"info"}
+{"message":"19:29:22 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -49 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -48 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      13 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -49 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      13 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -50 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/tx/send |    -48 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |     190 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -49 open","level":"info"}
+{"message":"19:29:26 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |     190 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -50 open","level":"info"}
+{"message":"19:29:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -49 open","level":"info"}
+{"message":"19:29:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -50 open","level":"info"}
+{"message":"19:29:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -51 open","level":"info"}
+{"message":"2020-06-09 19:29:40.247 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:29:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -49 open","level":"info"}
+{"message":"19:29:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -50 open","level":"info"}
+{"message":"19:29:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -51 open","level":"info"}
+{"message":"19:29:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -50 open","level":"info"}
+{"message":"19:29:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -51 open","level":"info"}
+{"message":"19:29:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -52 open","level":"info"}
+{"message":"19:30:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -50 open","level":"info"}
+{"message":"19:30:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -51 open","level":"info"}
+{"message":"19:30:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -52 open","level":"info"}
+{"message":"2020-06-09 19:30:13.581 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:30:22.127 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:30:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -51 open","level":"info"}
+{"message":"19:30:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -52 open","level":"info"}
+{"message":"19:30:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -51 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -52 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -52 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |   POST |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09 |    -54 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -52 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/check |    -54 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -54 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -55 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -53 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -54 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/wallet/04a69c1dc7a9bd0b3bbb05abec22d89e9784ec766f1aa0bca5ccf02b4dfa055f1cf7f2ae812a295c1643ce8a7279c3912b05e81a4d6a5e5cfc4234e3b6a7575b09/utxos |    -55 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |   POST |   ... | /api/BTC/mainnet/tx/send |    -54 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |     231 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -55 open","level":"info"}
+{"message":"19:30:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |     231 ms |   POST |   200 | /api/BTC/mainnet/tx/send |    -56 open","level":"info"}
+{"message":"2020-06-09 19:30:53.586 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:30:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -54 open","level":"info"}
+{"message":"19:30:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -55 open","level":"info"}
+{"message":"19:30:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -56 open","level":"info"}
+{"message":"2020-06-09 19:31:10.912 PDT | Syncing 2 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:31:10.996 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:31:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -55 open","level":"info"}
+{"message":"19:31:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -56 open","level":"info"}
+{"message":"19:31:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -57 open","level":"info"}
+{"message":"19:31:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -55 open","level":"info"}
+{"message":"19:31:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -56 open","level":"info"}
+{"message":"19:31:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -57 open","level":"info"}
+{"message":"19:31:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -56 open","level":"info"}
+{"message":"19:31:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -57 open","level":"info"}
+{"message":"19:31:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -58 open","level":"info"}
+{"message":"2020-06-09 19:31:43.595 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:31:44.360 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:31:49.464 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:31:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -56 open","level":"info"}
+{"message":"19:31:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -57 open","level":"info"}
+{"message":"19:31:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -58 open","level":"info"}
+{"message":"19:32:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -57 open","level":"info"}
+{"message":"19:32:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -58 open","level":"info"}
+{"message":"19:32:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -59 open","level":"info"}
+{"message":"2020-06-09 19:32:23.600 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:32:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -57 open","level":"info"}
+{"message":"19:32:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -58 open","level":"info"}
+{"message":"19:32:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -59 open","level":"info"}
+{"message":"19:32:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -58 open","level":"info"}
+{"message":"19:32:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -59 open","level":"info"}
+{"message":"19:32:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -60 open","level":"info"}
+{"message":"2020-06-09 19:32:48.620 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:32:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -58 open","level":"info"}
+{"message":"19:32:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -59 open","level":"info"}
+{"message":"19:32:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -60 open","level":"info"}
+{"message":"19:33:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -59 open","level":"info"}
+{"message":"19:33:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -60 open","level":"info"}
+{"message":"19:33:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -61 open","level":"info"}
+{"message":"2020-06-09 19:33:23.608 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:33:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -59 open","level":"info"}
+{"message":"19:33:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -60 open","level":"info"}
+{"message":"19:33:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -61 open","level":"info"}
+{"message":"2020-06-09 19:33:29.671 PDT | Syncing 3 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:33:29.804 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:33:29.830 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:33:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -60 open","level":"info"}
+{"message":"19:33:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -61 open","level":"info"}
+{"message":"19:33:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -62 open","level":"info"}
+{"message":"19:33:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -60 open","level":"info"}
+{"message":"19:33:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -61 open","level":"info"}
+{"message":"19:33:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -62 open","level":"info"}
+{"message":"2020-06-09 19:34:03.614 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:34:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -61 open","level":"info"}
+{"message":"19:34:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -62 open","level":"info"}
+{"message":"19:34:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -63 open","level":"info"}
+{"message":"2020-06-09 19:34:24.565 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:34:24.666 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:34:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -61 open","level":"info"}
+{"message":"19:34:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -62 open","level":"info"}
+{"message":"19:34:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -63 open","level":"info"}
+{"message":"19:34:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -62 open","level":"info"}
+{"message":"19:34:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      14 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -63 open","level":"info"}
+{"message":"19:34:43 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      14 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -64 open","level":"info"}
+{"message":"19:34:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -62 open","level":"info"}
+{"message":"19:34:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -63 open","level":"info"}
+{"message":"19:34:58 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -64 open","level":"info"}
+{"message":"2020-06-09 19:34:58.617 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:34:58.745 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:35:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -63 open","level":"info"}
+{"message":"19:35:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -64 open","level":"info"}
+{"message":"19:35:13 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -65 open","level":"info"}
+{"message":"19:35:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -63 open","level":"info"}
+{"message":"19:35:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -64 open","level":"info"}
+{"message":"19:35:28 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -65 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/valid/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -64 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       1 ms |    GET |   304 | /api/BTC/mainnet/valid/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -65 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       1 ms |    GET |   304 | /api/BTC/mainnet/valid/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -66 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -65 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -64 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   404 | /api/BTC/mainnet/block/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -65 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   404 | /api/BTC/mainnet/block/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -66 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -66 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472 |    -67 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -65 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -66 open","level":"info"}
+{"message":"19:35:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -67 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block/tip |    -66 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/tip |    -67 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/tip |    -68 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |    -66 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |    -67 open","level":"info"}
+{"message":"19:35:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/tx/8577ce7196cbb16401ed2293752370ca4995e5c6b788ba18b1bb0dc737220472/coins |    -68 open","level":"info"}
+{"message":"2020-06-09 19:35:40.447 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:35:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -67 open","level":"info"}
+{"message":"19:35:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -68 open","level":"info"}
+{"message":"19:35:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -69 open","level":"info"}
+{"message":"19:36:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -67 open","level":"info"}
+{"message":"19:36:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -68 open","level":"info"}
+{"message":"19:36:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -69 open","level":"info"}
+{"message":"2020-06-09 19:36:13.623 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:36:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -68 open","level":"info"}
+{"message":"19:36:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -69 open","level":"info"}
+{"message":"19:36:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -70 open","level":"info"}
+{"message":"2020-06-09 19:36:33.710 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:36:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -68 open","level":"info"}
+{"message":"19:36:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -69 open","level":"info"}
+{"message":"19:36:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -70 open","level":"info"}
+{"message":"19:36:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -69 open","level":"info"}
+{"message":"19:36:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -70 open","level":"info"}
+{"message":"19:36:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -71 open","level":"info"}
+{"message":"19:37:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -69 open","level":"info"}
+{"message":"19:37:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -70 open","level":"info"}
+{"message":"19:37:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -71 open","level":"info"}
+{"message":"2020-06-09 19:37:08.633 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:37:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -70 open","level":"info"}
+{"message":"19:37:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -71 open","level":"info"}
+{"message":"19:37:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -72 open","level":"info"}
+{"message":"2020-06-09 19:37:27.199 PDT | Syncing 4 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:37:27.365 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:37:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -70 open","level":"info"}
+{"message":"19:37:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -71 open","level":"info"}
+{"message":"19:37:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -72 open","level":"info"}
+{"message":"19:37:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -71 open","level":"info"}
+{"message":"19:37:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -72 open","level":"info"}
+{"message":"19:37:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -73 open","level":"info"}
+{"message":"2020-06-09 19:37:58.639 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:37:59.387 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:38:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -71 open","level":"info"}
+{"message":"19:38:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -72 open","level":"info"}
+{"message":"19:38:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -73 open","level":"info"}
+{"message":"19:38:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -72 open","level":"info"}
+{"message":"19:38:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -73 open","level":"info"}
+{"message":"19:38:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -74 open","level":"info"}
+{"message":"2020-06-09 19:38:20.329 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:38:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -72 open","level":"info"}
+{"message":"19:38:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -73 open","level":"info"}
+{"message":"19:38:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -74 open","level":"info"}
+{"message":"19:38:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -73 open","level":"info"}
+{"message":"19:38:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -74 open","level":"info"}
+{"message":"19:38:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -75 open","level":"info"}
+{"message":"2020-06-09 19:38:53.644 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:39:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -73 open","level":"info"}
+{"message":"19:39:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -74 open","level":"info"}
+{"message":"19:39:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -75 open","level":"info"}
+{"message":"2020-06-09 19:39:05.749 PDT | Syncing 2 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:39:05.821 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:39:05.895 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:39:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -74 open","level":"info"}
+{"message":"19:39:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -75 open","level":"info"}
+{"message":"19:39:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -76 open","level":"info"}
+{"message":"19:39:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -74 open","level":"info"}
+{"message":"19:39:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -75 open","level":"info"}
+{"message":"19:39:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -76 open","level":"info"}
+{"message":"2020-06-09 19:39:38.648 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:39:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -75 open","level":"info"}
+{"message":"19:39:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -76 open","level":"info"}
+{"message":"19:39:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -77 open","level":"info"}
+{"message":"19:40:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -75 open","level":"info"}
+{"message":"19:40:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -76 open","level":"info"}
+{"message":"19:40:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -77 open","level":"info"}
+{"message":"2020-06-09 19:40:18.696 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:40:18.766 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:40:18.802 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:40:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -76 open","level":"info"}
+{"message":"19:40:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -77 open","level":"info"}
+{"message":"19:40:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -78 open","level":"info"}
+{"message":"19:40:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -76 open","level":"info"}
+{"message":"19:40:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -77 open","level":"info"}
+{"message":"19:40:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -78 open","level":"info"}
+{"message":"19:40:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -77 open","level":"info"}
+{"message":"19:40:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -78 open","level":"info"}
+{"message":"19:40:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -79 open","level":"info"}
+{"message":"2020-06-09 19:40:53.660 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:41:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -77 open","level":"info"}
+{"message":"19:41:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -78 open","level":"info"}
+{"message":"19:41:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -79 open","level":"info"}
+{"message":"19:41:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -78 open","level":"info"}
+{"message":"19:41:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -79 open","level":"info"}
+{"message":"19:41:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -80 open","level":"info"}
+{"message":"19:41:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -78 open","level":"info"}
+{"message":"19:41:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -79 open","level":"info"}
+{"message":"19:41:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -80 open","level":"info"}
+{"message":"2020-06-09 19:41:35.570 PDT | Syncing 1 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:41:35.641 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:41:35.660 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:41:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -79 open","level":"info"}
+{"message":"19:41:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -80 open","level":"info"}
+{"message":"19:41:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -81 open","level":"info"}
+{"message":"19:42:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -79 open","level":"info"}
+{"message":"19:42:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -80 open","level":"info"}
+{"message":"19:42:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -81 open","level":"info"}
+{"message":"2020-06-09 19:42:08.670 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:42:17.542 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:42:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -80 open","level":"info"}
+{"message":"19:42:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -81 open","level":"info"}
+{"message":"19:42:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -82 open","level":"info"}
+{"message":"19:42:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -80 open","level":"info"}
+{"message":"19:42:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -81 open","level":"info"}
+{"message":"19:42:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -82 open","level":"info"}
+{"message":"2020-06-09 19:42:48.675 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:42:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -81 open","level":"info"}
+{"message":"19:42:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -82 open","level":"info"}
+{"message":"19:42:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -83 open","level":"info"}
+{"message":"2020-06-09 19:42:54.875 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:43:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -81 open","level":"info"}
+{"message":"19:43:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -82 open","level":"info"}
+{"message":"19:43:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -83 open","level":"info"}
+{"message":"19:43:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -82 open","level":"info"}
+{"message":"19:43:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -83 open","level":"info"}
+{"message":"19:43:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -84 open","level":"info"}
+{"message":"2020-06-09 19:43:28.679 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:43:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -82 open","level":"info"}
+{"message":"19:43:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -83 open","level":"info"}
+{"message":"19:43:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -84 open","level":"info"}
+{"message":"2020-06-09 19:43:34.728 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:43:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -83 open","level":"info"}
+{"message":"19:43:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -84 open","level":"info"}
+{"message":"19:43:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -85 open","level":"info"}
+{"message":"19:44:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -83 open","level":"info"}
+{"message":"19:44:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -84 open","level":"info"}
+{"message":"19:44:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -85 open","level":"info"}
+{"message":"2020-06-09 19:44:08.685 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:44:17.198 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:44:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -84 open","level":"info"}
+{"message":"19:44:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -85 open","level":"info"}
+{"message":"19:44:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -86 open","level":"info"}
+{"message":"19:44:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -84 open","level":"info"}
+{"message":"19:44:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -85 open","level":"info"}
+{"message":"19:44:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -86 open","level":"info"}
+{"message":"2020-06-09 19:44:48.691 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:44:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -85 open","level":"info"}
+{"message":"19:44:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -86 open","level":"info"}
+{"message":"19:44:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -87 open","level":"info"}
+{"message":"2020-06-09 19:44:51.170 PDT | Syncing 4 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:44:51.680 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:45:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -85 open","level":"info"}
+{"message":"19:45:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -86 open","level":"info"}
+{"message":"19:45:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -87 open","level":"info"}
+{"message":"19:45:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -86 open","level":"info"}
+{"message":"19:45:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -87 open","level":"info"}
+{"message":"19:45:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -88 open","level":"info"}
+{"message":"2020-06-09 19:45:23.697 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:45:24.217 PDT | Syncing... | Chain: BTC | Network: mainnet |    7.23 blocks/min | Height:   31766","level":"info"}
+{"message":"2020-06-09 19:45:24.219 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:45:25.799 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:45:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -86 open","level":"info"}
+{"message":"19:45:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |      11 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -87 open","level":"info"}
+{"message":"19:45:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      11 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -88 open","level":"info"}
+{"message":"19:45:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -87 open","level":"info"}
+{"message":"19:45:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -88 open","level":"info"}
+{"message":"19:45:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -89 open","level":"info"}
+{"message":"2020-06-09 19:45:58.700 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:46:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -87 open","level":"info"}
+{"message":"19:46:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -88 open","level":"info"}
+{"message":"19:46:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -89 open","level":"info"}
+{"message":"2020-06-09 19:46:06.607 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:46:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -88 open","level":"info"}
+{"message":"19:46:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -89 open","level":"info"}
+{"message":"19:46:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -90 open","level":"info"}
+{"message":"19:46:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -88 open","level":"info"}
+{"message":"19:46:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -89 open","level":"info"}
+{"message":"19:46:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -90 open","level":"info"}
+{"message":"2020-06-09 19:46:38.704 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:46:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -89 open","level":"info"}
+{"message":"19:46:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -90 open","level":"info"}
+{"message":"19:46:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -91 open","level":"info"}
+{"message":"19:47:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -89 open","level":"info"}
+{"message":"19:47:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -90 open","level":"info"}
+{"message":"19:47:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -91 open","level":"info"}
+{"message":"2020-06-09 19:47:10.256 PDT | Syncing 2 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:47:10.407 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:47:10.424 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:47:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -90 open","level":"info"}
+{"message":"19:47:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -91 open","level":"info"}
+{"message":"19:47:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -92 open","level":"info"}
+{"message":"19:47:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -90 open","level":"info"}
+{"message":"19:47:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -91 open","level":"info"}
+{"message":"19:47:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -92 open","level":"info"}
+{"message":"2020-06-09 19:47:43.713 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:47:48.361 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:47:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -91 open","level":"info"}
+{"message":"19:47:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -92 open","level":"info"}
+{"message":"19:47:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -93 open","level":"info"}
+{"message":"19:48:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -91 open","level":"info"}
+{"message":"19:48:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -92 open","level":"info"}
+{"message":"19:48:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -93 open","level":"info"}
+{"message":"19:48:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -92 open","level":"info"}
+{"message":"19:48:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -93 open","level":"info"}
+{"message":"19:48:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -94 open","level":"info"}
+{"message":"2020-06-09 19:48:23.722 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:48:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -92 open","level":"info"}
+{"message":"19:48:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -93 open","level":"info"}
+{"message":"19:48:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -94 open","level":"info"}
+{"message":"2020-06-09 19:48:39.471 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:48:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -93 open","level":"info"}
+{"message":"19:48:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -94 open","level":"info"}
+{"message":"19:48:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -95 open","level":"info"}
+{"message":"19:49:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -93 open","level":"info"}
+{"message":"19:49:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -94 open","level":"info"}
+{"message":"19:49:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -95 open","level":"info"}
+{"message":"2020-06-09 19:49:13.727 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:49:17.191 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:49:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -94 open","level":"info"}
+{"message":"19:49:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -95 open","level":"info"}
+{"message":"19:49:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -96 open","level":"info"}
+{"message":"19:49:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -94 open","level":"info"}
+{"message":"19:49:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -95 open","level":"info"}
+{"message":"19:49:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -96 open","level":"info"}
+{"message":"2020-06-09 19:49:48.731 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:49:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -95 open","level":"info"}
+{"message":"19:49:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -96 open","level":"info"}
+{"message":"19:49:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -97 open","level":"info"}
+{"message":"19:50:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -95 open","level":"info"}
+{"message":"19:50:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -96 open","level":"info"}
+{"message":"19:50:04 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -97 open","level":"info"}
+{"message":"2020-06-09 19:50:16.241 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:50:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -96 open","level":"info"}
+{"message":"19:50:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -97 open","level":"info"}
+{"message":"19:50:19 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -98 open","level":"info"}
+{"message":"19:50:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -96 open","level":"info"}
+{"message":"19:50:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -97 open","level":"info"}
+{"message":"19:50:34 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |      10 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -98 open","level":"info"}
+{"message":"2020-06-09 19:50:48.742 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:50:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -97 open","level":"info"}
+{"message":"19:50:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -98 open","level":"info"}
+{"message":"19:50:49 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -99 open","level":"info"}
+{"message":"19:51:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -97 open","level":"info"}
+{"message":"19:51:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -98 open","level":"info"}
+{"message":"19:51:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -99 open","level":"info"}
+{"message":"19:51:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -98 open","level":"info"}
+{"message":"19:51:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -99 open","level":"info"}
+{"message":"19:51:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       9 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -100 open","level":"info"}
+{"message":"19:51:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -98 open","level":"info"}
+{"message":"19:51:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |    -99 open","level":"info"}
+{"message":"19:51:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -100 open","level":"info"}
+{"message":"2020-06-09 19:51:45.139 PDT | Syncing 4 blocks | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:51:45.255 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:51:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -99 open","level":"info"}
+{"message":"19:51:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -100 open","level":"info"}
+{"message":"19:51:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       3 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -101 open","level":"info"}
+{"message":"19:52:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |    -99 open","level":"info"}
+{"message":"19:52:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -100 open","level":"info"}
+{"message":"19:52:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -101 open","level":"info"}
+{"message":"2020-06-09 19:52:18.754 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:52:19.399 PDT | Syncing... | Chain: BTC | Network: mainnet |    7.01 blocks/min | Height:   31772","level":"info"}
+{"message":"2020-06-09 19:52:19.401 PDT | Sync completed | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:52:20.429 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:52:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -100 open","level":"info"}
+{"message":"19:52:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -101 open","level":"info"}
+{"message":"19:52:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       6 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -102 open","level":"info"}
+{"message":"19:52:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -100 open","level":"info"}
+{"message":"19:52:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -101 open","level":"info"}
+{"message":"19:52:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       5 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -102 open","level":"info"}
+{"message":"19:52:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -101 open","level":"info"}
+{"message":"19:52:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -102 open","level":"info"}
+{"message":"19:52:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -103 open","level":"info"}
+{"message":"2020-06-09 19:52:53.755 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"2020-06-09 19:52:57.643 PDT | Not connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"warn"}
+{"message":"19:53:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -101 open","level":"info"}
+{"message":"19:53:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       7 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -102 open","level":"info"}
+{"message":"19:53:05 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       8 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -103 open","level":"info"}
+{"message":"19:53:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -102 open","level":"info"}
+{"message":"19:53:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -103 open","level":"info"}
+{"message":"19:53:20 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       2 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -104 open","level":"info"}
+{"message":"2020-06-09 19:53:28.762 PDT | Connected to peer: 127.0.0.1:9900  | Chain: BTC | Network: mainnet","level":"info"}
+{"message":"19:53:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -102 open","level":"info"}
+{"message":"19:53:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -103 open","level":"info"}
+{"message":"19:53:35 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -104 open","level":"info"}
+{"message":"19:53:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |    START |        ... |    GET |   ... | /api/BTC/mainnet/block?limit=15 |   -103 open","level":"info"}
+{"message":"19:53:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |      END |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -104 open","level":"info"}
+{"message":"19:53:50 GMT-0700 (Pacific Daylight Time) |       ::ffff:127.0.0.1 |   CLOSED |       4 ms |    GET |   200 | /api/BTC/mainnet/block/?limit=15 |   -105 open","level":"info"}

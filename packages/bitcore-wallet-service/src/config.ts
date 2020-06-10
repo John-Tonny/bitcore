@@ -33,7 +33,9 @@ module.exports = {
   blockchainExplorerOpts: {
     btc: {
       livenet: {
-        url: 'https://api.bitcore.io'
+        // url: 'https://api.bitcore.io'
+        // john
+	url: 'http://192.168.246.187:8200'
       },
       testnet: {
         url: 'https://api.bitcore.io',

@@ -1305,7 +1305,8 @@ export class API extends EventEmitter {
     $.checkState(parseInt(opts.txp.version) >= 3);
 
     var t = Utils.buildTx(opts.txp);
-    var hash = t.uncheckedSerialize();
+    // john
+    var hash = t.uncheckedSerialize1();
     var args = {
       proposalSignature: Utils.signMessage(hash, this.credentials.requestPrivKey)
     };

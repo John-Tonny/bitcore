@@ -174,6 +174,11 @@ Transaction.prototype.uncheckedSerialize = Transaction.prototype.toString = func
   return this.toBuffer().toString('hex');
 };
 
+// john
+Transaction.prototype.uncheckedSerialize1 = Transaction.prototype.toString = function() {
+  return this.toBuffer1().toString('hex');
+};
+
 /**
  * Retrieve a hexa string that can be used with bitcoind's CLI interface
  * (decoderawtransaction, sendrawtransaction)
@@ -292,6 +297,12 @@ Transaction.prototype.inspect = function() {
   return '<Transaction: ' + this.uncheckedSerialize() + '>';
 };
 
+// john
+Transaction.prototype.toBuffer1 = function(noWitness) {
+  var writer = new BufferWriter();
+  return this.toBufferWriter1(writer, noWitness).toBuffer();
+};
+
 Transaction.prototype.toBuffer = function(noWitness) {
   var writer = new BufferWriter();
   return this.toBufferWriter(writer, noWitness).toBuffer();
@@ -307,7 +318,9 @@ Transaction.prototype.hasWitnesses = function() {
 };
 
 Transaction.prototype.toBufferWriter = function(writer, noWitness) {
-  writer.writeInt32LE(this.version);
+  // john
+  writer.writeInt32LE(0x02);
+  // writer.writeInt32LE(this.version);
 
   var hasWitnesses = this.hasWitnesses();
 
@@ -340,6 +353,28 @@ Transaction.prototype.toBufferWriter = function(writer, noWitness) {
   writer.writeUInt32LE(this.nLockTime);
   return writer;
 };
+
+// john
+Transaction.prototype.toBufferWriter1 = function(writer, noWitness) {
+  // john
+  writer.writeInt32LE(0x02);
+  // writer.writeInt32LE(this.version);
+
+  writer.writeVarintNum(this.inputs.length);
+  _.each(this.inputs, function(input) {
+    input.toBufferWriter1(writer);
+  });
+
+  writer.writeVarintNum(this.outputs.length);
+  _.each(this.outputs, function(output) {
+    output.toBufferWriter(writer);
+  });
+
+  writer.writeUInt32LE(this.nLockTime);
+  writer.writeUInt32LE(0x01);
+  return writer;
+};
+
 
 Transaction.prototype.fromBuffer = function(buffer) {
   var reader = new BufferReader(buffer);
