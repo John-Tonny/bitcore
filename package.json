@@ -64,7 +64,6 @@
     "typescript-eslint-parser": "^15.0.0"
   },
   "dependencies": {
-    "bitcore-wallet-client": "^8.20.4",
     "lerna": "^3.20.2"
   },
   "husky": {

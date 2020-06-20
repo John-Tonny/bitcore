@@ -102,6 +102,84 @@ Message.prototype.verify = function verify(bitcoinAddress, signatureString) {
   return this._verify(publicKey, signature);
 };
 
+// john
+Message.prototype.magicHash1 = function magicHash() {
+  var buf = Buffer.from(this.message, 'hex');
+  var hash = sha256sha256(buf);
+  return hash;
+};
+
+Message.prototype._sign1 = function _sign(privateKey) {
+  $.checkArgument(privateKey instanceof PrivateKey,
+    'First argument should be an instance of PrivateKey');
+  var hash = this.magicHash1();
+  var ecdsa = new ECDSA();
+  ecdsa.hashbuf = hash;
+  ecdsa.privkey = privateKey;
+  ecdsa.pubkey = privateKey.toPublicKey();
+  // ecdsa.signRandomK();
+  ecdsa.sign();
+  ecdsa.calci();
+  return ecdsa.sig;
+};
+
+/**
+ * Will sign a message with a given bitcoin private key.
+ *
+ * @param {PrivateKey} privateKey - An instance of PrivateKey
+ * @returns {String} A base64 encoded compact signature
+ */
+Message.prototype.sign1 = function sign(privateKey) {
+  var signature = this._sign1(privateKey);
+  return signature.toCompact().toString('hex');
+};
+
+Message.prototype._verify1 = function _verify(publicKey, signature) {
+  $.checkArgument(publicKey instanceof PublicKey, 'First argument should be an instance of PublicKey');
+  $.checkArgument(signature instanceof Signature, 'Second argument should be an instance of Signature');
+  var hash = this.magicHash1();
+  var verified = ECDSA.verify(hash, signature, publicKey);
+  if (!verified) {
+    this.error = 'The signature was invalid';
+  }
+  return verified;
+};
+
+/**
+ * Will return a boolean of the signature is valid for a given bitcoin address.
+ * If it isn't the specific reason is accessible via the "error" member.
+ *
+ * @param {Address|String} bitcoinAddress - A bitcoin address
+ * @param {String} signatureString - A base64 encoded compact signature
+ * @returns {Boolean}
+ */
+Message.prototype.verify1 = function verify(bitcoinAddress, signatureString) {
+  $.checkArgument(bitcoinAddress);
+  $.checkArgument(signatureString && _.isString(signatureString));
+
+  if (_.isString(bitcoinAddress)) {
+    bitcoinAddress = Address.fromString(bitcoinAddress);
+  }
+  var signature = Signature.fromCompact(Buffer.from(signatureString, 'hex'));
+
+  // recover the public key
+  var ecdsa = new ECDSA();
+  ecdsa.hashbuf = this.magicHash1();
+  ecdsa.sig = signature;
+  var publicKey = ecdsa.toPublicKey();
+
+  var signatureAddress = Address.fromPublicKey(publicKey, bitcoinAddress.network);
+
+  // check that the recovered address and specified address match
+  if (bitcoinAddress.toString() !== signatureAddress.toString()) {
+    this.error = 'The signature did not match the message digest';
+    return false;
+  }
+
+  return this._verify1(publicKey, signature);
+};
+
+
 /**
  * Instantiate a message from a message string
  *

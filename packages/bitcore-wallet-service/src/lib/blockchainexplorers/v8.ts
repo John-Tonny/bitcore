@@ -463,6 +463,64 @@ export class V8 {
       .catch(cb);
   }
 
+  // john
+  getBlockHashInHeight(blockHeight, cb) {
+    const url = this.baseUrl + '/tx/?blockHeight=' + blockHeight;
+    this.request
+        .get(url, {})
+        .then(ret => {
+          try {
+            ret = JSON.parse(ret);
+            return cb(null, ret[0].blockHeight, ret[0].blockHash);
+          } catch (err) {
+            return cb(new Error('Could not get height from block explorer'));
+          }
+        })
+        .catch(cb);
+  }
+
+  /**
+   * Broadcast a masternode announce to the bitcoin network
+   */
+  broadcastMasternode(rawTx, cb, count: number = 0) {
+    const payload = {
+      rawTx,
+      network: this.v8network,
+      chain: this.chain
+    };
+
+    const client = this._getClient();
+    client
+        .broadcastMasternode({ payload })
+        .then(infos => {
+          let errMsg;
+
+          _.forEach(_.keys(infos), function (key) {
+            if (key == 'errorMessage') {
+              errMsg = infos[key];
+              return;
+            }
+          })
+          if (errMsg) {
+            return cb(new Error('Error broadcasting'));
+          }
+          return cb(null, infos);
+        })
+        .catch(err => {
+          if (count > 3) {
+            log.error('FINAL Broadcast Masternode error:', err);
+            return cb(err);
+          } else {
+            count++;
+            // retry
+            setTimeout(() => {
+              log.info('Retrying broadcast masternode after', count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
+              return this.broadcastMasternode(rawTx, cb, count);
+            }, count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
+          }
+        });
+  }
+
   initSocket(callbacks) {
     log.info('V8 connecting socket at:' + this.host);
     // sockets always use the first server on the pull

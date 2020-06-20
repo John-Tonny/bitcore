@@ -161,6 +161,20 @@ export class Key {
     return x;
   };
 
+  // john
+  getPrivateKey = function(password, rootPath, path) {
+    var privs = [];
+    var derived: any = {};
+
+    var derived = this.derive(password, rootPath);
+    var xpriv = new Bitcore.HDPrivateKey(derived);
+
+    if (!derived[path]) {
+      return xpriv.deriveChild(path).privateKey;
+    }
+    return null;
+  }
+
   isPrivKeyEncrypted = function() {
     return !!this.xPrivKeyEncrypted && !this.xPrivKey;
   };

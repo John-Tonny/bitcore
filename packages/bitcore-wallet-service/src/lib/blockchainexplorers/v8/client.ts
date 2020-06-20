@@ -152,4 +152,12 @@ export class Client {
     console.log('[client.js.113:url:]', url); // TODO
     return request.post(url, { body: payload, json: true });
   }
+
+  // john
+  async broadcastMasternode(params) {
+    const { payload } = params;
+    const url = `${this.baseUrl}/masternode/send`;
+    console.log('[client.js.113:url:]', url); // TODO
+    return request.post(url, { body: payload, json: true });
+  }
 }

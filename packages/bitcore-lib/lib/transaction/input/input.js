@@ -134,6 +134,23 @@ Input.prototype.toBufferWriter1 = function(writer) {
   return writer;
 };
 
+Input.prototype.toBufferWriter_outpoint = function(writer) {
+  if (!writer) {
+    writer = new BufferWriter();
+  }
+  writer.writeReverse(this.prevTxId);
+  writer.writeUInt32LE(this.outputIndex);
+  return writer;
+};
+
+Input.prototype.toBufferWriter_sequence = function(writer) {
+  if (!writer) {
+    writer = new BufferWriter();
+  }
+  writer.writeUInt32LE(this.sequenceNumber);
+  return writer;
+};
+
 
 Input.prototype.setScript = function(script) {
   this._script = null;

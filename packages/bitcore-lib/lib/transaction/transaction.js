@@ -357,21 +357,60 @@ Transaction.prototype.toBufferWriter = function(writer, noWitness) {
 // john
 Transaction.prototype.toBufferWriter1 = function(writer, noWitness) {
   // john
-  writer.writeInt32LE(0x02);
-  // writer.writeInt32LE(this.version);
 
-  writer.writeVarintNum(this.inputs.length);
-  _.each(this.inputs, function(input) {
-    input.toBufferWriter1(writer);
-  });
+  if (true) {
+    writer.writeInt32LE(0x02);
+    // writer.writeInt32LE(this.version);
 
-  writer.writeVarintNum(this.outputs.length);
-  _.each(this.outputs, function(output) {
-    output.toBufferWriter(writer);
-  });
+    writer.writeVarintNum(this.inputs.length);
+    _.each(this.inputs, function (input) {
+      input.toBufferWriter1(writer);
+    });
 
-  writer.writeUInt32LE(this.nLockTime);
-  writer.writeUInt32LE(0x01);
+    writer.writeVarintNum(this.outputs.length);
+    _.each(this.outputs, function (output) {
+      output.toBufferWriter(writer);
+    });
+
+    writer.writeUInt32LE(this.nLockTime);
+    writer.writeUInt32LE(0x01);
+  }else {
+    writer.writeInt32LE(0x02);
+    // writer.writeInt32LE(this.version);
+
+    _.each(this.inputs, function (input) {
+      input.toBufferWriter_outpoint(writer_outpoint);
+    });
+    writer(Hash.sha256sha256(writer_outpoint))
+
+    _.each(this.inputs, function (input) {
+      input.toBufferWriter_sequence(writer_sequence);
+    });
+    writer(Hash.sha256sha256(writer_sequence))
+
+    _.each(this.outputs, function (output) {
+      output.toBufferWriter(writer_output);
+    });
+
+    _.each(this.inputs, function (input) {
+      input.toBufferWriter_outpoint(writer);
+    });
+
+
+    writer.writeVarintNum(this.inputs.length);
+    _.each(this.inputs, function (input) {
+      input.toBufferWriter1(writer);
+    });
+
+    writer.writeVarintNum(this.outputs.length);
+    _.each(this.outputs, function (output) {
+      output.toBufferWriter(writer);
+    });
+
+    writer.writeUInt32LE(this.nLockTime);
+    writer.writeUInt32LE(0x01);
+
+  }
   return writer;
 };
 

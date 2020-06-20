@@ -101,6 +101,7 @@ export class Utils {
     var priv = new PrivateKey(privKey);
     const flattenedMessage = _.isArray(message) ? _.join(message) : message;
     var hash = this.hashMessage(flattenedMessage);
+
     return crypto.ECDSA.sign(hash, priv, 'little').toString();
   }
 
@@ -382,4 +383,13 @@ export class Utils {
       return { uncheckedSerialize: () => unsignedTxs };
     }
   }
+ 
+  static isPrivateKey(privKey) {
+    try {
+      var privkey = new PrivateKey(privKey);
+      return true;
+    }catch(e){
+      return false;
+    }
+  } 
 }

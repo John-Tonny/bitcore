@@ -172,6 +172,7 @@ class ChainProxy {
   onTx(coin: string, tx: any) {
     return this.get(coin).onTx(tx);
   }
+
 }
 
 export let ChainService = new ChainProxy();

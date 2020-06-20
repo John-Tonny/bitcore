@@ -185,6 +185,8 @@ module.exports = {
 
   BROADCAST_RETRY_TIME: 350, // ms
 
+  BROADCAST_MASTERNODE_RETRY_TIME: 500, // ms
+
   /*
    *      COIN SPECIFIC
    */

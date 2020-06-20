@@ -105,6 +105,19 @@ export class RPC {
   async getEstimateFee() {
     return this.asyncCall('estimatefee', []);
   }
+
+  // john
+  broadcastMasternode(rawTx: string) {
+    return this.asyncCall<string>('masternodebroadcast', ['relay', rawTx]);
+  }
+
+  getMasternodeStatus(utxo: string) {
+    let ret = this.asyncCall<string>('masternodelist', []);
+    if (utxo == ''){
+      return ret;
+    }
+    return ret;
+  }
 }
 
 @LoggifyClass
@@ -146,7 +159,7 @@ export class AsyncRPC {
       if (!e.code || e.code != -32601) return Promise.reject(e);
       return await this.call('signrawtransaction', [txs]);
     }
-  }
+}
 
   async transaction(txid: string, block?: string): Promise<RPCTransaction> {
     const args = [txid, true];

@@ -1,5 +1,5 @@
 import through2 from 'through2';
-import { StreamTransactionParams } from '../../../types/namespaces/ChainStateProvider';
+import {StreamMasternodeStatusParams, StreamTransactionParams} from '../../../types/namespaces/ChainStateProvider';
 import { StreamBlocksParams } from '../../../types/namespaces/ChainStateProvider';
 
 import { Validation } from 'crypto-wallet-core';
@@ -20,6 +20,8 @@ import { Storage } from '../../../services/storage';
 import { CoinJSON, SpentHeightIndicators } from '../../../types/Coin';
 import {
   BroadcastTransactionParams,
+  // john
+  BroadcastMasternodeParams,
   CreateWalletParams,
   DailyTransactionsParams,
   GetBalanceForAddressParams,
@@ -476,6 +478,18 @@ export class InternalStateProvider implements IChainStateService {
     }
     return txids.length === 1 ? txids[0] : txids;
   }
+
+  // john
+  async broadcastMasternode(params: BroadcastMasternodeParams) {
+    const { chain, network, rawTx } = params;
+    return await this.getRPC(chain, network).broadcastMasternode(rawTx);
+  }
+
+  async getMasternodeStatus(params: StreamMasternodeStatusParams) {
+    const { chain, network, utxo } = params;
+    return await this.getRPC(chain, network).getMasternodeStatus(utxo);
+  }
+
 
   async getCoinsForTx({ chain, network, txid }: { chain: string; network: string; txid: string }) {
     const tx = await TransactionStorage.collection.countDocuments({ txid });

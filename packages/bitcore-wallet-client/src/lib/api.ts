@@ -11,6 +11,7 @@ import { PayPro } from './paypro';
 import { PayProV2 } from './payproV2';
 import { Request } from './request';
 import { Verifier } from './verifier';
+import { Masternode} from './masternode';
 
 var $ = require('preconditions').singleton();
 var util = require('util');
@@ -62,6 +63,7 @@ export class API extends EventEmitter {
   static Utils = Utils;
   static sjcl = sjcl;
   static errors = Errors;
+  static Masternode = Masternode;
 
   // Expose bitcore
   static Bitcore = CWC.BitcoreLib;
@@ -2598,5 +2600,219 @@ export class API extends EventEmitter {
         return resolve(data);
       });
     });
+  }
+  
+  // john
+  // * get masternode collateral
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {Callback} cb
+  // */
+  getMasternodeCollateral(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: getMasternodeCollateral should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    $.checkState(this.credentials && this.credentials.isComplete());
+
+    var args = [];
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      args.push('coin=' + opts.coin);
+    }
+
+    var url = '/v1/masternode/collateral/';
+    this.request.get(url, cb);
+  }
+
+  // * broadcast masternode
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {String} opts.rawTx - masternode broadcast rawTx: 
+  // * @param {Callback} cb
+  // */
+  broadcastMasternode(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: broadcastMasternode should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    var args: any = {
+      coin: '',
+      rawTx: ''
+    };
+
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      if (opts.coin != 'btc') {
+        return cb(new Error('coin is not supported'));
+      }
+      args.coin = opts.coin;
+    } 
+  
+    if (!opts.rawTx) return cb(new Error('Not rawTx'));
+    args.rawTx = opts.rawTx;
+
+
+    var url = '/v1/masternode/broadcast/';
+    this.request.post(url, args, (err, body) => {
+      if (err) return cb(err);
+      return cb(null, body);
+    });
+  }
+
+  // * masternode ping
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {String} opts.txid - utxo id:
+  // * @param {Number} opts.vout - utxo index:
+  // * @param {Callback} cb
+  // */
+  getMasternodePing(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: broadcastMasternode should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    var args = [];
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      if (opts.coin != 'btc') {
+        return cb(new Error('coin is not supported'));
+      }
+      args.push('coin=' + opts.coin);
+    }
+
+    if (!opts.txid) return cb(new Error('Not utxo id'));
+    args.push('txid=' + opts.txid);
+    
+    if (typeof(opts.vout) == 'undefined') return cb(new Error('Not utxo index'));
+    args.push('vout=' + opts.vout);
+
+    var qs = '';
+    if (args.length > 0) {
+      qs = '?' + args.join('&');
+    }
+
+    var url = '/v1/masternode/ping/' + qs;
+    this.request.get(url, cb);
+  }
+
+  // * masternode sign
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {String} opts.txid - utxo id:
+  // * @param {Number} opts.vout - utxo index:
+  // * @param {Callback} cb
+  // */
+  signMasternode(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: signMasternode should receive 2 parameters.');
+    }
+    
+    opts = opts || {};
+    if (!opts.coin) {
+      return cb(new Error('Invalid coin'));
+    }
+
+    if (opts.coin != 'btc'){
+      return cb(new Error('coin is not supported'));
+    }
+
+    if (!opts.txid) return cb(new Error('Not utxo id'));
+    if (typeof(opts.vout) == 'undefined') return cb(new Error('Not utxo index'));
+    if (!opts.signPrivKey) return cb(new Error('Not sign private key'));
+    if (!opts.pingHeight) return cb(new Error('Not ping block height'));
+    if (!opts.pingHash) return cb(new Error('Not ping blockhash'));
+    if (!opts.privKey) return cb(new Error('Not masternode private key'));
+    if (! Utils.isPrivateKey(opts.privKey)){
+      return cb(new Error('Invalid masternode private key'));
+    }   
+   
+    if (!opts.ip) return cb(new Error('Not masternode ip'));
+    var ip = opts.ip.split(':'); 
+
+    /*   
+    var presult ='';
+    presult += Masternode.serialize_input(opts.txid, opts.vout);
+    presult += Masternode.hash_decode(opts.pingHash);
+    var pingTime = Masternode.get_now_time();
+    presult += pingTime;
+    presult += '01';
+    presult += Masternode.get_int32(1);
+    presult += Masternode.get_int32(1);
+    
+    var pingMsg = new Bitcore.Message(presult); 
+    var pingKey = new Bitcore.PrivateKey(opts.privKey);
+    var pingSig = pingMsg.sign1(pingKey);
+
+    var result ='';
+    result += Masternode.serialize_input(opts.txid, opts.vout);
+    var ip = opts.ip.split(':');    
+    result += Masternode.get_address(ip[0], ip[1]);
+
+    var signPubKey= opts.signPrivKey.publicKey.toString('hex');
+    result += Masternode.get_varintNum(signPubKey.length/2);
+    result += signPubKey;
+ 
+    var pubKey = pingKey.publicKey.toString('hex');
+    result += Masternode.get_varintNum(pubKey.length/2);
+    result += pubKey;
+
+    var signTime = Masternode.get_now_time();
+    result += signTime;
+    result += Masternode.get_int32(31800);
+
+    var msg = new Bitcore.Message(result);
+    var sig = msg.sign1(opts.signPrivKey);
+     
+    var sresult ='01';
+    sresult += Masternode.serialize_input(opts.txid, opts.vout);
+    var ip = opts.ip.split(':');
+    sresult += Masternode.get_address(ip[0], ip[1]);
+
+    sresult += Masternode.get_varintNum(signPubKey.length/2);
+    sresult += signPubKey;
+ 
+    sresult += Masternode.get_varintNum(pubKey.length/2);
+    sresult += pubKey;
+
+    sresult += Masternode.get_varintNum(sig.length/2);
+    sresult += sig;
+    sresult += signTime;
+    sresult += Masternode.get_int32(31800);
+
+    sresult += Masternode.serialize_input(opts.txid, opts.vout);
+    sresult += Masternode.hash_decode(opts.pingHash);
+    sresult += pingTime;
+
+    sresult += Masternode.get_varintNum(sig.length/2);
+    sresult += pingSig
+
+    sresult += '01';
+    sresult += Masternode.get_int32(1000000);
+    sresult += Masternode.get_int32(1010191);
+    
+    var retrys = 0;
+    sresult += Masternode.get_int32(retrys);
+
+    return (null,sresult);
+    */
+    
+    var masternode = new Masternode(opts.txid, opts.vout, opts.signPrivKey, opts.pingHash, opts.privKey, ip[0], ip[1]);
+       
+    return cb(null, masternode.singMasternode());
   }
 }

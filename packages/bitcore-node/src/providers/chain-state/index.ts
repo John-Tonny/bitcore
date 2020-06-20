@@ -1,6 +1,10 @@
 import { Chain } from '../../types/ChainNetwork';
 import {
   BroadcastTransactionParams,
+  // john
+  BroadcastMasternodeParams,
+  StreamMasternodeStatusParams,
+
   ChainStateServices,
   CreateWalletParams,
   DailyTransactionsParams,
@@ -116,6 +120,15 @@ class ChainStateProxy implements IChainStateProvider {
 
   async broadcastTransaction(params: BroadcastTransactionParams) {
     return this.get(params).broadcastTransaction(params);
+  }
+
+  // john
+  async broadcastMasternode(params: BroadcastMasternodeParams) {
+    return this.get(params).broadcastMasternode(params);
+  }
+
+  async getMasternodeStatus(params: StreamMasternodeStatusParams) {
+    return this.get(params).getMasternodeStatus(params);
   }
 
   registerService(currency: string, service: IChainStateService) {

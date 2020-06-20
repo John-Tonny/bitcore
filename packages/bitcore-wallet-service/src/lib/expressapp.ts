@@ -1063,6 +1063,43 @@ export class ExpressApp {
       });
     });
 
+    // john
+    router.get('/v1/masternode/collateral/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string;} = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        server.getMasternodeCollateral(opts, (err, tx) => {
+          if (err) return returnError(err, res, req);
+          res.json(tx);
+        });
+      });
+    });
+
+    router.post('/v1/masternode/broadcast/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string; raw?: string;} = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        server.broadcastMasternode(req.body, (err, status) => {
+          if (err) return returnError(err, res, req);
+          res.json(status);
+        });
+      });
+    });
+
+    router.get('/v1/masternode/ping/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string; txid?: string; vout?: number;} = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        if (req.query.txid) opts.txid = req.query.txid;
+        if (req.query.vout) opts.vout = req.query.vout;
+        server.getMasternodePing(opts, (err, result) => {
+          if (err) return returnError(err, res, req);
+            res.json(result);
+        });
+      });
+    });
+
+
     this.app.use(opts.basePath || '/bws/api', router);
 
     if (config.staticRoot) {

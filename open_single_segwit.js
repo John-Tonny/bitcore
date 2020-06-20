@@ -2,15 +2,13 @@ var Client = require('bitcore-wallet-client/index').default;
 
 var fs = require('fs');
 var BWS_INSTANCE_URL = 'http://localhost:3232/bws/api'
-// var BWS_INSTANCE_URL = 'http://52.82.67.41:3232/bws/api'
 
 var client = new Client({
   baseUrl: BWS_INSTANCE_URL,
   verbose: false,
 });
 
-//var ret = fs.readFileSync("create_single.dat", {encoding:'ascii'});
-var ret = fs.readFileSync("key1.dat", {encoding:'ascii'});
+var ret = fs.readFileSync("create_single_segwit.dat", {encoding:'ascii'});
 client.fromString(ret);
 
 console.log("##########credentials#############");

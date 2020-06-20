@@ -4,9 +4,8 @@ var fs = require('fs');
 var BWS_INSTANCE_URL = 'http://localhost:3232/bws/api'
 
 var tx = {
-  toAddress: 'sys1qzxgrnregmzrn4cuzg6d659a8mj990vmq74p2x3',
-  // toAddress: 'SfZKSG2xHe86vy1cTCd1Egdvd1EfBU7rtY',
-  amount: 454400,
+  toAddress: 'SfZKSG2xHe86vy1cTCd1Egdvd1EfBU7rtY',
+  amount: 550000,
   txp: {}
 };
 
@@ -38,7 +37,7 @@ var client = new Client({
   verbose: false,
 });
 
-var ret = fs.readFileSync("create_single.dat", {encoding:'ascii'});
+var ret = fs.readFileSync("create_single_segwit.dat", {encoding:'ascii'});
 client.fromString(ret);
 console.log("##########credentials#############");
 console.log(client.credentials);
@@ -83,7 +82,7 @@ client.openWallet(function(err, ret) {
             return;
           }
 	  console.log(xx);
-	  
+	  /*
           client.broadcastTxProposal(xx, (err, zz, memo) => {
             if(err){
               console.log(err);
@@ -92,7 +91,7 @@ client.openWallet(function(err, ret) {
 	    console.log(zz);
 	    console.log(memo);
           });
-	  
+	  */
         });
       });
     });
