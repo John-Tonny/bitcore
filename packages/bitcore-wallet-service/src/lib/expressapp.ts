@@ -1066,7 +1066,7 @@ export class ExpressApp {
     // john
     router.get('/v1/masternode/collateral/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string;} = {};
+        const opts: { coin?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         server.getMasternodeCollateral(opts, (err, tx) => {
           if (err) return returnError(err, res, req);
@@ -1075,30 +1075,43 @@ export class ExpressApp {
       });
     });
 
+    router.get('/v1/masternode/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string, txid?: string, address?: string, payee?: string } = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        if (req.query.txid) opts.txid = req.query.txid;
+        if (req.query.address) opts.address = req.query.address;
+        if (req.query.payee) opts.payee = req.query.payee;
+        server.getMasternodeStatus(opts, (err, ret) => {
+        if (err) return returnError(err, res, req);
+          res.json(ret);
+        });
+      });
+    });
+
     router.post('/v1/masternode/broadcast/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; raw?: string;} = {};
+        const opts: { coin?: string; raw?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
-        server.broadcastMasternode(req.body, (err, status) => {
+        server.broadcastMasternode(req.body, (err, ret) => {
           if (err) return returnError(err, res, req);
-          res.json(status);
+          res.json(ret);
         });
       });
     });
 
     router.get('/v1/masternode/ping/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; txid?: string; vout?: number;} = {};
+        const opts: { coin?: string; txid?: string; vout?: number } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
         if (req.query.vout) opts.vout = req.query.vout;
         server.getMasternodePing(opts, (err, result) => {
           if (err) return returnError(err, res, req);
-            res.json(result);
+          res.json(result);
         });
       });
     });
-
 
     this.app.use(opts.basePath || '/bws/api', router);
 

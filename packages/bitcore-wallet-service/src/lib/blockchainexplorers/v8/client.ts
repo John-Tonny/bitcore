@@ -160,4 +160,13 @@ export class Client {
     console.log('[client.js.113:url:]', url); // TODO
     return request.post(url, { body: payload, json: true });
   }
+
+  async getMasternodeStatus(params) {
+    const { txId } = params;
+    const url = `${this.baseUrl}/masternode/${txId}`;
+    console.log('GET MASTERNODE STATUS:', url);
+    return request.get(url, {
+      json: true
+    });
+  }
 }

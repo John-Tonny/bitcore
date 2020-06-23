@@ -467,16 +467,39 @@ export class V8 {
   getBlockHashInHeight(blockHeight, cb) {
     const url = this.baseUrl + '/tx/?blockHeight=' + blockHeight;
     this.request
-        .get(url, {})
-        .then(ret => {
-          try {
-            ret = JSON.parse(ret);
-            return cb(null, ret[0].blockHeight, ret[0].blockHash);
-          } catch (err) {
-            return cb(new Error('Could not get height from block explorer'));
-          }
-        })
-        .catch(cb);
+      .get(url, {})
+      .then(ret => {
+        try {
+          ret = JSON.parse(ret);
+          return cb(null, ret[0].blockHeight, ret[0].blockHash);
+        } catch (err) {
+          return cb(new Error('Could not get height from block explorer'));
+        }
+      })
+      .catch(cb);
+  }
+
+  getMasternodeStatus(opts, cb) {
+    let qs = '';
+    if (typeof(opts.txid) !== 'undefined') {
+      qs = '?txid=' + opts.txid;
+    }else if (typeof(opts.address) !== 'undefined') {
+        qs = '?address=' + opts.address;
+    }else if (typeof(opts.payee) !== 'undefined') {
+        qs = '?payee=' + opts.payee;
+    }
+    const url = this.baseUrl + '/masternode/' + qs;
+    this.request
+      .get(url, {})
+      .then(ret => {
+        try {
+          ret = JSON.parse(ret);
+          return cb(null, ret);
+        } catch (err) {
+          return cb(new Error('Could not get height from block explorer'));
+        }
+      })
+    .catch(cb);
   }
 
   /**
@@ -491,34 +514,34 @@ export class V8 {
 
     const client = this._getClient();
     client
-        .broadcastMasternode({ payload })
-        .then(infos => {
-          let errMsg;
+      .broadcastMasternode({ payload })
+      .then(infos => {
+        let errMsg;
 
-          _.forEach(_.keys(infos), function (key) {
-            if (key == 'errorMessage') {
-              errMsg = infos[key];
-              return;
-            }
-          })
-          if (errMsg) {
-            return cb(new Error('Error broadcasting'));
-          }
-          return cb(null, infos);
-        })
-        .catch(err => {
-          if (count > 3) {
-            log.error('FINAL Broadcast Masternode error:', err);
-            return cb(err);
-          } else {
-            count++;
-            // retry
-            setTimeout(() => {
-              log.info('Retrying broadcast masternode after', count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
-              return this.broadcastMasternode(rawTx, cb, count);
-            }, count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
+        _.forEach(_.keys(infos), function(key) {
+          if (key == 'errorMessage') {
+            errMsg = infos[key];
+            return;
           }
         });
+        if (errMsg) {
+          return cb(new Error('Error broadcasting'));
+        }
+        return cb(null, infos);
+      })
+      .catch(err => {
+        if (count > 3) {
+          log.error('FINAL Broadcast Masternode error:', err);
+          return cb(err);
+        } else {
+          count++;
+          // retry
+          setTimeout(() => {
+            log.info('Retrying broadcast masternode after', count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
+            return this.broadcastMasternode(rawTx, cb, count);
+          }, count * Defaults.BROADCAST_MASTERNODE_RETRY_TIME);
+        }
+      });
   }
 
   initSocket(callbacks) {

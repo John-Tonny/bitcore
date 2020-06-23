@@ -35,7 +35,7 @@ module.exports = {
       livenet: {
         // url: 'https://api.bitcore.io'
         // john
-	url: 'http://localhost:8200'
+        url: 'http://localhost:8200'
       },
       testnet: {
         url: 'https://api.bitcore.io',

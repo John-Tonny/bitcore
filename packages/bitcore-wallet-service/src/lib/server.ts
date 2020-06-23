@@ -4074,22 +4074,72 @@ export class WalletService {
       if (wallet.addressType != Constants.SCRIPT_TYPES.P2PKH) return cb(Errors.WALLET_NOT_MASTERNODE);
 
       this.getUtxosForCurrentWallet(
-          {
-            coin: opts.coin,
-          },
-          (err, utxos) => {
-            if (err) return cb(err);
+        {
+          coin: opts.coin
+        },
+        (err, utxos) => {
+          if (err) return cb(err);
 
-  	        let ret = new Array();
-            _.each(utxos, utxo => {
-              if (utxo.satoshis == COLLATERAL_COIN) {
-		        ret.push(utxo);
-              }
-            });
+          let ret = new Array();
+          _.each(utxos, utxo => {
+            if (utxo.satoshis == COLLATERAL_COIN) {
+              ret.push(utxo);
+            }
+          });
 
-            return cb(null, ret);
-          }
+          return cb(null, ret);
+        }
       );
+    });
+  }
+
+  getMasternode(opts, cb) {
+    opts = opts || {};
+
+    opts.coin = opts.coin || Defaults.COIN;
+    if (!Utils.checkValueInCollection(opts.coin, Constants.COINS)) {
+      return cb(new ClientError('Invalid coin'));
+    }
+
+    if (opts.coin != 'btc') {
+      return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
+    }
+
+    opts.network = opts.network || 'livenet';
+    if (!Utils.checkValueInCollection(opts.network, Constants.NETWORKS)) {
+      return cb(new ClientError('Invalid network'));
+    }
+
+    const bc = this._getBlockchainExplorer(opts.coin, opts.network);
+    if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
+    bc.broadcastMasternode(opts.rawTx, (err, ret) => {
+      if (err) return cb(err);
+      return cb(null, ret);
+    });
+  }
+
+  getMasternodeStatus(opts, cb) {
+    opts = opts || {};
+
+    opts.coin = opts.coin || Defaults.COIN;
+    if (!Utils.checkValueInCollection(opts.coin, Constants.COINS)) {
+      return cb(new ClientError('Invalid coin'));
+    }
+
+    if (opts.coin != 'btc') {
+      return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
+    }
+
+    opts.network = opts.network || 'livenet';
+    if (!Utils.checkValueInCollection(opts.network, Constants.NETWORKS)) {
+      return cb(new ClientError('Invalid network'));
+    }
+
+    const bc = this._getBlockchainExplorer(opts.coin, opts.network);
+    if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
+    bc.getMasternodeStatus(opts, (err, ret) => {
+      if (err) return cb(err);
+      return cb(null, ret);
     });
   }
 
@@ -4140,57 +4190,57 @@ export class WalletService {
     }
 
     async.series(
-        [
-          next => {
-            this.getUtxosForCurrentWallet(
-                {
-                  coin: opts.coin,
-                },
-                (err, utxos) => {
-                  if (err) return cb(err);
-
-                  let bfind = false;
-                  _.each(utxos, utxo => {
-                    if (utxo.txid == opts.txid && utxo.vout == opts.vout && utxo.satoshis == COLLATERAL_COIN ) {
-                      opts.address = utxo.address;
-                      opts.publicKeys = utxo.publicKeys;
-                      opts.path = utxo.path;
-                      bfind = true;
-                      return false;
-                    }
-                  });
-                  if (bfind){
-                    next();
-                  }else{
-                    return cb(new Errors('Invalid utxo'));
-                  }
-                }
-            );
-          },
-          next => {
-            this._getBlockchainHeight(opts.coin, opts.network, (err, height, hash) => {
-              opts.currentHeight = height;
+      [
+        next => {
+          this.getUtxosForCurrentWallet(
+            {
+              coin: opts.coin
+            },
+            (err, utxos) => {
               if (err) return cb(err);
-              next();
-            });
-          },
-          next => {
-            const bc = this._getBlockchainExplorer(opts.coin, opts.network);
-            if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
-            bc.getBlockHashInHeight(opts.currentHeight-12, (err, height, hash) => {
-              if (!err && height > 0) {
-                opts.pingHeight = height;
-                opts.pingHash = hash;
-                return cb(null, opts);
+
+              let bfind = false;
+              _.each(utxos, utxo => {
+                if (utxo.txid == opts.txid && utxo.vout == opts.vout && utxo.satoshis == COLLATERAL_COIN) {
+                  opts.address = utxo.address;
+                  opts.publicKeys = utxo.publicKeys;
+                  opts.path = utxo.path;
+                  bfind = true;
+                  return false;
+                }
+              });
+              if (bfind) {
+                next();
               } else {
-                return cb(err || 'wrong height');
+                return cb(new Errors('Invalid utxo'));
               }
-            });
-          }
-        ],
-        err => {
-          if (err) return cb(err);
+            }
+          );
+        },
+        next => {
+          this._getBlockchainHeight(opts.coin, opts.network, (err, height, hash) => {
+            opts.currentHeight = height;
+            if (err) return cb(err);
+            next();
+          });
+        },
+        next => {
+          const bc = this._getBlockchainExplorer(opts.coin, opts.network);
+          if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
+          bc.getBlockHashInHeight(opts.currentHeight - 12, (err, height, hash) => {
+            if (!err && height > 0) {
+              opts.pingHeight = height;
+              opts.pingHash = hash;
+              return cb(null, opts);
+            } else {
+              return cb(err || 'wrong height');
+            }
+          });
         }
+      ],
+      err => {
+        if (err) return cb(err);
+      }
     );
   }
 }
