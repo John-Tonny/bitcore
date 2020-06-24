@@ -1,10 +1,8 @@
 import { Chain } from '../../types/ChainNetwork';
 import {
-  BroadcastTransactionParams,
-  // john
   BroadcastMasternodeParams,
-  StreamMasternodeStatusParams,
-
+  // john
+  BroadcastTransactionParams,
   ChainStateServices,
   CreateWalletParams,
   DailyTransactionsParams,
@@ -19,6 +17,7 @@ import {
   IChainStateService,
   StreamAddressUtxosParams,
   StreamBlocksParams,
+  StreamMasternodeStatusParams,
   StreamTransactionParams,
   StreamTransactionsParams,
   StreamWalletAddressesParams,

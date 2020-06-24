@@ -1,88 +1,47 @@
 import { Router } from 'express';
-import logger from '../../logger';
 import * as _ from 'lodash';
+import logger from '../../logger';
 import { ChainStateProvider } from '../../providers/chain-state';
 
 const router = Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
-  let { chain, network} = req.params;
+  let { chain, network } = req.params;
+  let { txid, address, payee } = req.query;
 
-  let utxo = '';
-  chain = chain.toUpperCase();
-  network = network.toLowerCase();
-  try {
-    let info = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
-    return res.send(info);
-  } catch (err) {
-    return res.status(500).send(err);
-  }
-});
-
-router.get('/:utxo', async (req, res) => {
-  let { chain, network, utxo } = req.params;
-  if (typeof utxo !== 'string' || !chain || !network) {
+  if (!chain || !network) {
     return res.status(400).send('Missing required param');
   }
 
   chain = chain.toUpperCase();
   network = network.toLowerCase();
   try {
-    let infos = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
+    let utxo = '';
     let ret;
-    _.forEach(_.keys(infos), function (key) {
-      if (key == utxo){
-        ret = infos[key] ;
-        return;
+    let infos = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
+    if (typeof txid !== 'undefined') {
+      _.forEach(_.keys(infos), function(key) {
+        if (key == txid) {
+          ret = infos[key];
+          return;
+        }
+      });
+    } else if (typeof payee !== 'undefined') {
+      let key = _.findKey(infos, ['payee', payee]);
+      if (typeof key != 'undefined') {
+        ret = infos[key];
       }
-    })
-    if (typeof ret != 'undefined'){
-      return res.send(ret)
-    }else{
-      return res.send('');
+    } else if (typeof address != 'undefined') {
+      let key = _.findKey(infos, ['address', address]);
+      if (typeof key !== 'undefined') {
+        ret = infos[key];
+      }
+    } else {
+      ret = infos;
     }
-  } catch (err) {
-    return res.status(500).send(err);
-  }
-});
-
-router.get('/:payee/payee', async (req, res) => {
-  let { chain, network, payee } = req.params;
-  if (typeof payee !== 'string' || !chain || !network) {
-    return res.status(400).send('Missing required param');
-  }
-
-  let utxo = '';
-  chain = chain.toUpperCase();
-  network = network.toLowerCase();
-  try {
-    let infos = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
-    let ret = _.findKey(infos, ['payee', payee]);
-    if (typeof ret != 'undefined'){
-      return res.send(infos[ret])
-    }else{
-      return res.send('');
-    }
-  } catch (err) {
-    return res.status(500).send(err);
-  }
-});
-
-router.get('/:address/address', async (req, res) => {
-  let { chain, network, address } = req.params;
-  if (typeof address !== 'string' || !chain || !network) {
-    return res.status(400).send('Missing required param');
-  }
-
-  let utxo = '';
-  chain = chain.toUpperCase();
-  network = network.toLowerCase();
-  try {
-    let infos = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
-    let ret = _.findKey(infos, ['address', address]);
-    if (typeof ret != 'undefined'){
-      return res.send(infos[ret])
-    }else{
+    if (typeof ret !== 'undefined') {
+      return res.send(ret);
+    } else {
       return res.send('');
     }
   } catch (err) {

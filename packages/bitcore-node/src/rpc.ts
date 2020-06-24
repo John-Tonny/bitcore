@@ -113,7 +113,7 @@ export class RPC {
 
   getMasternodeStatus(utxo: string) {
     let ret = this.asyncCall<string>('masternodelist', []);
-    if (utxo == ''){
+    if (utxo == '') {
       return ret;
     }
     return ret;
@@ -159,7 +159,7 @@ export class AsyncRPC {
       if (!e.code || e.code != -32601) return Promise.reject(e);
       return await this.call('signrawtransaction', [txs]);
     }
-}
+  }
 
   async transaction(txid: string, block?: string): Promise<RPCTransaction> {
     const args = [txid, true];

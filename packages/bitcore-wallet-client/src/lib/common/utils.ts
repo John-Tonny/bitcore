@@ -383,13 +383,13 @@ export class Utils {
       return { uncheckedSerialize: () => unsignedTxs };
     }
   }
- 
+
   static isPrivateKey(privKey) {
     try {
       var privkey = new PrivateKey(privKey);
       return true;
-    }catch(e){
+    } catch (e) {
       return false;
     }
-  } 
+  }
 }

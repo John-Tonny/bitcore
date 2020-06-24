@@ -156,6 +156,32 @@ export class BitcoinP2PWorker extends BaseP2PWorker<IBtcBlock> {
         }
       }
     });
+
+    // john
+    this.pool.on('peermnp', async (peer, message) => {
+      console.log(peer);
+      console.log(message);
+    });
+
+    this.pool.on('peermnv', async (peer, message) => {
+      console.log(peer);
+      console.log(message);
+    });
+
+    this.pool.on('peermnw', async (peer, message) => {
+      console.log(peer);
+      console.log(message);
+    });
+
+    this.pool.on('peermnb', async (peer, message) => {
+      console.log(peer);
+      console.log(message);
+    });
+
+    this.pool.on('peerget', async (peer, message) => {
+      console.log(peer);
+      console.log(message);
+    });
   }
 
   async connect() {

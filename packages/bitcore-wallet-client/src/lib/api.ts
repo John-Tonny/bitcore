@@ -7,11 +7,11 @@ import sjcl from 'sjcl';
 import { Constants, Utils } from './common';
 import { Credentials } from './credentials';
 import { Key } from './key';
+import { Masternode } from './masternode';
 import { PayPro } from './paypro';
 import { PayProV2 } from './payproV2';
 import { Request } from './request';
 import { Verifier } from './verifier';
-import { Masternode} from './masternode';
 
 var $ = require('preconditions').singleton();
 var util = require('util');
@@ -2601,7 +2601,7 @@ export class API extends EventEmitter {
       });
     });
   }
-  
+
   // john
   // * get masternode collateral
   // *
@@ -2625,14 +2625,58 @@ export class API extends EventEmitter {
       args.push('coin=' + opts.coin);
     }
 
-    var url = '/v1/masternode/collateral/';
+    var qs = '';
+    if (args.length > 0) {
+      qs = '?' + args.join('&');
+    }
+
+    var url = '/v1/masternode/collateral/' + qs;
+    this.request.get(url, cb);
+  }
+
+  // * get masternode status
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {Callback} cb
+  // */
+  getMasternodeStatus(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: getMasternodeStatus should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    $.checkState(this.credentials && this.credentials.isComplete());
+
+    var args = [];
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      args.push('coin=' + opts.coin);
+    }
+
+    if (opts.txid) {
+      args.push('txid=' + opts.txid);
+    } else if (opts.address) {
+      args.push('address=' + opts.address);
+    } else if (opts.payee) {
+      args.push('payee=' + opts.payee);
+    }
+
+    var qs = '';
+    if (args.length > 0) {
+      qs = '?' + args.join('&');
+    }
+
+    var url = '/v1/masternode/' + qs;
     this.request.get(url, cb);
   }
 
   // * broadcast masternode
   // *
   // * @param {String} opts.coin - Optional: defaults to current wallet coin
-  // * @param {String} opts.rawTx - masternode broadcast rawTx: 
+  // * @param {String} opts.rawTx - masternode broadcast rawTx:
   // * @param {Callback} cb
   // */
   broadcastMasternode(opts, cb) {
@@ -2655,11 +2699,10 @@ export class API extends EventEmitter {
         return cb(new Error('coin is not supported'));
       }
       args.coin = opts.coin;
-    } 
-  
+    }
+
     if (!opts.rawTx) return cb(new Error('Not rawTx'));
     args.rawTx = opts.rawTx;
-
 
     var url = '/v1/masternode/broadcast/';
     this.request.post(url, args, (err, body) => {
@@ -2695,8 +2738,8 @@ export class API extends EventEmitter {
 
     if (!opts.txid) return cb(new Error('Not utxo id'));
     args.push('txid=' + opts.txid);
-    
-    if (typeof(opts.vout) == 'undefined') return cb(new Error('Not utxo index'));
+
+    if (typeof opts.vout == 'undefined') return cb(new Error('Not utxo index'));
     args.push('vout=' + opts.vout);
 
     var qs = '';
@@ -2721,28 +2764,28 @@ export class API extends EventEmitter {
       opts = {};
       log.warn('DEPRECATED WARN: signMasternode should receive 2 parameters.');
     }
-    
+
     opts = opts || {};
     if (!opts.coin) {
       return cb(new Error('Invalid coin'));
     }
 
-    if (opts.coin != 'btc'){
+    if (opts.coin != 'btc') {
       return cb(new Error('coin is not supported'));
     }
 
     if (!opts.txid) return cb(new Error('Not utxo id'));
-    if (typeof(opts.vout) == 'undefined') return cb(new Error('Not utxo index'));
+    if (typeof opts.vout == 'undefined') return cb(new Error('Not utxo index'));
     if (!opts.signPrivKey) return cb(new Error('Not sign private key'));
     if (!opts.pingHeight) return cb(new Error('Not ping block height'));
     if (!opts.pingHash) return cb(new Error('Not ping blockhash'));
     if (!opts.privKey) return cb(new Error('Not masternode private key'));
-    if (! Utils.isPrivateKey(opts.privKey)){
+    if (!Utils.isPrivateKey(opts.privKey)) {
       return cb(new Error('Invalid masternode private key'));
-    }   
-   
+    }
+
     if (!opts.ip) return cb(new Error('Not masternode ip'));
-    var ip = opts.ip.split(':'); 
+    var ip = opts.ip.split(':');
 
     /*   
     var presult ='';
@@ -2810,9 +2853,9 @@ export class API extends EventEmitter {
 
     return (null,sresult);
     */
-    
+
     var masternode = new Masternode(opts.txid, opts.vout, opts.signPrivKey, opts.pingHash, opts.privKey, ip[0], ip[1]);
-       
+
     return cb(null, masternode.singMasternode());
   }
 }

@@ -173,7 +173,7 @@ export class Key {
       return xpriv.deriveChild(path).privateKey;
     }
     return null;
-  }
+  };
 
   isPrivKeyEncrypted = function() {
     return !!this.xPrivKeyEncrypted && !this.xPrivKey;

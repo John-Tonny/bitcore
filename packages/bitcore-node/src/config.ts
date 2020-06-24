@@ -81,7 +81,8 @@ const Config = function(): ConfigType {
       socket: {
         bwsKeys: []
       },
-      storage: {}
+      storage: {},
+      masternode: {}
     }
   };
 

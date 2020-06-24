@@ -145,7 +145,6 @@ export type StreamMasternodeStatusParams = ChainNetwork & {
   utxo: string;
 };
 
-
 export interface GetCoinsForTxParams {
   chain: string;
   network: string;

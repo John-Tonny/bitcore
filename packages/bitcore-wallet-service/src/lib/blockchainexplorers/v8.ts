@@ -481,12 +481,12 @@ export class V8 {
 
   getMasternodeStatus(opts, cb) {
     let qs = '';
-    if (typeof(opts.txid) !== 'undefined') {
+    if (typeof opts.txid !== 'undefined') {
       qs = '?txid=' + opts.txid;
-    }else if (typeof(opts.address) !== 'undefined') {
-        qs = '?address=' + opts.address;
-    }else if (typeof(opts.payee) !== 'undefined') {
-        qs = '?payee=' + opts.payee;
+    } else if (typeof opts.address !== 'undefined') {
+      qs = '?address=' + opts.address;
+    } else if (typeof opts.payee !== 'undefined') {
+      qs = '?payee=' + opts.payee;
     }
     const url = this.baseUrl + '/masternode/' + qs;
     this.request
@@ -499,7 +499,7 @@ export class V8 {
           return cb(new Error('Could not get height from block explorer'));
         }
       })
-    .catch(cb);
+      .catch(cb);
   }
 
   /**

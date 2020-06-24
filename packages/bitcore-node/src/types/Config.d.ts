@@ -39,5 +39,9 @@ export interface ConfigType {
     storage: {
       disabled?: boolean;
     };
+    // john
+    masternode: {
+      disabled?: boolean;
+    };
   };
 }

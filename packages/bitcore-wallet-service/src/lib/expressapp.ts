@@ -1077,13 +1077,13 @@ export class ExpressApp {
 
     router.get('/v1/masternode/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string, txid?: string, address?: string, payee?: string } = {};
+        const opts: { coin?: string; txid?: string; address?: string; payee?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
         if (req.query.address) opts.address = req.query.address;
         if (req.query.payee) opts.payee = req.query.payee;
         server.getMasternodeStatus(opts, (err, ret) => {
-        if (err) return returnError(err, res, req);
+          if (err) return returnError(err, res, req);
           res.json(ret);
         });
       });
