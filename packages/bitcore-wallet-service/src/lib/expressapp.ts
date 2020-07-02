@@ -40,6 +40,10 @@ export class ExpressApp {
     this.app.use(compression());
 
     this.app.use((req, res, next) => {
+      // john
+      res.setHeader('Access-Control-Allow-Header', 'X-Requested-With');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
       res.setHeader(
@@ -934,7 +938,7 @@ export class ExpressApp {
       let server;
       const opts = {
         code: req.params['code'],
-        coin: req.query.coin || 'btc',
+        coin: req.query.coin || 'vcl',
         ts: req.query.ts ? +req.query.ts : null
       };
       try {

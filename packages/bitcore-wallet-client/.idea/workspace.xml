@@ -2,26 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f2be851-0c02-4371-aff6-8c0fdb9d9a30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../create_key_single.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../../create_key_single.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../create_single.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../../create_single.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../create_single.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../create_single.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nohup.out" beforeDir="false" afterPath="$PROJECT_DIR$/../../nohup.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../open_single.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../open_single.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib-ltc/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib-ltc/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/input/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-lib/bitcore-lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/chain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/chain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-p2p-cash/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p-cash/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-p2p/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/common/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/common/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/common/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/common/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/credentials.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/credentials.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/key.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/key.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/paypro.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/paypro.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/payproV2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/payproV2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/verifier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/verifier.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/bchaddresstranslator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/bchaddresstranslator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainmonitor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainmonitor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/emailservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/emailservice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/fiatrateservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/fiatrateservice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/address.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/address.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/wallet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/wallet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/pushnotificationsservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/pushnotificationsservice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/stats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/stats.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tx_single.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../tx_single.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/constants/units.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/constants/units.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/coin-list/coin-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/coin-list/coin-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/denomination/denomination.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/denomination/denomination.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/head-nav/head-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/head-nav/head-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/latest-blocks/latest-blocks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/latest-blocks/latest-blocks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/transaction-details/transaction-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/transaction-details/transaction-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/transaction-details/transaction-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/transaction-details/transaction-details.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/transaction-list/transaction-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/transaction-list/transaction-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/components/transaction-list/transaction-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/transaction-list/transaction-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/pages/block-detail/block-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/pages/block-detail/block-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/pages/block-detail/block-detail.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/pages/block-detail/block-detail.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/pages/transaction/transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/pages/transaction/transaction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/pages/transaction/transaction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/pages/transaction/transaction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/providers/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/providers/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/providers/default/default.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/providers/default/default.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../insight/src/providers/price/price.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/providers/price/price.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +68,93 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="2626" selection-start-line="2626" selection-end-line="2626" />
+            <state relative-caret-position="149">
+              <caret line="492" column="16" lean-forward="true" selection-start-line="492" selection-start-column="16" selection-end-line="492" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="297" column="36" lean-forward="true" selection-start-line="297" selection-start-column="36" selection-end-line="297" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/verifier.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/api.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="91" column="33" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/paypro.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/payproV2.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/fetchBitpayKeysAndVerify.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3105">
+              <caret line="207" column="59" selection-start-line="207" selection-start-column="56" selection-end-line="207" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/credentials.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="149" column="37" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lib/common/utils.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/common/constants.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -45,7 +164,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>getBalanace</find>
+      <find>isFunction</find>
+      <find>btc</find>
+      <find>48</find>
+      <find>P2PKH</find>
+      <find>use44forMultisig</find>
+      <find>derivationStrategy</find>
+      <find>openWallet</find>
+      <find>addressType</find>
+      <find>checkProposalCreation</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -54,10 +185,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/lib/api.ts" />
+        <option value="$PROJECT_DIR$/src/lib/paypro.ts" />
+        <option value="$PROJECT_DIR$/src/lib/payproV2.ts" />
+        <option value="$PROJECT_DIR$/test/verifier.test.js" />
+        <option value="$PROJECT_DIR$/src/lib/credentials.ts" />
+        <option value="$PROJECT_DIR$/src/lib/common/constants.ts" />
+        <option value="$PROJECT_DIR$/src/lib/key.ts" />
+        <option value="$PROJECT_DIR$/src/lib/verifier.ts" />
+        <option value="$PROJECT_DIR$/src/lib/common/utils.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="8" />
+    <option name="y" value="31" />
     <option name="width" value="1536" />
     <option name="height" value="801" />
   </component>
@@ -67,7 +208,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,14 +226,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bitcore-wallet-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitcore-wallet-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="$PROJECT_DIR$/node_modules/tslint" />
@@ -124,27 +273,24 @@
       <option name="presentableId" value="Default" />
       <updated>1591933514226</updated>
       <workItem from="1591933516021" duration="656000" />
+      <workItem from="1593574807497" duration="2177000" />
+      <workItem from="1593591473295" duration="900000" />
+      <workItem from="1593594767553" duration="2246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="656000" />
+    <option name="totallyTimeSpent" value="5979000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1536" height="801" extended-state="0" />
+    <frame x="8" y="31" width="1536" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Grunt " side_tool="true" />
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25970548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Grunt " order="3" side_tool="true" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -152,20 +298,96 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="TypeScript" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/verifier.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/paypro.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/payproV2.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/fetchBitpayKeysAndVerify.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3105">
+          <caret line="207" column="59" selection-start-line="207" selection-start-column="56" selection-end-line="207" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/credentials.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="149" column="37" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/common/constants.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="2626" selection-start-line="2626" selection-end-line="2626" />
+        <state relative-caret-position="149">
+          <caret line="492" column="16" lean-forward="true" selection-start-line="492" selection-start-column="16" selection-end-line="492" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/api.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="297" column="36" lean-forward="true" selection-start-line="297" selection-start-column="36" selection-end-line="297" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/verifier.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/common/utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
         </state>
       </provider>
     </entry>

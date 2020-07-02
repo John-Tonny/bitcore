@@ -25,6 +25,10 @@ const PROVIDERS = {
     xrp: {
       livenet: 'https://api-xrp.bitcore.io',
       testnet: 'https://api-xrp.bitcore.io'
+    },
+    vcl: {
+      livenet: 'https://bws.vircle.xyz',
+      testnet: 'https://bws.vircle.xyz'
     }
   }
 };

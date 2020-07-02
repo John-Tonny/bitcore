@@ -3,6 +3,7 @@ import { WalletService } from '../server';
 import { BchChain } from './bch';
 import { BtcChain } from './btc';
 import { EthChain } from './eth';
+import { VclChain } from './vcl';
 import { XrpChain } from './xrp';
 
 const Common = require('../common');
@@ -60,6 +61,7 @@ const chain: { [chain: string]: IChain } = {
   BTC: new BtcChain(),
   BCH: new BchChain(),
   ETH: new EthChain(),
+  VCL: new VclChain(),
   XRP: new XrpChain()
 };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-import { BitcoreLib, BitcoreLibCash, Deriver, Transactions } from 'crypto-wallet-core';
+import { BitcoreLib, BitcoreLibCash, Deriver, Transactions, VircleLib } from 'crypto-wallet-core';
 
 import * as _ from 'lodash';
 import { Constants } from './constants';
@@ -15,6 +15,7 @@ const Bitcore_ = {
   btc: Bitcore,
   bch: BitcoreLibCash,
   eth: Bitcore,
+  vcl: VircleLib,
   xrp: Bitcore
 };
 const PrivateKey = Bitcore.PrivateKey;
@@ -158,7 +159,7 @@ export class Utils {
   static deriveAddress(scriptType, publicKeyRing, path, m, network, coin) {
     $.checkArgument(_.includes(_.values(Constants.SCRIPT_TYPES), scriptType));
 
-    coin = coin || 'btc';
+    coin = coin || 'vcl';
     const chain = this.getChain(coin).toLowerCase();
     var bitcore = Bitcore_[chain];
     var publicKeys = _.map(publicKeyRing, item => {
@@ -208,7 +209,7 @@ export class Utils {
     // now it is effective for all coins.
 
     const chain = this.getChain(coin).toLowerCase();
-    var str = chain == 'btc' ? xpub : chain + xpub;
+    var str = (chain == 'btc' || chain == 'vcl') ? xpub : chain + xpub;
 
     var hash = sjcl.hash.sha256.hash(str);
     return sjcl.codec.hex.fromBits(hash);
@@ -270,7 +271,7 @@ export class Utils {
   }
 
   static buildTx(txp) {
-    var coin = txp.coin || 'btc';
+    var coin = txp.coin || 'vcl';
 
     if (Constants.UTXO_COINS.includes(coin)) {
       var bitcore = Bitcore_[coin];
@@ -317,7 +318,9 @@ export class Utils {
       }
 
       t.fee(txp.fee);
-      t.change(txp.changeAddress.address);
+      if (txp.changeAddress) {
+        t.change(txp.changeAddress.address);
+      }
 
       // Shuffle outputs for improved privacy
       if (t.outputs.length > 1) {

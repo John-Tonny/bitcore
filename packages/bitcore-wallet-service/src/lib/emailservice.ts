@@ -101,7 +101,7 @@ export class EmailService {
     opts.emailOpts = opts.emailOpts || {};
 
     this.defaultLanguage = opts.emailOpts.defaultLanguage || 'en';
-    this.defaultUnit = opts.emailOpts.defaultUnit || 'btc';
+    this.defaultUnit = opts.emailOpts.defaultUnit || 'vcl';
     log.info('Email templates at:' + (opts.emailOpts.templatePath || __dirname + '/../../templates') + '/');
     this.templatePath = path.normalize((opts.emailOpts.templatePath || __dirname + '/../../templates') + '/');
 
@@ -245,6 +245,7 @@ export class EmailService {
       bit: 'bits',
       bch: 'BCH',
       eth: 'ETH',
+      vcl: 'VCL',
       xrp: 'XRP'
     };
 

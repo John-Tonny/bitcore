@@ -33,9 +33,7 @@ module.exports = {
   blockchainExplorerOpts: {
     btc: {
       livenet: {
-        // url: 'https://api.bitcore.io'
-        // john
-        url: 'http://localhost:8200'
+        url: 'https://api.bitcore.io'
       },
       testnet: {
         url: 'https://api.bitcore.io',
@@ -58,6 +56,16 @@ module.exports = {
         url: 'https://api-eth.bitcore.io'
       }
     },
+    // john
+    vcl: {
+      livenet: {
+        // john
+        url: 'http://localhost:8200'
+      },
+      testnet: {
+        url: 'http://localhost:8210'
+      }
+    },
     xrp: {
       livenet: {
         url: 'https://api-xrp.bitcore.io'
@@ -71,7 +79,9 @@ module.exports = {
   pushNotificationsOpts: {
     templatePath: 'templates',
     defaultLanguage: 'en',
-    defaultUnit: 'btc',
+    // john
+    defaultUnit: 'vcl',
+    // defaultUnit: 'btc',
     subjectPrefix: '',
     pushServerUrl: 'https://fcm.googleapis.com/fcm',
     authorizationKey: 'You_have_to_put_something_here'

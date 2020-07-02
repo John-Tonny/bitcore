@@ -104,7 +104,9 @@ export class Verifier {
       var o2 = args.outputs[i];
       if (!strEqual(o1.toAddress, o2.toAddress)) return false;
       if (!strEqual(o1.script, o2.script)) return false;
-      if (o1.amount != o2.amount) return false;
+      if (!args.sendMax) {
+          if (o1.amount != o2.amount) return false;
+      }
       var decryptedMessage = null;
       try {
         decryptedMessage = Utils.decryptMessage(o2.message, encryptingKey);
@@ -139,7 +141,7 @@ export class Verifier {
     $.checkState(credentials.isComplete());
 
     var creatorKeys = _.find(credentials.publicKeyRing, item => {
-      if (Utils.xPubToCopayerId(txp.coin || 'btc', item.xPubKey) === txp.creatorId) return true;
+      if (Utils.xPubToCopayerId(txp.coin || 'vcl', item.xPubKey) === txp.creatorId) return true;
     });
 
     if (!creatorKeys) return false;
@@ -190,7 +192,7 @@ export class Verifier {
 
     if (amount != _.sumBy(payproOpts.instructions, 'amount')) return false;
 
-    if (txp.coin == 'btc' && toAddress != payproOpts.instructions[0].toAddress) return false;
+    if ((txp.coin == 'btc' || txp.coin == 'vcl') && toAddress != payproOpts.instructions[0].toAddress) return false;
 
     // Workaround for cashaddr/legacy address problems...
     if (

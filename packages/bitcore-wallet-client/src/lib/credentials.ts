@@ -171,6 +171,8 @@ export class Credentials {
         coin = '0';
       } else if (this.coin == 'eth') {
         coin = '60';
+      } else if (this.coin == 'vcl') {
+        coin = '57';
       } else if (this.coin == 'xrp') {
         coin = '144';
       } else {
@@ -204,7 +206,7 @@ export class Credentials {
       throw new Error('External Wallets are no longer supported');
     }
 
-    x.coin = x.coin || 'btc';
+    x.coin = x.coin || 'vcl';
     x.addressType = x.addressType || Constants.SCRIPT_TYPES.P2SH;
     x.account = x.account || 0;
 

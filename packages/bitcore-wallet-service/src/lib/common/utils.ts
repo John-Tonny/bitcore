@@ -8,7 +8,8 @@ const secp256k1 = require('secp256k1');
 const Bitcore = require('bitcore-lib');
 const Bitcore_ = {
   btc: Bitcore,
-  bch: require('bitcore-lib-cash')
+  bch: require('bitcore-lib-cash'),
+  vcl: require('vircle-lib'),
 };
 
 export class Utils {
@@ -134,10 +135,10 @@ export class Utils {
 
   static formatAmountInBtc(amount) {
     return (
-      Utils.formatAmount(amount, 'btc', {
+      Utils.formatAmount(amount, 'vcl', {
         minDecimals: 8,
         maxDecimals: 8
-      }) + 'btc'
+      }) + 'vcl'
     );
   }
 
@@ -239,7 +240,12 @@ export class Utils {
         new Bitcore_['bch'].Address(address);
         return 'bch';
       } catch (e) {
-        return;
+        try {
+          new Bitcore_['vcl'].Address(address);
+          return 'vcl';
+        } catch (e) {
+          return;
+        }
       }
     }
   }

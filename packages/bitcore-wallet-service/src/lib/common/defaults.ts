@@ -82,6 +82,34 @@ module.exports = {
         defaultValue: 1000000000
       }
     ],
+    vcl: [
+      {
+        name: 'urgent',
+        nbBlocks: 2,
+        multiplier: 1.5,
+        defaultValue: 75000
+      },
+      {
+        name: 'priority',
+        nbBlocks: 2,
+        defaultValue: 50000
+      },
+      {
+        name: 'normal',
+        nbBlocks: 3,
+        defaultValue: 30000
+      },
+      {
+        name: 'economy',
+        nbBlocks: 6,
+        defaultValue: 25000
+      },
+      {
+        name: 'superEconomy',
+        nbBlocks: 24,
+        defaultValue: 10000
+      }
+    ],
     xrp: [
       {
         name: 'normal',
@@ -169,7 +197,7 @@ module.exports = {
     // },
   },
 
-  COIN: 'btc',
+  COIN: 'vcl',
   INSIGHT_REQUEST_POOL_SIZE: 10,
   INSIGHT_TIMEOUT: 30000,
 
@@ -202,6 +230,7 @@ module.exports = {
     btc: 10000 * 1000, // 10k sat/b
     bch: 10000 * 1000, // 10k sat/b
     eth: 50000000000, // 50 Gwei,
+    vcl: 10000 * 1000, // 10k sat/b
     xrp: 50000000000
   },
 
@@ -209,6 +238,7 @@ module.exports = {
     btc: 0,
     bch: 0,
     eth: 0,
+    vcl: 0,
     xrp: 0
   },
 
@@ -216,6 +246,7 @@ module.exports = {
     btc: 0.05 * 1e8,
     bch: 0.05 * 1e8,
     eth: 1 * 1e18, // 1 eth
+    vcl: 0.05 * 1e8,
     xrp: 1 * 1e6 // 1 xrp
   },
 

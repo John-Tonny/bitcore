@@ -47,6 +47,7 @@ const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),
   eth: Bitcore,
+  vcl: require('vircle-lib'),
   xrp: Bitcore
 };
 
@@ -1014,7 +1015,7 @@ export class WalletService {
    * Joins a wallet in creation.
    * @param {Object} opts
    * @param {string} opts.walletId - The wallet id.
-   * @param {string} opts.coin[='btc'] - The expected coin for this wallet (btc, bch).
+   * @param {string} opts.coin[='vcl'] - The expected coin for this wallet (vcl, btc, bch).
    * @param {string} opts.name - The copayer name.
    * @param {string} opts.xPubKey - Extended Public Key for this copayer.
    * @param {string} opts.requestPubKey - Public Key used to check requests from this copayer.
@@ -1142,7 +1143,7 @@ export class WalletService {
       {
         name: 'unit',
         isValid(value) {
-          return _.isString(value) && _.includes(['btc', 'bit'], value.toLowerCase());
+          return _.isString(value) && _.includes(['vcl', 'bit'], value.toLowerCase());
         }
       },
       {
@@ -1770,7 +1771,7 @@ export class WalletService {
   /**
    * Returns fee levels for the current state of the network.
    * @param {Object} opts
-   * @param {string} [opts.coin = 'btc'] - The coin to estimate fee levels from.
+   * @param {string} [opts.coin = 'vcl'] - The coin to estimate fee levels from.
    * @param {string} [opts.network = 'livenet'] - The Bitcoin network to estimate fee levels from.
    * @returns {Object} feeLevels - A list of fee levels & associated amount per kB in satoshi.
    */
@@ -2480,7 +2481,7 @@ export class WalletService {
   /**
    * Broadcast a raw transaction.
    * @param {Object} opts
-   * @param {string} [opts.coin = 'btc'] - The coin for this transaction.
+   * @param {string} [opts.coin = 'vcl'] - The coin for this transaction.
    * @param {string} [opts.network = 'livenet'] - The Bitcoin network for this transaction.
    * @param {string} opts.rawTx - Raw tx data.
    */
@@ -4101,7 +4102,7 @@ export class WalletService {
       return cb(new ClientError('Invalid coin'));
     }
 
-    if (opts.coin != 'btc') {
+    if (opts.coin != 'vcl') {
       return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
     }
 
@@ -4126,7 +4127,7 @@ export class WalletService {
       return cb(new ClientError('Invalid coin'));
     }
 
-    if (opts.coin != 'btc') {
+    if (opts.coin != 'vcl') {
       return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
     }
 

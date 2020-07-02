@@ -6,6 +6,7 @@ module.exports = {
     BTC: 'btc',
     BCH: 'bch',
     ETH: 'eth',
+    VCL: 'vcl',
     XRP: 'xrp',
     USDC: 'usdc',
     PAX: 'pax',
@@ -22,7 +23,8 @@ module.exports = {
 
   UTXO_COINS: {
     BTC: 'btc',
-    BCH: 'bch'
+    BCH: 'bch',
+    VCL: 'vcl'
   },
 
   NETWORKS: {

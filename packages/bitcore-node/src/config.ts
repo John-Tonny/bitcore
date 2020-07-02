@@ -62,7 +62,8 @@ const Config = function(): ConfigType {
     dbPass: process.env.DB_PASS || '',
     numWorkers: cpus().length,
     chains: {},
-    modules: ['./bitcoin', './bitcoin-cash', './ethereum'],
+    //  john
+    modules: ['./bitcoin', './bitcoin-cash', './ethereum', './vircle'],
     services: {
       api: {
         rateLimiter: {

@@ -91,7 +91,7 @@ export class PushNotificationsService {
       (opts.pushNotificationsOpts.templatePath || __dirname + '../../templates') + '/'
     );
     this.defaultLanguage = opts.pushNotificationsOpts.defaultLanguage || 'en';
-    this.defaultUnit = opts.pushNotificationsOpts.defaultUnit || 'btc';
+    this.defaultUnit = opts.pushNotificationsOpts.defaultUnit || 'vcl';
     this.subjectPrefix = opts.pushNotificationsOpts.subjectPrefix || '';
     this.pushServerUrl = opts.pushNotificationsOpts.pushServerUrl;
     this.authorizationKey = opts.pushNotificationsOpts.authorizationKey;
@@ -335,6 +335,7 @@ export class PushNotificationsService {
       bit: 'bits',
       bch: 'BCH',
       eth: 'ETH',
+      vcl: 'VCL',
       xrp: 'XRP',
       usdc: 'USDC',
       pax: 'PAX',

@@ -22,6 +22,7 @@ var Bitcore_ = {
   btc: CWC.BitcoreLib,
   bch: CWC.BitcoreLibCash,
   eth: CWC.BitcoreLib,
+  vcl: CWC.VircleLib,
   xrp: CWC.BitcoreLib
 };
 var Mnemonic = require('bitcore-mnemonic');
@@ -407,7 +408,7 @@ export class API extends EventEmitter {
   getBalanceFromPrivateKey(privateKey, coin, cb) {
     if (_.isFunction(coin)) {
       cb = coin;
-      coin = 'btc';
+      coin = 'vcl';
     }
     var B = Bitcore_[coin];
 
@@ -428,7 +429,7 @@ export class API extends EventEmitter {
   buildTxFromPrivateKey(privateKey, destinationAddress, opts, cb) {
     opts = opts || {};
 
-    var coin = opts.coin || 'btc';
+    var coin = opts.coin || 'vcl';
     var signingMethod = opts.signingMethod || 'ecdsa';
 
     if (!_.includes(Constants.COINS, coin)) return cb(new Error('Invalid coin'));
@@ -574,7 +575,7 @@ export class API extends EventEmitter {
 
       var walletPrivKey = Bitcore.PrivateKey.fromString(secretSplit[1]);
       var networkChar = secretSplit[2];
-      var coin = secretSplit[3] || 'btc';
+      var coin = secretSplit[3] || 'vcl';
 
       return {
         walletId,
@@ -736,7 +737,7 @@ export class API extends EventEmitter {
   // /**
   // * Get current fee levels for the specified network
   // *
-  // * @param {string} coin - 'btc' (default) or 'bch'
+  // * @param {string} coin - 'vcl' (default) or 'btc' or 'bch'
   // * @param {string} network - 'livenet' (default) or 'testnet'
   // * @param {Callback} cb
   // * @returns {Callback} cb - Returns error or an object with status information
@@ -748,7 +749,7 @@ export class API extends EventEmitter {
     const chain = Utils.getChain(coin).toLowerCase();
 
     this.request.get(
-      '/v2/feelevels/?coin=' + (chain || 'btc') + '&network=' + (network || 'livenet'),
+      '/v2/feelevels/?coin=' + (chain || 'vcl') + '&network=' + (network || 'livenet'),
       (err, result) => {
         if (err) return cb(err);
         return cb(err, result);
@@ -781,7 +782,7 @@ export class API extends EventEmitter {
   // * @param {Number} m
   // * @param {Number} n
   // * @param {object} opts (optional: advanced options)
-  // * @param {string} opts.coin[='btc'] - The coin for this wallet (btc, bch).
+  // * @param {string} opts.coin[='vcl'] - The coin for this wallet (vcl, btc, bch).
   // * @param {string} opts.network[='livenet']
   // * @param {string} opts.singleAddress[=false] - The wallet will only ever have one address.
   // * @param {String} opts.walletPrivKey - set a walletPrivKey (instead of random)
@@ -796,7 +797,7 @@ export class API extends EventEmitter {
     if (opts) $.shouldBeObject(opts);
     opts = opts || {};
 
-    var coin = opts.coin || 'btc';
+    var coin = opts.coin || 'vcl';
     if (!_.includes(Constants.COINS, coin)) return cb(new Error('Invalid coin'));
 
     var network = opts.network || 'livenet';
@@ -862,7 +863,7 @@ export class API extends EventEmitter {
   // * @param {String} secret
   // * @param {String} copayerName
   // * @param {Object} opts
-  // * @param {string} opts.coin[='btc'] - The expected coin for this wallet (btc, bch).
+  // * @param {string} opts.coin[='vcl'] - The expected coin for this wallet (vcl, btc, bch).
   // * @param {Boolean} opts.dryRun[=false] - Simulate wallet join
   // * @param {Callback} cb
   // * @returns {Callback} cb - Returns the wallet
@@ -878,7 +879,7 @@ export class API extends EventEmitter {
 
     opts = opts || {};
 
-    var coin = opts.coin || 'btc';
+    var coin = opts.coin || 'vcl';
     if (!_.includes(Constants.COINS, coin)) return cb(new Error('Invalid coin'));
 
     try {
@@ -1172,7 +1173,7 @@ export class API extends EventEmitter {
     PayPro.get(
       {
         url: opts.payProUrl,
-        coin: this.credentials.coin || 'btc',
+        coin: this.credentials.coin || 'vcl',
         network: this.credentials.network || 'livenet',
 
         // for testing
@@ -1489,7 +1490,7 @@ export class API extends EventEmitter {
     PayPro.get(
       {
         url: txp.payProUrl,
-        coin: txp.coin || 'btc',
+        coin: txp.coin || 'vcl',
         network: txp.network || 'livenet',
 
         // for testing
@@ -1615,7 +1616,7 @@ export class API extends EventEmitter {
   // * @param {Number} m
   // * @param {Number} n
   // * @param {Object} opts
-  // * @param {String} opts.coin (default 'btc')
+  // * @param {String} opts.coin (default 'vcl')
   // * @param {String} opts.passphrase
   // * @param {Number} opts.account - default 0
   // * @param {String} opts.derivationStrategy - default 'BIP44'
@@ -1624,7 +1625,7 @@ export class API extends EventEmitter {
   static signTxProposalFromAirGapped(key, txp, unencryptedPkr, m, n, opts, cb) {
     opts = opts || {};
 
-    var coin = opts.coin || 'btc';
+    var coin = opts.coin || 'vcl';
     if (!_.includes(Constants.COINS, coin)) return cb(new Error('Invalid coin'));
 
     var publicKeyRing = JSON.parse(unencryptedPkr);
@@ -1756,7 +1757,7 @@ export class API extends EventEmitter {
 
           let i = 0;
 
-          let isBtcSegwit = txp.coin == 'btc' && (txp.addressType == 'P2WSH' || txp.addressType == 'P2WPKH');
+          let isBtcSegwit = (txp.coin == 'btc' || txp.coin == 'vcl') && (txp.addressType == 'P2WSH' || txp.addressType == 'P2WPKH');
           for (const unsigned of unserializedTxs) {
             let size = serializedTxs[i++].length / 2;
             if (isBtcSegwit) {
@@ -2005,7 +2006,7 @@ export class API extends EventEmitter {
   // * @param {Object} opts
   // * @param {string} opts.code - Currency ISO code.
   // * @param {Date} [opts.ts] - A timestamp to base the rate on (default Date.now()).
-  // * @param {String} [opts.coin] - Coin (detault: 'btc')
+  // * @param {String} [opts.coin] - Coin (detault: 'vcl')
   // * @returns {Object} rates - The exchange rate.
   // */
   getFiatRate(opts, cb) {
@@ -2219,7 +2220,7 @@ export class API extends EventEmitter {
 
       // if old credentials had use145forBCH...use it.
       // else,if the wallet is bch, set it to true.
-      k.use0forBCH = x.use145forBCH ? false : x.coin == 'bch' ? true : false;
+      k.use0forBCH = x.use145forBCH ? false : (x.coin == 'bch' || x.coin == 'vcl') ? true : false;
 
       k.BIP45 = x.derivationStrategy == 'BIP45';
     } else {
@@ -2246,7 +2247,7 @@ export class API extends EventEmitter {
     if (c.externalSource) {
       throw new Error('External Wallets are no longer supported');
     }
-    c.coin = c.coin || 'btc';
+    c.coin = c.coin || 'vcl';
     c.addressType = c.addressType || Constants.SCRIPT_TYPES.P2SH;
     c.account = c.account || 0;
     c.rootPath = c.getRootPath();
@@ -2368,7 +2369,7 @@ export class API extends EventEmitter {
 
         // Exists
         if (!err) {
-          if (opts.coin == 'btc' && (status.wallet.addressType == 'P2WPKH' || status.wallet.addressType == 'P2WSH')) {
+          if ((opts.coin == 'btc' || opts.coin == 'vcl') && (status.wallet.addressType == 'P2WPKH' || status.wallet.addressType == 'P2WSH')) {
             client.credentials.addressType =
               status.wallet.n == 1 ? Constants.SCRIPT_TYPES.P2WPKH : Constants.SCRIPT_TYPES.P2WSH;
           }
@@ -2404,10 +2405,12 @@ export class API extends EventEmitter {
         // coin, network,  multisig
         ['btc', 'livenet'],
         ['bch', 'livenet'],
+        ['vcl', 'livenet'],
         ['eth', 'livenet'],
         ['eth', 'testnet'],
         ['xrp', 'livenet'],
         ['xrp', 'testnet'],
+        ['vcl', 'livenet', true],
         ['btc', 'livenet', true],
         ['bch', 'livenet', true]
       ];
@@ -2653,6 +2656,9 @@ export class API extends EventEmitter {
     var args = [];
     if (opts.coin) {
       if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      if (opts.coin != 'vcl') {
+        return cb(new Error('coin is not supported'));
+      }
       args.push('coin=' + opts.coin);
     }
 
@@ -2695,7 +2701,7 @@ export class API extends EventEmitter {
 
     if (opts.coin) {
       if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
-      if (opts.coin != 'btc') {
+      if (opts.coin != 'vcl') {
         return cb(new Error('coin is not supported'));
       }
       args.coin = opts.coin;
@@ -2730,7 +2736,7 @@ export class API extends EventEmitter {
     var args = [];
     if (opts.coin) {
       if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
-      if (opts.coin != 'btc') {
+      if (opts.coin != 'vcl') {
         return cb(new Error('coin is not supported'));
       }
       args.push('coin=' + opts.coin);
@@ -2770,7 +2776,7 @@ export class API extends EventEmitter {
       return cb(new Error('Invalid coin'));
     }
 
-    if (opts.coin != 'btc') {
+    if (opts.coin != 'vcl') {
       return cb(new Error('coin is not supported'));
     }
 

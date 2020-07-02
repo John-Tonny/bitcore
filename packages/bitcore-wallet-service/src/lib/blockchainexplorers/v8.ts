@@ -14,6 +14,7 @@ const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),
   eth: Bitcore,
+  vcl: require('vircle-lib'),
   xrp: Bitcore
 };
 const config = require('../../config');
