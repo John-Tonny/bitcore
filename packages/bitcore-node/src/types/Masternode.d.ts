@@ -4,16 +4,16 @@ export interface IMasternode {
   txid: string;
   address: string;
   payee: string;
+  status: string;
   protocol: number;
   daemonversion: string;
   sentinelversion: string;
   sentinelstate: string;
   lastseen: number;
-  activateseconds: number;
+  activeseconds: number;
   lastpaidtime: number;
   lastpaidblock: number;
   pingretries: number;
-  time: Date;
-  timeNormalized: Date;
+  updatetime: Date;
   processed: boolean;
 }

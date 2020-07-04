@@ -105,7 +105,7 @@ export class Verifier {
       if (!strEqual(o1.toAddress, o2.toAddress)) return false;
       if (!strEqual(o1.script, o2.script)) return false;
       if (!args.sendMax) {
-          if (o1.amount != o2.amount) return false;
+        if (o1.amount != o2.amount) return false;
       }
       var decryptedMessage = null;
       try {

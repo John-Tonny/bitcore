@@ -15,4 +15,3 @@ export class VclValidation implements IValidation {
     return URI.isValid(addressUri);
   }
 }
-

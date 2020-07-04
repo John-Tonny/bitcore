@@ -3,6 +3,7 @@ import { Libs } from '../providers/libs';
 import { Api } from '../services/api';
 import { Config } from '../services/config';
 import { Event } from '../services/event';
+import { Masternode } from '../services/masternode';
 import { P2P } from '../services/p2p';
 import { Storage } from '../services/storage';
 import { Verification } from '../services/verification';
@@ -24,7 +25,8 @@ export class BaseModule implements IService {
       CSP: typeof ChainStateProvider;
       Libs: typeof Libs;
       Verification: typeof Verification;
-    } = { P2P, Storage, Event, Api, Config, CSP: ChainStateProvider, Libs, Verification }
+      Masternode : typeof Masternode;
+    } = { P2P, Storage, Event, Api, Config, CSP: ChainStateProvider, Libs, Verification, Masternode}
   ) {}
 
   async start() {

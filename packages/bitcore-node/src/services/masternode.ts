@@ -1,73 +1,105 @@
-import * as http from 'http';
-import config from '../config';
+import { ChainStateProvider } from '../providers/chain-state';
 import { LoggifyClass } from '../decorators/Loggify';
 import logger from '../logger';
 import app from '../routes';
 import { Config, ConfigService } from './config';
-import { Socket, SocketService } from './socket';
 import { Storage, StorageService } from './storage';
+import { wait } from '../utils/wait';
+import { VclMasternode, VclMasternodeStorage, IMasternode} from '../models/masternode';
+import * as _ from "lodash";
 
 @LoggifyClass
 export class MasternodeService {
-  port: number;
-  timeout: number;
+  chain: string;
+  network: string;
   configService: ConfigService;
   storageService: StorageService;
-  socketService: SocketService;
-  httpServer: http.Server;
+  protected masternodeModel: VclMasternode;
   app: typeof app;
-  stopped = true;
+  stopped = false;
+
 
   constructor({
-    port = 3001,
-    timeout = 600000,
     configService = Config,
     storageService = Storage,
-    socketService = Socket
+    masternodeModel = VclMasternodeStorage,
   } = {}) {
-    this.port = Number(process.env.BITCORE_NODE_HTTP_PORT) || port;
-    this.timeout = timeout;
     this.configService = configService;
     this.storageService = storageService;
-    this.socketService = socketService;
+    this.masternodeModel = masternodeModel;
     this.app = app;
-    this.httpServer = new http.Server(app);
+    this.chain = '';
+    this.network = '';
+    for (let chainNetwork of Config.chainNetworks()) {
+      const { chain, network } = chainNetwork;
+      if ( chain === 'VCL') {
+        this.chain = chain;
+        this.network = network;
+      }
+    }
   }
 
   async start() {
     if (this.configService.isDisabled('masternode')) {
-      logger.info('Disabled API Service');
+      logger.info('Disabled Masternode Service');
       return;
     }
+
+    if (this.chain !== 'VCL'){
+      return;
+    }
+
+    logger.info('Starting Masternode Service');
     if (!this.storageService.connected) {
       await this.storageService.start({});
     }
-    if (this.stopped) {
-      this.stopped = false;
-      this.httpServer = new http.Server(app);
-      this.httpServer.timeout = this.timeout;
-      this.httpServer.listen(this.port, () => {
-        logger.info(`Starting API Service on port ${this.port}`);
-        this.socketService.start({ server: this.httpServer });
-      });
+
+    while(!this.stopped) {
+      let imasternodes: Array<any> = [];
+      let chain = this.chain;
+      let network = this.network;
+      let utxo = '';
+      let masternodes = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo});
+      if (masternodes) {
+        _.forEach(_.keys(masternodes), function(key) {
+          let imasternode: IMasternode = {
+            chain: chain,
+            network: network,
+            txid: key,
+            address: masternodes[key].address,
+            payee: masternodes[key].payee,
+            status: masternodes[key].status,
+            protocol: masternodes[key].protocol,
+            daemonversion: masternodes[key].daemonversion,
+            sentinelversion: masternodes[key].sentinelversion,
+            sentinelstate: masternodes[key].sentinelstate,
+            lastseen: masternodes[key].lastseen,
+            activeseconds: masternodes[key].activeseconds,
+            lastpaidtime: masternodes[key].lastpaidtime,
+            lastpaidblock: masternodes[key].lastpaidblock,
+            pingretries: masternodes[key].pingretries,
+            updatetime: new Date(Date.now()),
+            processed: true
+          };
+          imasternodes.push(imasternode);
+        });
+        for (const imasternode of imasternodes) {
+          this.processMasternode(imasternode);
+        }
+      }
+      await wait(5 * 60 * 1000);
     }
-    return this.httpServer;
   }
 
   async stop() {
     this.stopped = true;
-    await this.socketService.stop();
-    return new Promise(resolve => {
-      this.httpServer.close(() => {
-        logger.info('Stopped API Service');
-        resolve();
-      });
-      this.httpServer.emit('close');
-    });
+    await wait(1000);
+  }
+
+  async processMasternode(params): Promise<any> {
+    await this.masternodeModel.processMasternode(params);
   }
 }
 
 // TOOO: choose a place in the config for the API timeout and include it here
-export const Masternode = new MasternodeService({
-  port: config.port
-});
+export const Masternode = new MasternodeService({});

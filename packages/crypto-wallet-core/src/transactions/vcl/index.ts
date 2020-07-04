@@ -1,4 +1,3 @@
 import { BTCTxProvider } from '../btc';
 
-export class VCLTxProvider extends BTCTxProvider {
-}
+export class VCLTxProvider extends BTCTxProvider {}

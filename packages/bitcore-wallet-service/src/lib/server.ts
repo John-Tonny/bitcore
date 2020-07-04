@@ -4152,7 +4152,7 @@ export class WalletService {
       return cb(new ClientError('Invalid coin'));
     }
 
-    if (opts.coin != 'btc') {
+    if (opts.coin != 'vcl') {
       return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
     }
 

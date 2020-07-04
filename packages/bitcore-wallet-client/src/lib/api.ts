@@ -69,6 +69,7 @@ export class API extends EventEmitter {
   // Expose bitcore
   static Bitcore = CWC.BitcoreLib;
   static BitcoreCash = CWC.BitcoreLibCash;
+  static Vircle = CWC.VircleLib;
 
   constructor(opts?) {
     super();
@@ -1757,7 +1758,8 @@ export class API extends EventEmitter {
 
           let i = 0;
 
-          let isBtcSegwit = (txp.coin == 'btc' || txp.coin == 'vcl') && (txp.addressType == 'P2WSH' || txp.addressType == 'P2WPKH');
+          let isBtcSegwit =
+            (txp.coin == 'btc' || txp.coin == 'vcl') && (txp.addressType == 'P2WSH' || txp.addressType == 'P2WPKH');
           for (const unsigned of unserializedTxs) {
             let size = serializedTxs[i++].length / 2;
             if (isBtcSegwit) {
@@ -2220,7 +2222,7 @@ export class API extends EventEmitter {
 
       // if old credentials had use145forBCH...use it.
       // else,if the wallet is bch, set it to true.
-      k.use0forBCH = x.use145forBCH ? false : (x.coin == 'bch' || x.coin == 'vcl') ? true : false;
+      k.use0forBCH = x.use145forBCH ? false : x.coin == 'bch' || x.coin == 'vcl' ? true : false;
 
       k.BIP45 = x.derivationStrategy == 'BIP45';
     } else {
@@ -2369,7 +2371,10 @@ export class API extends EventEmitter {
 
         // Exists
         if (!err) {
-          if ((opts.coin == 'btc' || opts.coin == 'vcl') && (status.wallet.addressType == 'P2WPKH' || status.wallet.addressType == 'P2WSH')) {
+          if (
+            (opts.coin == 'btc' || opts.coin == 'vcl') &&
+            (status.wallet.addressType == 'P2WPKH' || status.wallet.addressType == 'P2WSH')
+          ) {
             client.credentials.addressType =
               status.wallet.n == 1 ? Constants.SCRIPT_TYPES.P2WPKH : Constants.SCRIPT_TYPES.P2WSH;
           }

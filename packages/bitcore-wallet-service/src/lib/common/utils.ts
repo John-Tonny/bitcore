@@ -9,7 +9,7 @@ const Bitcore = require('bitcore-lib');
 const Bitcore_ = {
   btc: Bitcore,
   bch: require('bitcore-lib-cash'),
-  vcl: require('vircle-lib'),
+  vcl: require('vircle-lib')
 };
 
 export class Utils {

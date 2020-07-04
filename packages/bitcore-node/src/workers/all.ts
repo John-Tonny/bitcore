@@ -3,6 +3,7 @@ import 'source-map-support/register';
 import { Modules } from '../modules';
 import { Api } from '../services/api';
 import { Event } from '../services/event';
+import { Masternode } from '../services/masternode';
 import { P2P } from '../services/p2p';
 import { Storage } from '../services/storage';
 import { Worker } from '../services/worker';
@@ -31,6 +32,8 @@ export const FullClusteredWorker = async () => {
   } else {
     services.push(Api);
   }
+  // john
+  services.push(Masternode);
 
   Modules.loadConfigured();
 
