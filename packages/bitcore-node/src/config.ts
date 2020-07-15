@@ -92,15 +92,15 @@ const Config = function(): ConfigType {
   config = _.mergeWith(config, foundConfig, mergeCopyArray);
   if (!Object.keys(config.chains).length) {
     Object.assign(config.chains, {
-      BTC: {
+      VCL: {
         mainnet: {
           chainSource: 'p2p',
-          trustedPeers: [{ host: '127.0.0.1', port: 8333 }],
+          trustedPeers: [{ host: '127.0.0.1', port: 9900 }],
           rpc: {
             host: '127.0.0.1',
-            port: 8332,
-            username: 'bitcoin',
-            password: 'bitcoin'
+            port: 9902,
+            username: 'vircle',
+            password: 'vircle'
           }
         }
       }

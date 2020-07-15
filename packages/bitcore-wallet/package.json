@@ -10,11 +10,11 @@
     "wallet"
   ],
   "repository": {
-    "url": "git@github.com:bitpay/bitcore-wallet.git",
+    "url": "git@github.com:John-Tonny/bitcore-wallet.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/bitcore-wallet/issues"
+    "url": "https://github.com/John-Tonny/bitcore-wallet/issues"
   },
   "dependencies": {
     "async": "^2.5.0",

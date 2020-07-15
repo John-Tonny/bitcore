@@ -1,8 +1,8 @@
 {
   "name": "vircle-lib",
   "version": "8.20.4",
-  "description": "A pure and powerful JavaScript Bitcoin library.",
-  "author": "BitPay <dev@bitpay.com>",
+  "description": "A pure and powerful JavaScript Vircle library.",
+  "author": "JohnTonny <dev@vircle.com>",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore/tree/master/packages/bitcore:q-lib"
+    "url": "https://github.com/John-Tonny/bitcore/tree/master/packages/vircle-lib"
   },
   "browser": {
     "request": "browser-request"
@@ -40,7 +40,6 @@
     "bs58": "^4.0.1",
     "buffer-compare": "=1.1.1",
     "elliptic": "=6.4.0",
-    "gulp-concat": "^2.6.1",
     "inherits": "=2.0.1",
     "lodash": "=4.17.15"
   },

@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore-p2p.git"
+    "url": "https://github.com/John-Tonny/bitcore-p2p.git"
   },
   "dependencies": {
     "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
