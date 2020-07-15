@@ -43,7 +43,7 @@ const EmailValidator = require('email-validator');
 import { Validation } from 'crypto-wallet-core';
 const Bitcore = require('vircle-lib');
 const Bitcore_ = {
-  vcl: require('vircle-lib'),
+  vcl: require('vircle-lib')
 };
 
 const Common = require('./common');

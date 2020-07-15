@@ -11,7 +11,7 @@ log.debug = log.verbose;
 const Common = require('../common');
 const Bitcore = require('vircle-lib');
 const Bitcore_ = {
-  vcl: require('vircle-lib'),
+  vcl: require('vircle-lib')
 };
 const config = require('../../config');
 const Constants = Common.Constants,

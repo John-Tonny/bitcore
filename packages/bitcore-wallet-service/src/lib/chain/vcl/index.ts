@@ -23,36 +23,36 @@ export class VclChain implements IChain {
 
   getWalletBalance(server, wallet, opts, cb) {
     server.getUtxosForCurrentWallet(
-        {
-          coin: opts.coin,
-          addresses: opts.addresses
-        },
-        (err, utxos) => {
-          if (err) return cb(err);
+      {
+        coin: opts.coin,
+        addresses: opts.addresses
+      },
+      (err, utxos) => {
+        if (err) return cb(err);
 
-          const balance = {
-            ...this.totalizeUtxos(utxos),
-            byAddress: []
+        const balance = {
+          ...this.totalizeUtxos(utxos),
+          byAddress: []
+        };
+
+        // Compute balance by address
+        const byAddress = {};
+        _.each(_.keyBy(_.sortBy(utxos, 'address'), 'address'), (value, key) => {
+          byAddress[key] = {
+            address: key,
+            path: value.path,
+            amount: 0
           };
+        });
 
-          // Compute balance by address
-          const byAddress = {};
-          _.each(_.keyBy(_.sortBy(utxos, 'address'), 'address'), (value, key) => {
-            byAddress[key] = {
-              address: key,
-              path: value.path,
-              amount: 0
-            };
-          });
+        _.each(utxos, utxo => {
+          byAddress[utxo.address].amount += utxo.satoshis;
+        });
 
-          _.each(utxos, utxo => {
-            byAddress[utxo.address].amount += utxo.satoshis;
-          });
+        balance.byAddress = _.values(byAddress);
 
-          balance.byAddress = _.values(byAddress);
-
-          return cb(null, balance);
-        }
+        return cb(null, balance);
+      }
     );
   }
 
@@ -345,10 +345,10 @@ export class VclChain implements IChain {
       $.checkState(o.script || o.toAddress, 'Output should have either toAddress or script specified');
       if (o.script) {
         t.addOutput(
-            new this.bitcoreLib.Transaction.Output({
-              script: o.script,
-              satoshis: o.amount
-            })
+          new this.bitcoreLib.Transaction.Output({
+            script: o.script,
+            satoshis: o.amount
+          })
         );
       } else {
         t.to(o.toAddress, o.amount);
@@ -431,22 +431,22 @@ export class VclChain implements IChain {
     };
 
     server.getUtxosForCurrentWallet(
-        {
-          addresses: txp.inputs
-        },
-        (err, utxos) => {
-          if (err) return cb(err);
+      {
+        addresses: txp.inputs
+      },
+      (err, utxos) => {
+        if (err) return cb(err);
 
-          const txpInputs = _.map(txp.inputs, utxoKey);
-          const utxosIndex = _.keyBy(utxos, utxoKey);
-          const unavailable = _.some(txpInputs, i => {
-            const utxo = utxosIndex[i];
-            return !utxo || utxo.locked;
-          });
+        const txpInputs = _.map(txp.inputs, utxoKey);
+        const utxosIndex = _.keyBy(utxos, utxoKey);
+        const unavailable = _.some(txpInputs, i => {
+          const utxo = utxosIndex[i];
+          return !utxo || utxo.locked;
+        });
 
-          if (unavailable) return cb(Errors.UNAVAILABLE_UTXOS);
-          return cb();
-        }
+        if (unavailable) return cb(Errors.UNAVAILABLE_UTXOS);
+        return cb();
+      }
     );
   }
 
@@ -482,12 +482,12 @@ export class VclChain implements IChain {
 
     const sanitizeUtxos = utxos => {
       const excludeIndex = _.reduce(
-          opts.utxosToExclude,
-          (res, val) => {
-            res[val] = val;
-            return res;
-          },
-          {}
+        opts.utxosToExclude,
+        (res, val) => {
+          res[val] = val;
+          return res;
+        },
+        {}
       );
 
       return _.filter(utxos, utxo => {
@@ -505,7 +505,7 @@ export class VclChain implements IChain {
 
       if (totalValueInUtxos < txpAmount) {
         log.debug(
-            'Total value in all utxos (' +
+          'Total value in all utxos (' +
             Utils.formatAmountInBtc(totalValueInUtxos) +
             ') is insufficient to cover for txp amount (' +
             Utils.formatAmountInBtc(txpAmount) +
@@ -515,7 +515,7 @@ export class VclChain implements IChain {
       }
       if (netValueInUtxos < txpAmount) {
         log.debug(
-            'Value after fees in all utxos (' +
+          'Value after fees in all utxos (' +
             Utils.formatAmountInBtc(netValueInUtxos) +
             ') is insufficient to cover for txp amount (' +
             Utils.formatAmountInBtc(txpAmount) +
@@ -663,67 +663,67 @@ export class VclChain implements IChain {
       let i = 0;
       let lastGroupLength;
       async.whilst(
-          () => {
-            return i < groups.length && _.isEmpty(inputs);
-          },
-          next => {
-            const group = groups[i++];
+        () => {
+          return i < groups.length && _.isEmpty(inputs);
+        },
+        next => {
+          const group = groups[i++];
 
-            const candidateUtxos = _.filter(utxos, utxo => {
-              return utxo.confirmations >= group;
-            });
+          const candidateUtxos = _.filter(utxos, utxo => {
+            return utxo.confirmations >= group;
+          });
 
-            // log.debug('Group >= ' + group);
+          // log.debug('Group >= ' + group);
 
-            // If this group does not have any new elements, skip it
-            if (lastGroupLength === candidateUtxos.length) {
-              // log.debug('This group is identical to the one already explored');
-              return next();
-            }
-
-            // log.debug('Candidate utxos: ' + Utils.formatUtxos(candidateUtxos));
-
-            lastGroupLength = candidateUtxos.length;
-
-            select(candidateUtxos, txp.coin, (err, selectedInputs, selectedFee) => {
-              if (err) {
-                // log.debug('No inputs selected on this group: ', err);
-                selectionError = err;
-                return next();
-              }
-
-              selectionError = null;
-              inputs = selectedInputs;
-              fee = selectedFee;
-
-              // log.debug('Selected inputs from this group: ' + Utils.formatUtxos(inputs));
-              // log.debug('Fee for this selection: ' + Utils.formatAmountInBtc(fee));
-
-              return next();
-            });
-          },
-          err => {
-            if (err) return cb(err);
-            if (selectionError || _.isEmpty(inputs)) return cb(selectionError || new Error('Could not select tx inputs'));
-
-            txp.setInputs(_.shuffle(inputs));
-            txp.fee = fee;
-
-            err = this.checkTx(txp);
-            if (!err) {
-              const change = _.sumBy(txp.inputs, 'satoshis') - _.sumBy(txp.outputs, 'amount') - txp.fee;
-              log.debug(
-                  'Successfully built transaction. Total fees: ' +
-                  Utils.formatAmountInBtc(txp.fee) +
-                  ', total change: ' +
-                  Utils.formatAmountInBtc(change)
-              );
-            } else {
-              log.debug('Error building transaction', err);
-            }
-
-            return cb(err);
+          // If this group does not have any new elements, skip it
+          if (lastGroupLength === candidateUtxos.length) {
+            // log.debug('This group is identical to the one already explored');
+            return next();
           }
+
+          // log.debug('Candidate utxos: ' + Utils.formatUtxos(candidateUtxos));
+
+          lastGroupLength = candidateUtxos.length;
+
+          select(candidateUtxos, txp.coin, (err, selectedInputs, selectedFee) => {
+            if (err) {
+              // log.debug('No inputs selected on this group: ', err);
+              selectionError = err;
+              return next();
+            }
+
+            selectionError = null;
+            inputs = selectedInputs;
+            fee = selectedFee;
+
+            // log.debug('Selected inputs from this group: ' + Utils.formatUtxos(inputs));
+            // log.debug('Fee for this selection: ' + Utils.formatAmountInBtc(fee));
+
+            return next();
+          });
+        },
+        err => {
+          if (err) return cb(err);
+          if (selectionError || _.isEmpty(inputs)) return cb(selectionError || new Error('Could not select tx inputs'));
+
+          txp.setInputs(_.shuffle(inputs));
+          txp.fee = fee;
+
+          err = this.checkTx(txp);
+          if (!err) {
+            const change = _.sumBy(txp.inputs, 'satoshis') - _.sumBy(txp.outputs, 'amount') - txp.fee;
+            log.debug(
+              'Successfully built transaction. Total fees: ' +
+                Utils.formatAmountInBtc(txp.fee) +
+                ', total change: ' +
+                Utils.formatAmountInBtc(change)
+            );
+          } else {
+            log.debug('Error building transaction', err);
+          }
+
+          return cb(err);
+        }
       );
     });
   }

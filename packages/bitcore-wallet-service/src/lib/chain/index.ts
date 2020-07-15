@@ -54,7 +54,7 @@ export interface IChain {
 }
 
 const chain: { [chain: string]: IChain } = {
-  VCL: new VclChain(),
+  VCL: new VclChain()
 };
 
 class ChainProxy {

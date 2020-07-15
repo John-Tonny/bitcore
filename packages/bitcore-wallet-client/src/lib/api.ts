@@ -2403,7 +2403,7 @@ export class API extends EventEmitter {
       let opts = [
         // coin, network,  multisig
         ['vcl', 'livenet'],
-        ['vcl', 'livenet', true],
+        ['vcl', 'livenet', true]
       ];
       if (key.use44forMultisig) {
         //  testing old multi sig

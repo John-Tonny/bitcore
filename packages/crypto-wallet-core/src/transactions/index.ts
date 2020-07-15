@@ -1,7 +1,7 @@
 import { VCLTxProvider } from './vcl';
 
 const providers = {
-  VCL: new VCLTxProvider(),
+  VCL: new VCLTxProvider()
 };
 
 export class TransactionsProxy {

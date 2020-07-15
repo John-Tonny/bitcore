@@ -15,7 +15,7 @@ export interface IDeriver {
 }
 
 const derivers: { [chain: string]: IDeriver } = {
-  VCL: new VclDeriver(),
+  VCL: new VclDeriver()
 };
 
 export class DeriverProxy {

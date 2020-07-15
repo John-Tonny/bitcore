@@ -7,7 +7,7 @@ import { Credentials } from './credentials';
 
 import { Deriver, Transactions, VircleLib } from 'crypto-wallet-core';
 
-var Bitcore =  VircleLib;
+var Bitcore = VircleLib;
 var Mnemonic = require('bitcore-mnemonic');
 var sjcl = require('sjcl');
 var log = require('./log');

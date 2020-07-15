@@ -13,7 +13,7 @@ const Constants = Common.Constants,
   Defaults = Common.Defaults,
   Utils = Common.Utils;
 const Bitcore = {
-  vcl: require('vircle-lib'),
+  vcl: require('vircle-lib')
 };
 
 export interface IWallet {
