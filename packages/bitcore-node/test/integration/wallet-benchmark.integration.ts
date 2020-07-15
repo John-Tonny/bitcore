@@ -15,7 +15,7 @@ import { ICoin, CoinStorage } from '../../src/models/coin';
 import { MongoBound } from '../../src/models/base';
 import { ObjectId } from 'mongodb';
 import { TransactionStorage } from '../../src/models/transaction';
-import { BitcoinP2PWorker } from '../../src/modules/bitcoin/p2p';
+import { BitcoinP2PWorker } from '../../src/modules/vircle/p2p';
 
 const chain = 'BTC';
 const network = 'regtest';

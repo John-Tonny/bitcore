@@ -5,9 +5,9 @@ import * as _ from 'lodash';
 import { Constants, Utils } from './common';
 import { Credentials } from './credentials';
 
-import { BitcoreLib, BitcoreLibCash, Deriver, Transactions } from 'crypto-wallet-core';
+import { Deriver, Transactions, VircleLib } from 'crypto-wallet-core';
 
-var Bitcore = BitcoreLib;
+var Bitcore =  VircleLib;
 var Mnemonic = require('bitcore-mnemonic');
 var sjcl = require('sjcl');
 var log = require('./log');

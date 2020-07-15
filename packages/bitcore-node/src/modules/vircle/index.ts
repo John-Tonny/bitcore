@@ -1,7 +1,7 @@
 import { BaseModule } from '..';
 import { VCLStateProvider } from '../../providers/chain-state/vcl/vcl';
-import { BitcoinP2PWorker } from '../bitcoin/p2p';
-import { VerificationPeer } from '../bitcoin/VerificationPeer';
+import { BitcoinP2PWorker } from '../vircle/p2p';
+import { VerificationPeer } from '../vircle/VerificationPeer';
 
 export default class VCLModule extends BaseModule {
   constructor(services: BaseModule['bitcoreServices']) {

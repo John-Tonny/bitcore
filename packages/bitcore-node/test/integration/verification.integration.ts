@@ -5,9 +5,9 @@ import { AsyncRPC } from '../../src/rpc';
 import config from '../../src/config';
 import { TransactionStorage } from '../../src/models/transaction';
 import { resetDatabase } from '../helpers';
-import { BitcoinP2PWorker } from '../../src/modules/bitcoin/p2p';
+import { BitcoinP2PWorker } from '../../src/modules/vircle/p2p';
 import { wait } from '../../src/utils/wait';
-import { VerificationPeer } from '../../src/modules/bitcoin/VerificationPeer';
+import { VerificationPeer } from '../../src/modules/vircle/VerificationPeer';
 import { BitcoinBlockStorage } from '../../src/models/block';
 import { CoinStorage } from '../../src/models/coin';
 

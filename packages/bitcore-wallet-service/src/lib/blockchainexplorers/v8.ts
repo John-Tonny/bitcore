@@ -9,13 +9,9 @@ const $ = require('preconditions').singleton();
 const log = require('npmlog');
 log.debug = log.verbose;
 const Common = require('../common');
-const Bitcore = require('bitcore-lib');
+const Bitcore = require('vircle-lib');
 const Bitcore_ = {
-  btc: Bitcore,
-  bch: require('bitcore-lib-cash'),
-  eth: Bitcore,
   vcl: require('vircle-lib'),
-  xrp: Bitcore
 };
 const config = require('../../config');
 const Constants = Common.Constants,

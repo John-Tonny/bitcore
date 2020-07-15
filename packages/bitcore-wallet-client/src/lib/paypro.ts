@@ -1,14 +1,12 @@
-import { BitcoreLib, BitcoreLibCash, VircleLib } from 'crypto-wallet-core';
+import { VircleLib } from 'crypto-wallet-core';
 
 var $ = require('preconditions').singleton();
 const URL = require('url');
 const _ = require('lodash');
 const superagent = require('superagent');
-var Bitcore = BitcoreLib;
+var Bitcore = VircleLib;
 const Errors = require('./errors');
 var Bitcore_ = {
-  btc: Bitcore,
-  bch: BitcoreLibCash,
   vcl: VircleLib
 };
 // const request = require('request');

@@ -8,7 +8,7 @@ import { WalletAddressStorage } from '../../../src/models/walletAddress';
 import { BitcoinTransaction, TransactionInput } from '../../../src/types/namespaces/Bitcoin';
 import { TransactionFixture } from '../../fixtures/transaction.fixture';
 import { mockStorage } from '../../helpers';
-const bitcoreLib = require('bitcore-lib');
+const bitcoreLib = require('vircle-lib');
 
 describe('Transaction Model', function() {
   let sandbox = sinon.sandbox.create();

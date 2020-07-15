@@ -31,7 +31,6 @@ const Uuid = require('uuid');
 const $ = require('preconditions').singleton();
 const deprecatedServerMessage = require('../deprecated-serverMessages');
 const serverMessages = require('../serverMessages');
-const BCHAddressTranslator = require('./bchaddresstranslator');
 
 const COLLATERAL_COIN = 100000000000;
 
@@ -42,13 +41,9 @@ log.level = 'error';
 const EmailValidator = require('email-validator');
 
 import { Validation } from 'crypto-wallet-core';
-const Bitcore = require('bitcore-lib');
+const Bitcore = require('vircle-lib');
 const Bitcore_ = {
-  btc: Bitcore,
-  bch: require('bitcore-lib-cash'),
-  eth: Bitcore,
   vcl: require('vircle-lib'),
-  xrp: Bitcore
 };
 
 const Common = require('./common');
@@ -1297,10 +1292,6 @@ export class WalletService {
         (err, duplicate) => {
           if (err) return cb(err);
           if (duplicate) return cb(null, address);
-          if (wallet.coin == 'bch' && opts.noCashAddr) {
-            address = _.cloneDeep(address);
-            address.address = BCHAddressTranslator.translate(address.address, 'copay');
-          }
 
           this._notify(
             'NewAddress',
@@ -2247,24 +2238,12 @@ export class WalletService {
                 next => {
                   if (opts.dryRun) return next();
 
-                  if (txp.coin == 'bch') {
-                    if (opts.noCashAddr && txp.changeAddress) {
-                      txp.changeAddress.address = BCHAddressTranslator.translate(txp.changeAddress.address, 'copay');
-                    }
-                  }
-
                   this.storage.storeTx(wallet.id, txp, next);
                 }
               ],
               err => {
                 if (err) return cb(err);
 
-                if (txp.coin == 'bch') {
-                  if (opts.returnOrigAddrOutputs) {
-                    log.info('Returning Orig BCH address outputs for compat');
-                    txp.outputs = opts.origAddrOutputs;
-                  }
-                }
                 return cb(null, txp);
               }
             );
@@ -2321,11 +2300,6 @@ export class WalletService {
               if (err) return cb(err);
 
               this._notifyTxProposalAction('NewTxProposal', txp, () => {
-                if (opts.noCashAddr && txp.coin == 'bch') {
-                  if (txp.changeAddress) {
-                    txp.changeAddress.address = BCHAddressTranslator.translate(txp.changeAddress.address, 'copay');
-                  }
-                }
                 return cb(null, txp);
               });
             });
@@ -2792,19 +2766,6 @@ export class WalletService {
           txps = _.reject(txps, txp => {
             return txp.status == 'broadcasted';
           });
-
-          if (opts.noCashAddr && txps[0] && txps[0].coin == 'bch') {
-            _.each(txps, x => {
-              if (x.changeAddress) {
-                x.changeAddress.address = BCHAddressTranslator.translate(x.changeAddress.address, 'copay');
-              }
-              _.each(x.outputs, x => {
-                if (x.toAddress) {
-                  x.toAddress = BCHAddressTranslator.translate(x.toAddress, 'copay');
-                }
-              });
-            });
-          }
 
           return cb(err, txps);
         }

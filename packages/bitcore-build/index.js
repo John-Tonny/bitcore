@@ -26,6 +26,10 @@ function startGulp(name, opts) {
   var files = ['lib/**/*.js'];
   var tests = ['test/**/*.js'];
   var alljs = files.concat(tests);
+  
+  if ( name === 'vircle-lib') {
+    alljs = files;
+  }
 
   var buildPath = './node_modules/bitcore-build/';
   var buildModulesPath = buildPath + 'node_modules/';
@@ -36,7 +40,7 @@ function startGulp(name, opts) {
   var platoPath = buildBinPath + 'plato';
   var istanbulPath = buildBinPath + 'istanbul';
   var mochaPath = buildBinPath + '_mocha';
-
+  
   // newer version of node? binaries are in lower level of node_module path
   if (!fs.existsSync(browserifyPath)) {
     browserifyPath = './node_modules/.bin/browserify';
@@ -86,11 +90,13 @@ function startGulp(name, opts) {
 
     var browserifyCommand;
 
-    if (name !== 'lib') {
+    if (name !== 'lib') {      
       browserifyCommand = browserifyPath + ' --require ./index.js:' + fullname + ' --external bitcore-lib -o ' + fullname + '.js';
     } else {
       browserifyCommand = browserifyPath + ' --require ./index.js:bitcore-lib -o bitcore-lib.js';
     }
+    console.log("###############");
+    console.log(browserifyCommand);
 
     task['browser:uncompressed'] = shell.task([
       browserifyCommand
@@ -150,7 +156,8 @@ function startGulp(name, opts) {
     //// something smart like reading through the require statements
     return gulp.watch(alljs, gulp.series('test:node'));
   };
-
+  
+  
   if (browser) {
     task['watch:test:browser'], function() {
       // todo: only run tests that are linked to file changes by doing
@@ -158,7 +165,7 @@ function startGulp(name, opts) {
       return gulp.watch(alljs, task['test:browser']);
     };
   }
-
+  
   task['watch:coverage']= function() {
     // todo: only run tests that are linked to file changes by doing
     // something smart like reading through the require statements
@@ -170,7 +177,8 @@ function startGulp(name, opts) {
     //// something smart like reading through the require statements
     return gulp.watch(alljs, task[lint]);
   };
-
+  
+  
   if (browser) {
     task['watch:browser']= function() {
       return gulp.watch(alljs, task[browser]);
@@ -184,6 +192,7 @@ function startGulp(name, opts) {
     task['test']= task['test:node'];
   }
   task['default']= task['test'];
+  
 
   /**
    * Release automation

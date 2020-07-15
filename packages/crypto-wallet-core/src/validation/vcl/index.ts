@@ -4,7 +4,7 @@ const Vircle = require('vircle-lib');
 export class VclValidation implements IValidation {
   validateAddress(network: string, address: string): boolean {
     const Address = Vircle.Address;
-    // Regular Address: try Bitcoin
+    // Regular Address: try Vircle
     return Address.isValid(address, network);
   }
 

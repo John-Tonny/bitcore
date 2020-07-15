@@ -1,6 +1,6 @@
 'use strict';
 
-import { BitcoreLib, BitcoreLibCash, Deriver, Transactions, VircleLib } from 'crypto-wallet-core';
+import { Deriver, Transactions, VircleLib } from 'crypto-wallet-core';
 
 import * as _ from 'lodash';
 import { Constants } from './constants';
@@ -10,13 +10,10 @@ const $ = require('preconditions').singleton();
 const sjcl = require('sjcl');
 const Stringify = require('json-stable-stringify');
 
-const Bitcore = BitcoreLib;
+// john
+const Bitcore = VircleLib;
 const Bitcore_ = {
-  btc: Bitcore,
-  bch: BitcoreLibCash,
-  eth: Bitcore,
-  vcl: VircleLib,
-  xrp: Bitcore
+  vcl: VircleLib
 };
 const PrivateKey = Bitcore.PrivateKey;
 const PublicKey = Bitcore.PublicKey;

@@ -5,7 +5,7 @@ Bitcore and most official submodules work in the browser, thanks to [browserify]
 The easiest and recommended way to use them, is via [Bower](http://bower.io/), a browser package manager, and get the release bundles. For example, when building an app that uses `bitcore` and `bitcore-mnemonic`, you do:
 
 ```sh
-bower install bitcore-lib
+bower install vircle-lib
 bower install bitcore-mnemonic
 ```
 

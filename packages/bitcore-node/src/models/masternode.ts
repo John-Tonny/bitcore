@@ -41,7 +41,6 @@ export class VclMasternode extends BaseModel<IMasternode> {
   }
 
   async processMasternode(params) {
-
     let masternodeOp = this.getMasternodeOp(params);
     masternodeOp.updateOne.update.$set;
 
@@ -83,7 +82,7 @@ export class VclMasternode extends BaseModel<IMasternode> {
       lastpaidtime: masternode.lastpaidtime,
       lastpaidblock: masternode.lastpaidblock,
       pingretries: masternode.pingretries,
-      updatetime: masternode.updatetime,
+      updatetime: masternode.updatetime
     };
     if (options && options.object) {
       return transform;

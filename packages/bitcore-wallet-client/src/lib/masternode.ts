@@ -11,7 +11,7 @@ const Uuid = require('uuid');
 
 var Errors = require('./errors');
 
-var Bitcore = CWC.BitcoreLib;
+var Bitcore = CWC.VircleLib;
 
 const CLIENT_VERSION = 1000000;
 const CLIENT_SENTINEL_VERSION = 1000000;

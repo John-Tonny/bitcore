@@ -2,10 +2,9 @@ import * as _ from 'lodash';
 import { Constants, Utils } from './common';
 var $ = require('preconditions').singleton();
 
-import { BitcoreLib, BitcoreLibCash } from 'crypto-wallet-core';
+import { VircleLib } from 'crypto-wallet-core';
 
-var Bitcore = BitcoreLib;
-var BCHAddress = BitcoreLibCash.Address;
+var Bitcore = VircleLib;
 
 var log = require('./log');
 
@@ -195,11 +194,6 @@ export class Verifier {
     if ((txp.coin == 'btc' || txp.coin == 'vcl') && toAddress != payproOpts.instructions[0].toAddress) return false;
 
     // Workaround for cashaddr/legacy address problems...
-    if (
-      txp.coin == 'bch' &&
-      new BCHAddress(toAddress).toString() != new BCHAddress(payproOpts.instructions[0].toAddress).toString()
-    )
-      return false;
 
     // this generates problems...
     //  if (feeRate && payproOpts.requiredFeeRate &&

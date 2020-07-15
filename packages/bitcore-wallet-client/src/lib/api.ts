@@ -17,13 +17,9 @@ var $ = require('preconditions').singleton();
 var util = require('util');
 var async = require('async');
 var events = require('events');
-var Bitcore = CWC.BitcoreLib;
+var Bitcore = CWC.VircleLib;
 var Bitcore_ = {
-  btc: CWC.BitcoreLib,
-  bch: CWC.BitcoreLibCash,
-  eth: CWC.BitcoreLib,
-  vcl: CWC.VircleLib,
-  xrp: CWC.BitcoreLib
+  vcl: CWC.VircleLib
 };
 var Mnemonic = require('bitcore-mnemonic');
 var url = require('url');
@@ -67,8 +63,6 @@ export class API extends EventEmitter {
   static Masternode = Masternode;
 
   // Expose bitcore
-  static Bitcore = CWC.BitcoreLib;
-  static BitcoreCash = CWC.BitcoreLibCash;
   static Vircle = CWC.VircleLib;
 
   constructor(opts?) {
@@ -2408,16 +2402,8 @@ export class API extends EventEmitter {
     var checkKey = (key, cb) => {
       let opts = [
         // coin, network,  multisig
-        ['btc', 'livenet'],
-        ['bch', 'livenet'],
         ['vcl', 'livenet'],
-        ['eth', 'livenet'],
-        ['eth', 'testnet'],
-        ['xrp', 'livenet'],
-        ['xrp', 'testnet'],
         ['vcl', 'livenet', true],
-        ['btc', 'livenet', true],
-        ['bch', 'livenet', true]
       ];
       if (key.use44forMultisig) {
         //  testing old multi sig
@@ -2429,7 +2415,7 @@ export class API extends EventEmitter {
       if (key.use0forBCH) {
         //  testing BCH, old coin=0 wallets
         opts = opts.filter(x => {
-          return x[0] == 'bch';
+          return x[0] == 'vcl';
         });
       }
 
@@ -2443,7 +2429,7 @@ export class API extends EventEmitter {
       } else {
         //  leave only BTC, and no testnet
         opts = opts.filter(x => {
-          return x[0] == 'btc';
+          return x[0] == 'vcl';
         });
       }
 
@@ -2797,73 +2783,6 @@ export class API extends EventEmitter {
 
     if (!opts.ip) return cb(new Error('Not masternode ip'));
     var ip = opts.ip.split(':');
-
-    /*   
-    var presult ='';
-    presult += Masternode.serialize_input(opts.txid, opts.vout);
-    presult += Masternode.hash_decode(opts.pingHash);
-    var pingTime = Masternode.get_now_time();
-    presult += pingTime;
-    presult += '01';
-    presult += Masternode.get_int32(1);
-    presult += Masternode.get_int32(1);
-    
-    var pingMsg = new Bitcore.Message(presult); 
-    var pingKey = new Bitcore.PrivateKey(opts.privKey);
-    var pingSig = pingMsg.sign1(pingKey);
-
-    var result ='';
-    result += Masternode.serialize_input(opts.txid, opts.vout);
-    var ip = opts.ip.split(':');    
-    result += Masternode.get_address(ip[0], ip[1]);
-
-    var signPubKey= opts.signPrivKey.publicKey.toString('hex');
-    result += Masternode.get_varintNum(signPubKey.length/2);
-    result += signPubKey;
- 
-    var pubKey = pingKey.publicKey.toString('hex');
-    result += Masternode.get_varintNum(pubKey.length/2);
-    result += pubKey;
-
-    var signTime = Masternode.get_now_time();
-    result += signTime;
-    result += Masternode.get_int32(31800);
-
-    var msg = new Bitcore.Message(result);
-    var sig = msg.sign1(opts.signPrivKey);
-     
-    var sresult ='01';
-    sresult += Masternode.serialize_input(opts.txid, opts.vout);
-    var ip = opts.ip.split(':');
-    sresult += Masternode.get_address(ip[0], ip[1]);
-
-    sresult += Masternode.get_varintNum(signPubKey.length/2);
-    sresult += signPubKey;
- 
-    sresult += Masternode.get_varintNum(pubKey.length/2);
-    sresult += pubKey;
-
-    sresult += Masternode.get_varintNum(sig.length/2);
-    sresult += sig;
-    sresult += signTime;
-    sresult += Masternode.get_int32(31800);
-
-    sresult += Masternode.serialize_input(opts.txid, opts.vout);
-    sresult += Masternode.hash_decode(opts.pingHash);
-    sresult += pingTime;
-
-    sresult += Masternode.get_varintNum(sig.length/2);
-    sresult += pingSig
-
-    sresult += '01';
-    sresult += Masternode.get_int32(1000000);
-    sresult += Masternode.get_int32(1010191);
-    
-    var retrys = 0;
-    sresult += Masternode.get_int32(retrys);
-
-    return (null,sresult);
-    */
 
     var masternode = new Masternode(opts.txid, opts.vout, opts.signPrivKey, opts.pingHash, opts.privKey, ip[0], ip[1]);
 

@@ -34,10 +34,10 @@ export let UNITS = {
   },
   // john
   vcl: {
-    toSatoshis: 1e6,
+    toSatoshis: 100000000,
     full: {
-      maxDecimals: 6,
-      minDecimals: 6
+      maxDecimals: 8,
+      minDecimals: 8
     },
     short: {
       maxDecimals: 6,

@@ -15,7 +15,6 @@ import {
   Wallet
 } from './model';
 
-const BCHAddressTranslator = require('./bchaddresstranslator'); // only for migration
 const $ = require('preconditions').singleton();
 let log = require('npmlog');
 log.debug = log.verbose;
@@ -589,15 +588,7 @@ export class Storage {
 
     cursor.on('data', doc => {
       cursor.pause();
-      let x;
-      try {
-        x = BCHAddressTranslator.translate(doc.address, 'cashaddr');
-      } catch (e) {
-        return cb(e);
-      }
-
-      this.db.collection(collections.ADDRESSES).update({ _id: doc._id }, { $set: { address: x } }, { multi: true });
-      cursor.resume();
+      return cb(new Error('unsupported'));
     });
   }
 

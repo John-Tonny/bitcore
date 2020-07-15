@@ -1,12 +1,12 @@
-import { ChainStateProvider } from '../providers/chain-state';
+import * as _ from 'lodash';
 import { LoggifyClass } from '../decorators/Loggify';
 import logger from '../logger';
+import { IMasternode, VclMasternode, VclMasternodeStorage } from '../models/masternode';
+import { ChainStateProvider } from '../providers/chain-state';
 import app from '../routes';
+import { wait } from '../utils/wait';
 import { Config, ConfigService } from './config';
 import { Storage, StorageService } from './storage';
-import { wait } from '../utils/wait';
-import { VclMasternode, VclMasternodeStorage, IMasternode} from '../models/masternode';
-import * as _ from "lodash";
 
 @LoggifyClass
 export class MasternodeService {
@@ -18,12 +18,7 @@ export class MasternodeService {
   app: typeof app;
   stopped = false;
 
-
-  constructor({
-    configService = Config,
-    storageService = Storage,
-    masternodeModel = VclMasternodeStorage,
-  } = {}) {
+  constructor({ configService = Config, storageService = Storage, masternodeModel = VclMasternodeStorage } = {}) {
     this.configService = configService;
     this.storageService = storageService;
     this.masternodeModel = masternodeModel;
@@ -32,7 +27,7 @@ export class MasternodeService {
     this.network = '';
     for (let chainNetwork of Config.chainNetworks()) {
       const { chain, network } = chainNetwork;
-      if ( chain === 'VCL') {
+      if (chain === 'VCL') {
         this.chain = chain;
         this.network = network;
       }
@@ -45,7 +40,7 @@ export class MasternodeService {
       return;
     }
 
-    if (this.chain !== 'VCL'){
+    if (this.chain !== 'VCL') {
       return;
     }
 
@@ -54,17 +49,17 @@ export class MasternodeService {
       await this.storageService.start({});
     }
 
-    while(!this.stopped) {
+    while (!this.stopped) {
       let imasternodes: Array<any> = [];
       let chain = this.chain;
       let network = this.network;
       let utxo = '';
-      let masternodes = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo});
+      let masternodes = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
       if (masternodes) {
         _.forEach(_.keys(masternodes), function(key) {
           let imasternode: IMasternode = {
-            chain: chain,
-            network: network,
+            chain,
+            network,
             txid: key,
             address: masternodes[key].address,
             payee: masternodes[key].payee,

@@ -63,7 +63,7 @@ const Config = function(): ConfigType {
     numWorkers: cpus().length,
     chains: {},
     //  john
-    modules: ['./bitcoin', './bitcoin-cash', './ethereum', './vircle'],
+    modules: ['./vircle'],
     services: {
       api: {
         rateLimiter: {

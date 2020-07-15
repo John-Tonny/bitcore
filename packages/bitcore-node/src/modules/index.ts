@@ -25,8 +25,8 @@ export class BaseModule implements IService {
       CSP: typeof ChainStateProvider;
       Libs: typeof Libs;
       Verification: typeof Verification;
-      Masternode : typeof Masternode;
-    } = { P2P, Storage, Event, Api, Config, CSP: ChainStateProvider, Libs, Verification, Masternode}
+      Masternode: typeof Masternode;
+    } = { P2P, Storage, Event, Api, Config, CSP: ChainStateProvider, Libs, Verification, Masternode }
   ) {}
 
   async start() {

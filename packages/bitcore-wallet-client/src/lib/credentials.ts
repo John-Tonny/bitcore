@@ -1,12 +1,12 @@
 'use strict';
 
-import { BitcoreLib } from 'crypto-wallet-core';
+import { VircleLib } from 'crypto-wallet-core';
 
 import { Constants, Utils } from './common';
 const $ = require('preconditions').singleton();
 const _ = require('lodash');
 
-const Bitcore = BitcoreLib;
+const Bitcore = VircleLib;
 const sjcl = require('sjcl');
 
 export class Credentials {
