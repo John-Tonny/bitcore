@@ -12,9 +12,11 @@ import { Lock } from './lock';
 import { MessageBroker } from './messagebroker';
 import {
   Copayer,
+  IMasternode,
   INotification,
   ITxProposal,
   IWallet,
+  Masternodes,
   Notification,
   Preferences,
   PushNotificationSub,
@@ -1439,6 +1441,11 @@ export class WalletService {
       return utxo.txid + '|' + utxo.vout;
     };
 
+    const utxoKey1 = outpoint => {
+      var xtxid = outpoint.split('-');
+      return xtxid[0] + '|' + xtxid[1];
+    };
+
     let coin, allAddresses, allUtxos, utxoIndex, addressStrs, bc, wallet;
     async.series(
       [
@@ -1502,7 +1509,6 @@ export class WalletService {
         next => {
           this.getPendingTxs({}, (err, txps) => {
             if (err) return next(err);
-
             const lockedInputs = _.map(_.flatten(_.map(txps, 'inputs')), utxoKey);
             _.each(lockedInputs, input => {
               if (utxoIndex[input]) {
@@ -1539,6 +1545,27 @@ export class WalletService {
               log.debug(`Got ${allUtxos.length} usable UTXOs`);
               return next();
             }
+          );
+        },
+        // john
+        next => {
+          if ( !opts.excludeMasternode) {
+            return next();
+          }
+          this.storage.fetchMasternodes(
+              this.walletId,
+              undefined,
+              (err, masternodes) => {
+                if (err) return next(err);
+                const lockedInputs1 = _.map(_.flatten(_.map(masternodes, 'txid')), utxoKey1);
+                _.each(lockedInputs1, input => {
+                  if (utxoIndex[input]) {
+                    utxoIndex[input].locked = true;
+                  }
+                });
+                log.debug(`Got  ${masternodes.length} locked masternode utxos`);
+                return next();
+              }
           );
         },
         next => {
@@ -4055,7 +4082,7 @@ export class WalletService {
     });
   }
 
-  getMasternode(opts, cb) {
+  removeMasternodes(opts, cb) {
     opts = opts || {};
 
     opts.coin = opts.coin || Defaults.COIN;
@@ -4072,11 +4099,40 @@ export class WalletService {
       return cb(new ClientError('Invalid network'));
     }
 
-    const bc = this._getBlockchainExplorer(opts.coin, opts.network);
-    if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
-    bc.broadcastMasternode(opts.rawTx, (err, ret) => {
+    this.getWallet({}, (err, wallet) => {
       if (err) return cb(err);
-      return cb(null, ret);
+      if (!wallet.isComplete()) return cb(Errors.WALLET_NOT_COMPLETE);
+
+      if (wallet.scanStatus == 'error') return cb(Errors.WALLET_NEED_SCAN);
+
+      this.storage.removeMasternodes(wallet.id, opts.txid, cb);
+    });
+  }
+
+  getMasternodes(opts, cb) {
+    opts = opts || {};
+
+    opts.coin = opts.coin || Defaults.COIN;
+    if (!Utils.checkValueInCollection(opts.coin, Constants.COINS)) {
+      return cb(new ClientError('Invalid coin'));
+    }
+
+    if (opts.coin != 'vcl') {
+      return cb(new ClientError('coin is not longer supported in masternodes'));
+    }
+
+    opts.network = opts.network || 'livenet';
+    if (!Utils.checkValueInCollection(opts.network, Constants.NETWORKS)) {
+      return cb(new ClientError('Invalid network'));
+    }
+
+    this.getWallet({}, (err, wallet) => {
+      if (err) return cb(err);
+      if (!wallet.isComplete()) return cb(Errors.WALLET_NOT_COMPLETE);
+
+      if (wallet.scanStatus == 'error') return cb(Errors.WALLET_NEED_SCAN);
+
+      this.storage.fetchMasternodes(wallet.id, opts.txid, cb);
     });
   }
 
@@ -4089,7 +4145,7 @@ export class WalletService {
     }
 
     if (opts.coin != 'vcl') {
-      return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
+      return cb(new ClientError('coin is not longer supported in MasternodeStatus'));
     }
 
     opts.network = opts.network || 'livenet';
@@ -4117,16 +4173,63 @@ export class WalletService {
       return cb(new ClientError('coin is not longer supported in broadcastMasternode'));
     }
 
+    if (!opts.masternodeKey) {
+      return cb(new ClientError('Invalid masternode private key'));
+    }
+
+
     opts.network = opts.network || 'livenet';
     if (!Utils.checkValueInCollection(opts.network, Constants.NETWORKS)) {
       return cb(new ClientError('Invalid network'));
     }
 
-    const bc = this._getBlockchainExplorer(opts.coin, opts.network);
-    if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
-    bc.broadcastMasternode(opts.rawTx, (err, ret) => {
+    this.getWallet({}, (err, wallet) => {
       if (err) return cb(err);
-      return cb(null, ret);
+      if (!wallet.isComplete()) return cb(Errors.WALLET_NOT_COMPLETE);
+
+      if (wallet.scanStatus == 'error') return cb(Errors.WALLET_NEED_SCAN);
+
+      const bc = this._getBlockchainExplorer(opts.coin, opts.network);
+      if (!bc) return cb(new Error('Could not get blockchain explorer instance'));
+      bc.broadcastMasternode(opts.rawTx, (err, ret) => {
+        if (err) return cb(err);
+        // john
+
+        var masternodeStatus: { chain?: string; network?: string, address?: string, txid?: string; masternodeKey?: string, status?: string, walletId?: string } = {}  ;
+        if ( !ret.errorMessage ) {
+          _.forEach(_.keys(ret), function(key) {
+            if (ret[key].outpoint && ret[key].addr ) {
+              masternodeStatus.chain = wallet.coin;
+              masternodeStatus.network = wallet.network;
+              masternodeStatus.address = ret[key].addr;
+              masternodeStatus.txid = ret[key].outpoint;
+              masternodeStatus.masternodeKey = opts.masternodeKey;
+              masternodeStatus.status = 'PRE_ENABLED';
+              masternodeStatus.walletId = wallet.id;
+              return;
+            }
+          });
+          var masternodes = Masternodes.create(masternodeStatus);
+          this.storage.storeMasternode(wallet.id, masternodes, err => {
+            if (!err) {
+              this._notify(
+                  'NewMasternode',
+                  {
+                    chain: masternodes.chain,
+                    network: masternodes.network,
+                    address: masternodes.address,
+                    txid: masternodes.txid,
+                    masternodeKey:  masternodes.masternodeKey,
+                    status: masternodes.status
+                  },
+                  () => {}
+              );
+
+            }
+          });
+        }
+        return cb(null, ret);
+      });
     });
   }
 

@@ -31,50 +31,16 @@ module.exports = {
     }
   },
   blockchainExplorerOpts: {
-    btc: {
-      livenet: {
-        url: 'https://api.bitcore.io'
-      },
-      testnet: {
-        url: 'https://api.bitcore.io',
-        regtestEnabled: false
-      }
-    },
-    bch: {
-      livenet: {
-        url: 'https://api.bitcore.io'
-      },
-      testnet: {
-        url: 'https://api.bitcore.io'
-      }
-    },
-    eth: {
-      livenet: {
-        url: 'https://api-eth.bitcore.io'
-      },
-      testnet: {
-        url: 'https://api-eth.bitcore.io'
-      }
-    },
     // john
     vcl: {
       livenet: {
-        // john
-        url: 'http://localhost:8200'
-      },
+        url: 'http://localhost:3000'
+      } /*,
       testnet: {
-        url: 'http://localhost:8210'
-      }
+        url: 'http://localhost:3100'
+      }*/
     },
-    xrp: {
-      livenet: {
-        url: 'https://api-xrp.bitcore.io'
-      },
-      testnet: {
-        url: 'https://api-xrp.bitcore.io'
-      }
-    },
-    socketApiKey: 'socketApiKey'
+    socketApiKey: 'L2mPTvucM9CNvUU6MaJwUpYiLEDN9TLa3g3Fv4Fu8CnZob4ADZdJ'
   },
   pushNotificationsOpts: {
     templatePath: 'templates',

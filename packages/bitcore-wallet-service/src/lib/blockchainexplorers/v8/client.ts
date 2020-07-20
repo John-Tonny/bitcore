@@ -163,7 +163,7 @@ export class Client {
 
   async getMasternodeStatus(params) {
     const { txId } = params;
-    const url = `${this.baseUrl}/masternode/${txId}`;
+    const url = `${this.baseUrl}/masternode/status/${txId}`;
     console.log('GET MASTERNODE STATUS:', url);
     return request.get(url, {
       json: true

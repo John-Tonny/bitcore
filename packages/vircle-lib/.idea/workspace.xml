@@ -2,236 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6c0a651-8669-4f04-a85c-58e0cac558cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bitcore-build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/networks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/networks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/input/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/lib/transaction/transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-lib/test/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-lib/test/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/bitcore-mnemonic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/bitcore-mnemonic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/lib/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/lib/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/lib/mnemonic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/lib/mnemonic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/chain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/chain.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/models/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/models/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/bitcoin-cash/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/bitcoin/VerificationPeer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/modules/vircle/VerificationPeer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/bitcoin/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/bitcoin/p2p.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/modules/vircle/p2p.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/abi/erc20.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/abi/erc721.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/abi/invoice.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/api/csp.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/api/erc20Transform.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/api/eth-routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/api/transform.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/models/block.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/models/transaction.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/p2p/EthVerificationPeer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/p2p/p2p.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/p2p/parityRpc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ethereum/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/modules/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/csp.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/event-adapter.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/transform.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/wallet-tx-transform.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/api/xrp-routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/models/block.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/models/transaction.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/p2p.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/ripple/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/modules/vircle/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/modules/vircle/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/providers/chain-state/bch/bch.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/providers/chain-state/btc/btc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/providers/chain-state/vcl/vcl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/providers/chain-state/vcl/vcl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/providers/libs/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/providers/libs/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/services/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/services/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/utils/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/utils/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/benchmark/benchmark.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/benchmark/benchmark.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/generate-fixtures/transaction.fixture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/generate-fixtures/transaction.fixture.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/ethereum/csp.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/ethereum/p2p.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/ripple/csp.integration.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/verification.integration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/integration/verification.integration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/wallet-benchmark.integration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/integration/wallet-benchmark.integration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/integration/websocket.integration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/integration/websocket.integration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/unit/models/transaction.unit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/unit/models/transaction.unit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/verification/db-repair.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/verification/db-repair.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/test/verification/resync.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/test/verification/resync.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/docs/pool.md" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/docs/pool.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/integration/bitcoind.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/integration/bitcoind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/bloomfilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/bloomfilter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/addr.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/addr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/alert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/block.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/block.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filteradd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filteradd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filterclear.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filterclear.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filterload.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/filterload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getaddr.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getaddr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getblocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getblocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getdata.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getheaders.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/getheaders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/headers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/headers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/inv.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/inv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/mempool.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/mempool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/merkleblock.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/merkleblock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/notfound.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/notfound.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/ping.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/ping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/pong.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/pong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/reject.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/reject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/tx.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/tx.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/verack.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/verack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/peer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/peer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/pool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/bloomfilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/bloomfilter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/messages/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/messages/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/messages/commands/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/messages/commands/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/messages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/messages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/messages/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/messages/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/messages/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/messages/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/peer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/peer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/test/pool.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/test/pool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/common/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/common/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/credentials.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/credentials.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/key.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/key.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/paypro.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/paypro.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/payproV2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/payproV2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/verifier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/verifier.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/bchaddresstranslator.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/bch/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/btc/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/eth/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/xrp/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/fiatrateservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/fiatrateservice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/address.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/address.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/wallet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/wallet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/masternodes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/constants/units.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/constants/units.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/bch/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/btc/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/eth/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/derivation/xrp/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/bch/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/btc/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/erc20/abi.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/erc20/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/eth/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/vcl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/vcl/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/transactions/xrp/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/bch/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/btc/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/eth/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/vcl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/vcl/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/src/validation/xrp/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/browser.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/transaction/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/transaction/input/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/transaction/sighashwitness.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/transaction/sighashwitness.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/transaction/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/transaction/transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/address.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/address_witness.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/block/block.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/block/blockheader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/block/merkleblock.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/bn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/ecdsa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/hash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/point.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/random.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/crypto/signature.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bip69.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/base58_keys_invalid.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/base58_keys_valid.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/blocks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/script_tests.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/sig_canonical.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/sig_noncanonical.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/tx_invalid.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/bitcoind/tx_valid.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/blk86756-testnet.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/blk86756-testnet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/blk86756-testnet.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/ecdsa.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/merkleblocks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/messages.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/sighash.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/tx_creation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/docs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/encoding/base58.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/encoding/base58check.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/encoding/bufferreader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/encoding/bufferwriter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/encoding/varint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/hdkeys.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/hdprivatekey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/hdpublickey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/message.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/mocha.opts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/networks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/opcode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/privatekey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/publickey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/script/interpreter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/script/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/deserialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/input/input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/input/multisig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/input/multisigscripthash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/input/publickey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/input/publickeyhash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/output.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/sighash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/sighashwitness.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/signature.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/transaction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transaction/unspentoutput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/uri.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/util/buffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/util/js.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/util/preconditions.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -244,17 +20,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/transaction/transaction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="308" column="50" lean-forward="true" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="63" />
+            <state relative-caret-position="4620">
+              <caret line="308" column="50" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/script/script.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
-              <caret line="424" column="62" lean-forward="true" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
+              <caret line="424" column="62" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -262,26 +38,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/transaction/input/publickeyhash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
+            <state relative-caret-position="624">
               <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/transaction/input/input.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="254">
               <caret line="153" selection-start-line="153" selection-end-line="153" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/transaction/sighashwitness.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -360,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -396,6 +162,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,17 +198,18 @@
       <workItem from="1594622051331" duration="4049000" />
       <workItem from="1594689275389" duration="14229000" />
       <workItem from="1594774966044" duration="5498000" />
+      <workItem from="1594950327417" duration="615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27385000" />
+    <option name="totallyTimeSpent" value="28000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="31" width="1536" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26639894" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26974565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -571,10 +339,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/transaction/input/input.js">
+    <entry file="file://$PROJECT_DIR$/lib/transaction/transaction.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="4620">
+          <caret line="308" column="50" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -585,31 +353,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/script/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="424" column="62" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/transaction/input/publickeyhash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
+        <state relative-caret-position="624">
           <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/transaction/sighashwitness.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+        <state relative-caret-position="624">
+          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/transaction/transaction.js">
+    <entry file="file://$PROJECT_DIR$/lib/transaction/input/input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="308" column="50" lean-forward="true" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/script/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="424" column="62" lean-forward="true" selection-start-line="424" selection-start-column="62" selection-end-line="424" selection-end-column="62" />
+        <state relative-caret-position="254">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
         </state>
       </provider>
     </entry>

@@ -241,12 +241,8 @@ export class EmailService {
   _getDataForTemplate(notification, recipient, cb) {
     // TODO: Declare these in BWU
     const UNIT_LABELS = {
-      btc: 'BTC',
       bit: 'bits',
-      bch: 'BCH',
-      eth: 'ETH',
       vcl: 'VCL',
-      xrp: 'XRP'
     };
 
     const data = _.cloneDeep(notification.data);

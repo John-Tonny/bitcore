@@ -3,7 +3,7 @@ import { ObjectID } from 'mongodb';
 import SocketIO = require('socket.io');
 import { LoggifyClass } from '../decorators/Loggify';
 import logger from '../logger';
-import { CoinEvent, EventModel, EventStorage, TxEvent } from '../models/events';
+import { CoinEvent, EventModel, EventStorage, MasternodeEvent, TxEvent } from '../models/events';
 import { BlockEvent } from '../models/events';
 import { WalletStorage } from '../models/wallet';
 import { ConfigType } from '../types/Config';
@@ -62,6 +62,7 @@ export class SocketService {
       logger.info('Starting Socket Service');
       this.httpServer = server;
       this.io = SocketIO(server);
+
       this.io.sockets.on('connection', socket => {
         socket.on('room', (room: string, payload: VerificationPayload) => {
           const chainNetwork = room.slice(0, room.lastIndexOf('/') + 1);
@@ -99,6 +100,7 @@ export class SocketService {
     this.eventService.blockEvent.removeAllListeners();
     this.eventService.txEvent.removeAllListeners();
     this.eventService.addressCoinEvent.removeAllListeners();
+    this.eventService.masternodeEvent.removeAllListeners();
   }
 
   async wireup() {
@@ -128,6 +130,14 @@ export class SocketService {
       }
     });
 
+    // john
+    this.eventService.masternodeEvent.on('masternode', (masternode: MasternodeEvent) => {
+      if (this.io) {
+        const { chain, network } = masternode;
+        this.io.sockets.in(`/${chain}/${network}/masternode`).emit('masternode', masternode);
+      }
+    });
+
     this.eventService.addressCoinEvent.on('coin', async (addressCoin: CoinEvent) => {
       if (this.io) {
         const { coin, address } = addressCoin;
@@ -147,6 +157,11 @@ export class SocketService {
         }
       }
     });
+  }
+
+  // john
+  async signalMasternode(masternode: MasternodeEvent) {
+    await EventStorage.signalMasternode(masternode);
   }
 
   async signalBlock(block: BlockEvent) {

@@ -46,14 +46,11 @@ export class BlockchainMonitor {
     this.last = this.lastTx = [];
 
     async.parallel(
+
       [
         done => {
           this.explorers = {
-            btc: {},
-            bch: {},
-            eth: {},
             vcl: {},
-            xrp: {}
           };
 
           const coinNetworkPairs = [];

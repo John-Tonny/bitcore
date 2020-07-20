@@ -1081,23 +1081,24 @@ export class ExpressApp {
 
     router.get('/v1/masternode/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; txid?: string; address?: string; payee?: string } = {};
+        const opts: { coin?: string; txid?: string} = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
-        if (req.query.address) opts.address = req.query.address;
-        if (req.query.payee) opts.payee = req.query.payee;
-        server.getMasternodeStatus(opts, (err, ret) => {
+        server.getMasternodes(opts, (err, ret) => {
           if (err) return returnError(err, res, req);
           res.json(ret);
         });
       });
     });
 
-    router.post('/v1/masternode/broadcast/', (req, res) => {
+    router.get('/v1/masternode/status', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; raw?: string } = {};
+        const opts: { coin?: string; txid?: string; address?: string; payee?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
-        server.broadcastMasternode(req.body, (err, ret) => {
+        if (req.query.txid) opts.txid = req.query.txid;
+        if (req.query.address) opts.address = req.query.address;
+        if (req.query.payee) opts.payee = req.query.payee;
+        server.getMasternodeStatus(opts, (err, ret) => {
           if (err) return returnError(err, res, req);
           res.json(ret);
         });
@@ -1113,6 +1114,29 @@ export class ExpressApp {
         server.getMasternodePing(opts, (err, result) => {
           if (err) return returnError(err, res, req);
           res.json(result);
+        });
+      });
+    });
+
+    router.post('/v1/masternode/broadcast/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string; raw?: string } = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        server.broadcastMasternode(req.body, (err, ret) => {
+          if (err) return returnError(err, res, req);
+          res.json(ret);
+        });
+      });
+    });
+
+    router.delete('/v1/masternode/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        const opts: { coin?: string; txid?: string} = {};
+        if (req.query.coin) opts.coin = req.query.coin;
+        if (req.query.txid) opts.txid = req.query.txid;
+        server.removeMasternodes(req.body, (err, ret) => {
+          if (err) return returnError(err, res, req);
+          res.json(ret);
         });
       });
     });

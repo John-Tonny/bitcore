@@ -1697,3 +1697,54 @@ Unhandled Rejection at: Error: Syncing Node Renewal Failure
 Shutting down 68359
 {"message":"Stopping P2P Manager","level":"info"}
 {"message":"Stopping Event Service","level":"info"}
+
+> @8.20.4 insight /home/john/bitcore
+> cd ./packages/insight && npm start
+
+
+> @bitpay/insight-previous@8.20.4 start /home/john/bitcore/packages/insight
+> npm run ionic:serve
+
+
+> @bitpay/insight-previous@8.20.4 ionic:serve /home/john/bitcore/packages/insight
+> ionic-app-scripts serve --port 8200
+
+[18:07:10]  ionic-app-scripts 3.2.3 
+[18:07:10]  watch started ... 
+[18:07:10]  build dev started ... 
+[18:07:11]  clean started ... 
+[18:07:11]  clean finished in 27 ms 
+[18:07:11]  copy started ... 
+[18:07:11]  Proxy added:/api => http://localhost:3000/api 
+[18:07:11]  deeplinks started ... 
+[18:07:11]  deeplinks finished in 268 ms 
+[18:07:11]  transpile started ... 
+[18:07:25]  transpile finished in 13.76 s 
+[18:07:25]  preprocess started ... 
+[18:07:25]  preprocess finished in less than 1 ms 
+[18:07:25]  webpack started ... 
+[18:07:26]  copy finished in 15.38 s 
+[18:07:46]  webpack finished in 20.61 s 
+[18:07:46]  sass started ... 
+[18:07:48]  sass finished in 2.05 s 
+[18:07:48]  postprocess started ... 
+[18:07:48]  postprocess finished in 11 ms 
+[18:07:48]  lint started ... 
+[18:07:48]  build dev finished in 37.29 s 
+[18:07:48]  dev server running: http://localhost:8201/ 
+
+no-use-before-declare is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
+[18:08:04]  lint finished in 16.18 s 
+Killed
+Killed
+Error: read ECONNRESET
+    at TCP.onread (net.js:656:25)
+Error: read ECONNRESET
+    at TCP.onread (net.js:656:25)
+Error: read ECONNRESET
+    at TCP.onread (net.js:656:25)
+Error: read ECONNRESET
+    at TCP.onread (net.js:656:25)
+Error: read ECONNRESET
+    at TCP.onread (net.js:656:25)
+Killed

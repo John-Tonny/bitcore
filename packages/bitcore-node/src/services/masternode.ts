@@ -7,6 +7,7 @@ import app from '../routes';
 import { wait } from '../utils/wait';
 import { Config, ConfigService } from './config';
 import { Storage, StorageService } from './storage';
+import { EventStorage } from '../models/events';
 
 @LoggifyClass
 export class MasternodeService {
@@ -80,6 +81,9 @@ export class MasternodeService {
         });
         for (const imasternode of imasternodes) {
           this.processMasternode(imasternode);
+        }
+        if (imasternodes.length > 0) {
+          EventStorage.signalMasternode({state: "new", chain: chain, network: network});
         }
       }
       await wait(5 * 60 * 1000);

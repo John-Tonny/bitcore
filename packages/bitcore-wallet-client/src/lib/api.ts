@@ -2628,6 +2628,82 @@ export class API extends EventEmitter {
     this.request.get(url, cb);
   }
 
+  // * remove masternodes
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {Callback} cb
+  // */
+  removeMasternodes(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: removeMasternodes should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    $.checkState(this.credentials && this.credentials.isComplete());
+
+    var args = [];
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      if (opts.coin != 'vcl') {
+        return cb(new Error('coin is not supported'));
+      }
+      args.push('coin=' + opts.coin);
+    }
+
+    if (opts.txid) {
+      args.push('txid=' + opts.txid);
+    }
+
+    var qs = '';
+    if (args.length > 0) {
+      qs = '?' + args.join('&');
+    }
+
+    var url = '/v1/masternode/' + qs;
+    this.request.delete(url, cb);
+  }
+
+  // * get masternodes
+  // *
+  // * @param {String} opts.coin - Optional: defaults to current wallet coin
+  // * @param {Callback} cb
+  // */
+  getMasternodes(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: getMasternodes should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    $.checkState(this.credentials && this.credentials.isComplete());
+
+    var args = [];
+    if (opts.coin) {
+      if (!_.includes(Constants.COINS, opts.coin)) return cb(new Error('Invalid coin'));
+      if (opts.coin != 'vcl') {
+        return cb(new Error('coin is not supported'));
+      }
+      args.push('coin=' + opts.coin);
+    }
+
+    if (opts.txid) {
+      args.push('txid=' + opts.txid);
+    }
+
+    var qs = '';
+    if (args.length > 0) {
+      qs = '?' + args.join('&');
+    }
+
+    var url = '/v1/masternode/' + qs;
+    this.request.get(url, cb);
+  }
+
   // * get masternode status
   // *
   // * @param {String} opts.coin - Optional: defaults to current wallet coin
@@ -2666,7 +2742,7 @@ export class API extends EventEmitter {
       qs = '?' + args.join('&');
     }
 
-    var url = '/v1/masternode/' + qs;
+    var url = '/v1/masternode/status/' + qs;
     this.request.get(url, cb);
   }
 
@@ -2700,6 +2776,9 @@ export class API extends EventEmitter {
 
     if (!opts.rawTx) return cb(new Error('Not rawTx'));
     args.rawTx = opts.rawTx;
+
+    if (!opts.masternodeKey) return cb(new Error('Not masternode private key'));
+    args.masternodeKey = opts.masternodeKey;
 
     var url = '/v1/masternode/broadcast/';
     this.request.post(url, args, (err, body) => {

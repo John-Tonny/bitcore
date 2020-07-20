@@ -3,9 +3,10 @@ import * as _ from 'lodash';
 import logger from '../../logger';
 import { ChainStateProvider } from '../../providers/chain-state';
 
+
 const router = Router({ mergeParams: true });
 
-router.get('/', async (req, res) => {
+router.get('/status', async (req, res) => {
   let { chain, network } = req.params;
   let { txid, address, payee } = req.query;
 

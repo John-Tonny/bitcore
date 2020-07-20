@@ -3,15 +3,7 @@ import * as CWC from 'crypto-wallet-core';
 
 module.exports = {
   COINS: {
-    BTC: 'btc',
-    BCH: 'bch',
-    ETH: 'eth',
-    VCL: 'vcl',
-    XRP: 'xrp',
-    USDC: 'usdc',
-    PAX: 'pax',
-    GUSD: 'gusd',
-    BUSD: 'busd'
+    VCL: 'vcl'
   },
 
   ERC20: {
@@ -22,8 +14,6 @@ module.exports = {
   },
 
   UTXO_COINS: {
-    BTC: 'btc',
-    BCH: 'bch',
     VCL: 'vcl'
   },
 

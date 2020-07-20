@@ -5,6 +5,7 @@ import * as mongodb from 'mongodb';
 import {
   Address,
   Email,
+  Masternodes,
   Notification,
   Preferences,
   PushNotificationSub,
@@ -35,6 +36,8 @@ const collections = {
   SESSIONS: 'sessions',
   PUSH_NOTIFICATION_SUBS: 'push_notification_subs',
   TX_CONFIRMATION_SUBS: 'tx_confirmation_subs',
+  // john
+  MASTERNODES: 'masternodes',
   LOCKS: 'locks'
 };
 
@@ -134,6 +137,14 @@ export class Storage {
     });
     db.collection(collections.SESSIONS).createIndex({
       copayerId: 1
+    });
+    // john
+    db.collection(collections.MASTERNODES).createIndex({
+      walletId: 1
+    });
+    db.collection(collections.MASTERNODES).createIndex({
+      walletId: 1,
+      txid: 1
     });
   }
 
@@ -1511,5 +1522,87 @@ export class Storage {
         return cb();
       }
     );
+  }
+
+  // TODO: store masternode
+  storeMasternode(walletId, masternode, cb) {
+    this.db.collection(collections.MASTERNODES).update(
+      {
+        txid: masternode.txid,
+        walletId
+      },
+      masternode,
+        {
+          w: 1,
+          upsert: true
+      },
+      cb
+    );
+  }
+
+  // TODO: remove masternode
+  removeMasternodes(walletId, txid, cb) {
+    if (!this.db) return cb();
+
+    if (txid) {
+      this.db.collection(collections.MASTERNODES).remove(
+          {
+            txid: txid,
+            walletId
+          },
+          {
+            w: 1
+          },
+          cb
+      );
+    }else {
+      this.db.collection(collections.MASTERNODES).remove(
+          {
+            walletId
+          },
+          {
+            w: 1
+          },
+          cb
+      );
+    }
+  }
+
+  /**
+   * fetchMasternodes. Times are in UNIX EPOCH (seconds)
+   *
+   * @param walletId
+   * @param txid
+   */
+
+  fetchMasternodes(walletId, txid, cb) {
+    if (!this.db) return cb();
+
+    if (txid) {
+      this.db.collection(collections.MASTERNODES).findOne(
+          {
+            txid: txid,
+            walletId
+          },
+          (err, result) => {
+            if (err) return cb(err);
+            if (!result) return cb();
+            return cb(null, Masternodes.fromObj(result));
+          }
+      );
+    }else{
+      this.db
+        .collection(collections.MASTERNODES)
+        .find({ walletId })
+        .toArray((err, result) => {
+          if (err) return cb(err);
+          if (!result) return cb();
+          var masternodes = [];
+          for (let i=0; i< result.length; i++) {
+            masternodes.push(Masternodes.fromObj(result[i]))
+          }
+          return cb(null, masternodes);
+        });
+    }
   }
 }

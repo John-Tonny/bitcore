@@ -34,6 +34,10 @@ const PUSHNOTIFICATIONS_TYPES = {
   NewIncomingTx: {
     filename: 'new_incoming_tx'
   },
+  // john
+  NewMasternode: {
+    filename: 'new_masternode'
+  },
   TxProposalFinallyRejected: {
     filename: 'txp_finally_rejected'
   },
@@ -331,16 +335,8 @@ export class PushNotificationsService {
 
   _getDataForTemplate(notification: INotification, recipient, cb) {
     const UNIT_LABELS = {
-      btc: 'BTC',
       bit: 'bits',
-      bch: 'BCH',
-      eth: 'ETH',
-      vcl: 'VCL',
-      xrp: 'XRP',
-      usdc: 'USDC',
-      pax: 'PAX',
-      gusd: 'GUSD',
-      busd: 'BUSD'
+      vcl: 'VCL'
     };
     const data = _.cloneDeep(notification.data);
     data.subjectPrefix = _.trim(this.subjectPrefix + ' ');

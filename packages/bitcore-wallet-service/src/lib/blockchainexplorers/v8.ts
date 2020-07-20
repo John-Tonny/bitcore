@@ -20,7 +20,7 @@ const Constants = Common.Constants,
 
 function v8network(bwsNetwork) {
   if (bwsNetwork == 'livenet') return 'mainnet';
-  if (bwsNetwork == 'testnet' && config.blockchainExplorerOpts.btc.testnet.regtestEnabled) {
+  if (bwsNetwork == 'testnet' && config.blockchainExplorerOpts.vcl.testnet.regtestEnabled) {
     return 'regtest';
   }
   return bwsNetwork;
@@ -485,7 +485,7 @@ export class V8 {
     } else if (typeof opts.payee !== 'undefined') {
       qs = '?payee=' + opts.payee;
     }
-    const url = this.baseUrl + '/masternode/' + qs;
+    const url = this.baseUrl + '/masternode/status/' + qs;
     this.request
       .get(url, {})
       .then(ret => {

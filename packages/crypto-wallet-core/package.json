@@ -27,11 +27,12 @@
   "author": "Micah Riggan",
   "license": "MIT",
   "dependencies": {
-    "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
     "ethers": "4.0.37",
     "ripple-binary-codec": "0.2.6",
     "ripple-keypairs": "git+https://git@github.com/bitpay/ripple-keypairs.git#8d3a4643a8ddfce8222786e1e5a3e85a89a5b7f5",
     "ripple-lib": "1.4.2",
+    "typedarray-to-buffer": "^3.1.5",
+    "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
     "web3": "1.2.1"
   },
   "devDependencies": {

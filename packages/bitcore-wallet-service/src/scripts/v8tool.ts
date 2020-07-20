@@ -29,10 +29,7 @@ tmp.compressed = false;
 const pubKey = Bitcore.PrivateKey(tmp).toPublicKey();
 
 const BASE = {
-  BTC: `https://api.bitcore.io/api/${coin}/${network}`,
-  BCH: `https://api.bitcore.io/api/${coin}/${network}`,
   VCL: `https://bws.vircle.xyz:2443/api/${coin}/${network}`,
-  ETH: `https://api-eth.bitcore.io/api/${coin}/${network}`
 };
 let baseUrl = BASE[coin];
 console.log('[v8tool.ts.37:baseUrl:]', baseUrl); // TODO
