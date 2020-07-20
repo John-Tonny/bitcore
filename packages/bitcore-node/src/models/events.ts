@@ -62,7 +62,9 @@ export class EventModel extends BaseModel<IEvent> {
   }
 
   public getMasternodeTail(lastSeen: Date) {
-    return this.collection.find({ type: 'masternode', emitTime: { $gte: lastSeen } }).addCursorFlag('noCursorTimeout', true);
+    return this.collection
+      .find({ type: 'masternode', emitTime: { $gte: lastSeen } })
+      .addCursorFlag('noCursorTimeout', true);
   }
 
   public getBlockTail(lastSeen: Date) {

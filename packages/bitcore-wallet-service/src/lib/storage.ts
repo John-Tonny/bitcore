@@ -1532,9 +1532,39 @@ export class Storage {
         walletId
       },
       masternode,
-        {
-          w: 1,
-          upsert: true
+      {
+        w: 1,
+        upsert: true
+      },
+      cb
+    );
+  }
+
+    // TODO: update masternode
+  updateMasternode(masternode, cb) {
+    this.db.collection(collections.MASTERNODES).update(
+      {
+        txid: masternode.txid,
+      },{
+        $set: {
+          createdOn: masternode.createdOn,
+          address: masternode.address,
+          payee: masternode.payee,
+          status: masternode.status,
+          protocol: masternode.protocol,
+          daemonversion: masternode.daemonversion,
+          sentinelversion: masternode.sentinelversion,
+          sentinelstate: masternode.sentinelstate,
+          lastseen: masternode.lastseen,
+          activeseconds: masternode.activeseconds,
+          lastpaidtime: masternode.lastpaidtime,
+          lastpaidblock: masternode.lastpaidblock,
+          pingretries: masternode.pingretries
+        }
+      },
+    {
+        w: 1,
+        upsert: false
       },
       cb
     );
@@ -1546,24 +1576,24 @@ export class Storage {
 
     if (txid) {
       this.db.collection(collections.MASTERNODES).remove(
-          {
-            txid: txid,
-            walletId
-          },
-          {
-            w: 1
-          },
-          cb
+        {
+          txid,
+          walletId
+        },
+        {
+          w: 1
+        },
+        cb
       );
-    }else {
+    } else {
       this.db.collection(collections.MASTERNODES).remove(
-          {
-            walletId
-          },
-          {
-            w: 1
-          },
-          cb
+        {
+          walletId
+        },
+        {
+          w: 1
+        },
+        cb
       );
     }
   }
@@ -1580,17 +1610,17 @@ export class Storage {
 
     if (txid) {
       this.db.collection(collections.MASTERNODES).findOne(
-          {
-            txid: txid,
-            walletId
-          },
-          (err, result) => {
-            if (err) return cb(err);
-            if (!result) return cb();
-            return cb(null, Masternodes.fromObj(result));
-          }
+        {
+          txid,
+          walletId
+        },
+        (err, result) => {
+          if (err) return cb(err);
+          if (!result) return cb();
+          return cb(null, Masternodes.fromObj(result));
+        }
       );
-    }else{
+    } else {
       this.db
         .collection(collections.MASTERNODES)
         .find({ walletId })
@@ -1598,11 +1628,27 @@ export class Storage {
           if (err) return cb(err);
           if (!result) return cb();
           var masternodes = [];
-          for (let i=0; i< result.length; i++) {
-            masternodes.push(Masternodes.fromObj(result[i]))
+          for (let i = 0; i < result.length; i++) {
+            masternodes.push(Masternodes.fromObj(result[i]));
           }
           return cb(null, masternodes);
         });
     }
+  }
+
+  fetchMasternodesFromTxId(txid, cb) {
+    if (!this.db) return cb();
+    if (!txid) return cb();
+
+    this.db.collection(collections.MASTERNODES).findOne(
+        {
+          txid,
+        },
+        (err, result) => {
+          if (err) return cb(err);
+          if (!result) return cb();
+          return cb(null, Masternodes.fromObj(result));
+        }
+    );
   }
 }

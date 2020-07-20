@@ -242,7 +242,7 @@ export class EmailService {
     // TODO: Declare these in BWU
     const UNIT_LABELS = {
       bit: 'bits',
-      vcl: 'VCL',
+      vcl: 'VCL'
     };
 
     const data = _.cloneDeep(notification.data);

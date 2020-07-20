@@ -1,13 +1,13 @@
 import * as _ from 'lodash';
 import { LoggifyClass } from '../decorators/Loggify';
 import logger from '../logger';
+import { EventStorage } from '../models/events';
 import { IMasternode, VclMasternode, VclMasternodeStorage } from '../models/masternode';
 import { ChainStateProvider } from '../providers/chain-state';
 import app from '../routes';
 import { wait } from '../utils/wait';
 import { Config, ConfigService } from './config';
 import { Storage, StorageService } from './storage';
-import { EventStorage } from '../models/events';
 
 @LoggifyClass
 export class MasternodeService {
@@ -83,7 +83,7 @@ export class MasternodeService {
           this.processMasternode(imasternode);
         }
         if (imasternodes.length > 0) {
-          EventStorage.signalMasternode({state: "new", chain: chain, network: network});
+          EventStorage.signalMasternode({ state: 'new', chain, network });
         }
       }
       await wait(5 * 60 * 1000);

@@ -632,7 +632,7 @@ export class VclChain implements IChain {
 
     // log.debug('Selecting inputs for a ' + Utils.formatAmountInBtc(txp.getTotalAmount()) + ' txp');
 
-    server.getUtxosForCurrentWallet({excludeMasternode: true}, (err, utxos) => {
+    server.getUtxosForCurrentWallet({ excludeMasternode: true }, (err, utxos) => {
       if (err) return cb(err);
 
       let totalAmount;

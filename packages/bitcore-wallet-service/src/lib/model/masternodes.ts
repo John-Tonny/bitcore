@@ -7,7 +7,7 @@ export interface IMasternode {
   walletId: string;
   txid: string;
   masternodeKey: string;
-  chain: string;
+  coin: string;
   network: string;
   address: string;
   payee: string;
@@ -28,7 +28,7 @@ export class Masternodes {
   txid: string;
   address: string;
   masternodeKey: string;
-  chain: string;
+  coin: string;
   network: string;
   payee?: string;
   status: string;
@@ -53,7 +53,7 @@ export class Masternodes {
     x.txid = opts.txid;
     x.address = opts.address;
     x.masternodeKey = opts.masternodeKey;
-    x.chain = opts.chain;
+    x.coin = opts.coin;
     x.network = opts.network;
     x.payee = opts.payee;
     x.status = opts.status;
@@ -77,7 +77,7 @@ export class Masternodes {
     x.walletId = obj.walletId;
     x.txid = obj.txid;
     x.masternodeKey = obj.masternodeKey;
-    x.chain = obj.chain;
+    x.coin = obj.coin;
     x.network = obj.network;
     x.address = obj.address;
     x.payee = obj.payee;

@@ -1081,7 +1081,7 @@ export class ExpressApp {
 
     router.get('/v1/masternode/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; txid?: string} = {};
+        const opts: { coin?: string; txid?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
         server.getMasternodes(opts, (err, ret) => {
@@ -1131,7 +1131,7 @@ export class ExpressApp {
 
     router.delete('/v1/masternode/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; txid?: string} = {};
+        const opts: { coin?: string; txid?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
         server.removeMasternodes(req.body, (err, ret) => {

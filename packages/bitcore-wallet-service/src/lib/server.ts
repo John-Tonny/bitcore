@@ -1549,24 +1549,20 @@ export class WalletService {
         },
         // john
         next => {
-          if ( !opts.excludeMasternode) {
+          if (!opts.excludeMasternode) {
             return next();
           }
-          this.storage.fetchMasternodes(
-              this.walletId,
-              undefined,
-              (err, masternodes) => {
-                if (err) return next(err);
-                const lockedInputs1 = _.map(_.flatten(_.map(masternodes, 'txid')), utxoKey1);
-                _.each(lockedInputs1, input => {
-                  if (utxoIndex[input]) {
-                    utxoIndex[input].locked = true;
-                  }
-                });
-                log.debug(`Got  ${masternodes.length} locked masternode utxos`);
-                return next();
+          this.storage.fetchMasternodes(this.walletId, undefined, (err, masternodes) => {
+            if (err) return next(err);
+            const lockedInputs1 = _.map(_.flatten(_.map(masternodes, 'txid')), utxoKey1);
+            _.each(lockedInputs1, input => {
+              if (utxoIndex[input]) {
+                utxoIndex[input].locked = true;
               }
-          );
+            });
+            log.debug(`Got  ${masternodes.length} locked masternode utxos`);
+            return next();
+          });
         },
         next => {
           // Needed for the clients to sign UTXOs
@@ -4177,7 +4173,6 @@ export class WalletService {
       return cb(new ClientError('Invalid masternode private key'));
     }
 
-
     opts.network = opts.network || 'livenet';
     if (!Utils.checkValueInCollection(opts.network, Constants.NETWORKS)) {
       return cb(new ClientError('Invalid network'));
@@ -4195,11 +4190,19 @@ export class WalletService {
         if (err) return cb(err);
         // john
 
-        var masternodeStatus: { chain?: string; network?: string, address?: string, txid?: string; masternodeKey?: string, status?: string, walletId?: string } = {}  ;
-        if ( !ret.errorMessage ) {
+        let masternodeStatus: {
+          coin?: string;
+          network?: string;
+          address?: string;
+          txid?: string;
+          masternodeKey?: string;
+          status?: string;
+          walletId?: string;
+        } = {};
+        if (!ret.errorMessage) {
           _.forEach(_.keys(ret), function(key) {
-            if (ret[key].outpoint && ret[key].addr ) {
-              masternodeStatus.chain = wallet.coin;
+            if (ret[key].outpoint && ret[key].addr) {
+              masternodeStatus.coin = wallet.coin;
               masternodeStatus.network = wallet.network;
               masternodeStatus.address = ret[key].addr;
               masternodeStatus.txid = ret[key].outpoint;
@@ -4209,22 +4212,21 @@ export class WalletService {
               return;
             }
           });
-          var masternodes = Masternodes.create(masternodeStatus);
+          let masternodes = Masternodes.create(masternodeStatus);
           this.storage.storeMasternode(wallet.id, masternodes, err => {
             if (!err) {
               this._notify(
-                  'NewMasternode',
-                  {
-                    chain: masternodes.chain,
-                    network: masternodes.network,
-                    address: masternodes.address,
-                    txid: masternodes.txid,
-                    masternodeKey:  masternodes.masternodeKey,
-                    status: masternodes.status
-                  },
-                  () => {}
+                'NewMasternode',
+                {
+                  coin: masternodes.coin,
+                  network: masternodes.network,
+                  address: masternodes.address,
+                  txid: masternodes.txid,
+                  masternodeKey: masternodes.masternodeKey,
+                  status: masternodes.status
+                },
+                () => {}
               );
-
             }
           });
         }

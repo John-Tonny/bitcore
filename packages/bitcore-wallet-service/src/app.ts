@@ -8,6 +8,7 @@ var scripts = [
   'messagebroker/messagebroker.js',
   'bcmonitor/bcmonitor.js',
   'emailservice/emailservice.js',
+  'masternodeservice/masternodeservice.js',
   'pushnotificationsservice/pushnotificationsservice.js',
   'fiatrateservice/fiatrateservice.js',
   'bws.js'

@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 import logger from '../../logger';
 import { ChainStateProvider } from '../../providers/chain-state';
 
-
 const router = Router({ mergeParams: true });
 
 router.get('/status', async (req, res) => {
