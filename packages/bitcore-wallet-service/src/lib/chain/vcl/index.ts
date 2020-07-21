@@ -457,7 +457,7 @@ export class VclChain implements IChain {
       totalConfirmedAmount: _.sumBy(_.filter(utxos, 'confirmations'), 'satoshis'),
       lockedConfirmedAmount: _.sumBy(_.filter(_.filter(utxos, 'locked'), 'confirmations'), 'satoshis'),
       availableAmount: undefined,
-      availableConfirmedAmount: undefined
+      availableConfirmedAmount: undefined,
     };
     balance.availableAmount = balance.totalAmount - balance.lockedAmount;
     balance.availableConfirmedAmount = balance.totalConfirmedAmount - balance.lockedConfirmedAmount;
@@ -632,7 +632,7 @@ export class VclChain implements IChain {
 
     // log.debug('Selecting inputs for a ' + Utils.formatAmountInBtc(txp.getTotalAmount()) + ' txp');
 
-    server.getUtxosForCurrentWallet({ excludeMasternode: true }, (err, utxos) => {
+    server.getUtxosForCurrentWallet({ excludeMasternode: opts.excludeMasternode }, (err, utxos) => {
       if (err) return cb(err);
 
       let totalAmount;

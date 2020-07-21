@@ -2,33 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f2be851-0c02-4371-aff6-8c0fdb9d9a30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/masternodes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nohup.out" beforeDir="false" afterPath="$PROJECT_DIR$/../../nohup.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/models/events.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/models/events.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/routes/api/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/routes/api/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/services/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/services/event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/services/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/services/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/src/services/socket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/src/services/socket.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainexplorers/v8/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainmonitor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/blockchainmonitor.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/emailservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/emailservice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/model/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/pushnotificationsservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/pushnotificationsservice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/masternodeservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/masternodeservice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/scripts/v8tool.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crypto-wallet-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crypto-wallet-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="688" column="44" lean-forward="true" selection-start-line="688" selection-start-column="44" selection-end-line="688" selection-end-column="44" />
+            <state relative-caret-position="164">
+              <caret line="1215" column="10" lean-forward="true" selection-start-line="1215" selection-start-column="2" selection-end-line="1215" selection-end-column="15" />
               <folding>
                 <element signature="e#15#57#0" expanded="true" />
               </folding>
@@ -71,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/credentials.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1725">
+            <state relative-caret-position="1755">
               <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
               <folding>
                 <element signature="e#15#62#0" expanded="true" />
@@ -111,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="165">
               <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding>
                 <element signature="e#61#89#0" expanded="true" />
@@ -124,8 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getBalanace</find>
-      <find>isFunction</find>
       <find>48</find>
       <find>P2PKH</find>
       <find>use44forMultisig</find>
@@ -154,6 +130,8 @@
       <find>joinWallet</find>
       <find>_doJoinWallet</find>
       <find>socket.io</find>
+      <find>createTx</find>
+      <find>_getCreateTxProposalArgs</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -293,16 +271,19 @@
       <workItem from="1594956785035" duration="5527000" />
       <workItem from="1595040633135" duration="315000" />
       <workItem from="1595059932928" duration="384000" />
+      <workItem from="1595296290883" duration="1238000" />
+      <workItem from="1595299460054" duration="1105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22303000" />
+    <option name="totallyTimeSpent" value="24646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="31" width="1536" height="801" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48101267" visible="true" weight="0.2824632" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48101267" visible="true" weight="0.28982598" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.51898736" side_tool="true" weight="0.27576974" />
       <window_info id="Grunt " order="3" side_tool="true" />
@@ -378,8 +359,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="688" column="44" lean-forward="true" selection-start-line="688" selection-start-column="44" selection-end-line="688" selection-end-column="44" />
+        <state relative-caret-position="164">
+          <caret line="1215" column="10" lean-forward="true" selection-start-line="1215" selection-start-column="2" selection-end-line="1215" selection-end-column="15" />
           <folding>
             <element signature="e#15#57#0" expanded="true" />
           </folding>
@@ -402,7 +383,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/credentials.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
+        <state relative-caret-position="1755">
           <caret line="117" column="11" selection-start-line="117" selection-start-column="11" selection-end-line="117" selection-end-column="11" />
           <folding>
             <element signature="e#15#62#0" expanded="true" />
@@ -432,7 +413,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="165">
           <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#61#89#0" expanded="true" />

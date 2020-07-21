@@ -1540,12 +1540,13 @@ export class Storage {
     );
   }
 
-    // TODO: update masternode
+  // TODO: update masternode
   updateMasternode(masternode, cb) {
     this.db.collection(collections.MASTERNODES).update(
       {
-        txid: masternode.txid,
-      },{
+        txid: masternode.txid
+      },
+      {
         $set: {
           createdOn: masternode.createdOn,
           address: masternode.address,
@@ -1562,7 +1563,7 @@ export class Storage {
           pingretries: masternode.pingretries
         }
       },
-    {
+      {
         w: 1,
         upsert: false
       },
@@ -1641,14 +1642,14 @@ export class Storage {
     if (!txid) return cb();
 
     this.db.collection(collections.MASTERNODES).findOne(
-        {
-          txid,
-        },
-        (err, result) => {
-          if (err) return cb(err);
-          if (!result) return cb();
-          return cb(null, Masternodes.fromObj(result));
-        }
+      {
+        txid
+      },
+      (err, result) => {
+        if (err) return cb(err);
+        if (!result) return cb();
+        return cb(null, Masternodes.fromObj(result));
+      }
     );
   }
 }

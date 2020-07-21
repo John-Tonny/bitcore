@@ -6,10 +6,9 @@ import { BlockChainExplorer } from './blockchainexplorer';
 import { Lock } from './lock';
 import { MessageBroker } from './messagebroker';
 import { Notification } from './model';
-import {IMasternode, Masternodes} from './model/masternodes';
+import { IMasternode, Masternodes } from './model/masternodes';
 import { WalletService } from './server';
 import { Storage } from './storage';
-
 
 const $ = require('preconditions').singleton();
 const Mustache = require('mustache');
@@ -31,8 +30,8 @@ export class MasternodeService {
 
   init(opts, cb) {
     opts = opts || {};
-      
-     async.parallel(
+
+    async.parallel(
       [
         done => {
           this.explorers = {
@@ -52,17 +51,17 @@ export class MasternodeService {
             if (pair.coin == 'vcl') {
               let explorer;
               if (
-                  opts.blockchainExplorers &&
-                  opts.blockchainExplorers[pair.coin] &&
-                  opts.blockchainExplorers[pair.coin][pair.network]
+                opts.blockchainExplorers &&
+                opts.blockchainExplorers[pair.coin] &&
+                opts.blockchainExplorers[pair.coin][pair.network]
               ) {
                 explorer = opts.blockchainExplorers[pair.coin][pair.network];
               } else {
                 let config: { url?: string; provider?: any } = {};
                 if (
-                    opts.blockchainExplorerOpts &&
-                    opts.blockchainExplorerOpts[pair.coin] &&
-                    opts.blockchainExplorerOpts[pair.coin][pair.network]
+                  opts.blockchainExplorerOpts &&
+                  opts.blockchainExplorerOpts[pair.coin] &&
+                  opts.blockchainExplorerOpts[pair.coin][pair.network]
                 ) {
                   config = opts.blockchainExplorerOpts[pair.coin][pair.network];
                 } else {
@@ -132,34 +131,33 @@ export class MasternodeService {
   }
 
   _fetch(cb?) {
-    cb = cb || function () {
-    };
+    cb = cb || function() {};
     const coins = ['vcl'];
 
     async.each(
-        coins,
-        (coin, next2) => {
-          let explorer = this.explorers[coin]['livenet'];
-          let network = 'livenet';
-          let opts = {
-            coin: coin,
-            network: network
+      coins,
+      (coin, next2) => {
+        let explorer = this.explorers[coin]['livenet'];
+        let network = 'livenet';
+        let opts = {
+          coin,
+          network
+        };
+        explorer.getMasternodeStatus(opts, (err, res) => {
+          if (err) {
+            log.warn('Error retrieving masternode status for ' + coin, err);
+            return next2();
           }
-          explorer.getMasternodeStatus(opts, (err, res) => {
+          this.updateMasternodes(coin, network, res, err => {
             if (err) {
-              log.warn('Error retrieving masternode status for ' + coin, err);
-              return next2();
+              log.warn('Error storing masternode status for ' + coin, err);
             }
-            this.updateMasternodes(coin, network, res, err => {
-              if (err) {
-                log.warn('Error storing masternode status for ' + coin, err);
-              }
-              return next2();
-            });
+            return next2();
           });
-        },
-        //        next),
-        cb
+        });
+      },
+      //        next),
+      cb
     );
   }
 
@@ -206,7 +204,7 @@ export class MasternodeService {
       this.storage.fetchMasternodesFromTxId(imasternode.txid, (err, res) => {
         if (err) {
           log.warn('Error fetch masternode status for ' + coin + '-' + imasternode.txid, err);
-        }else {
+        } else {
           if (res) {
             let oldStatus = res.status;
             this.storage.updateMasternode(imasternode, err => {
@@ -255,7 +253,6 @@ export class MasternodeService {
       if (cb) return cb();
     });
   }
-
 }
 
 module.exports = MasternodeService;
