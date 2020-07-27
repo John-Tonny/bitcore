@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6c0a651-8669-4f04-a85c-58e0cac558cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-mnemonic/lib/mnemonic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-mnemonic/lib/mnemonic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/common/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/common/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/key.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/src/lib/key.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/chain/vcl/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/hdprivatekey.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/hdprivatekey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/hdpublickey.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/hdpublickey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/networks.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/networks.js" afterDir="false" />
-    </list>
+    <list default="true" id="a6c0a651-8669-4f04-a85c-58e0cac558cd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
