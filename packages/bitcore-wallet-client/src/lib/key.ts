@@ -31,6 +31,9 @@ const NETWORK: string = 'livenet';
 export class Key {
   version: number;
   use0forBCH: boolean;
+  useforElectrum: boolean;
+  useSegwit: boolean;
+  useMulti: boolean;
   use44forMultisig: boolean;
   compliantDerivation: boolean;
   id: any;
@@ -47,6 +50,9 @@ export class Key {
 
     // data for derived credentials.
     'use0forBCH', // use the 0 coin' path element in BCH  (legacy)
+    'useforElectrum', // use the 0 coin' path element in Electrum  (legacy)
+    'useSegwit',
+    'useMulti',
     'use44forMultisig', // use the purpose 44' for multisig wallts (legacy)
     'version',
     'id'
@@ -54,6 +60,9 @@ export class Key {
   constructor() {
     this.version = 1;
     this.use0forBCH = false;
+    this.useforElectrum = false;
+    this.useSegwit = false;
+    this.useMulti = false;
     this.use44forMultisig = false;
     this.compliantDerivation = true;
     this.id = Uuid.v4();
@@ -82,6 +91,9 @@ export class Key {
 
     // bug backwards compatibility flags
     x.use0forBCH = opts.useLegacyCoinType;
+    x.useforElectrum = opts.useLegacyElectrumCoinType;
+    x.useSegwit = opts.userSegwit;
+    x.useMulti = opts.useMulti;
     x.use44forMultisig = opts.useLegacyPurpose;
 
     x.compliantDerivation = !opts.nonCompliantDerivation;
@@ -94,15 +106,18 @@ export class Key {
     if (opts) $.shouldBeObject(opts);
     opts = opts || {};
 
-    var m = new Mnemonic(words);
+    var m = new Mnemonic(words, null, opts.useMulti);
     var x: any = new Key();
-    let xpriv = m.toHDPrivateKey(opts.passphrase, NETWORK);
+    let xpriv = m.toHDPrivateKey(opts.passphrase, NETWORK, opts.useMulti);
     x.xPrivKey = xpriv.toString();
     x.fingerPrint = xpriv.fingerPrint.toString('hex');
     x.mnemonic = words;
     x.mnemonicHasPassphrase = !!opts.passphrase;
 
     x.use0forBCH = opts.useLegacyCoinType;
+    x.useforElectrum = m.useElectrum;
+    x.useSegwit = m.useSegwit;
+    x.useMulti = opts.useMulti;
     x.use44forMultisig = opts.useLegacyPurpose;
 
     x.compliantDerivation = !opts.nonCompliantDerivation;
@@ -130,6 +145,8 @@ export class Key {
 
     x.use44forMultisig = opts.useLegacyPurpose;
     x.use0forBCH = opts.useLegacyCoinType;
+    x.useforElectrum = opts.useLegacyElectrumCoinType;
+    x.useSegwit = opts.useNativeSegwit;
 
     x.compliantDerivation = !opts.nonCompliantDerivation;
     return x;
@@ -302,7 +319,15 @@ export class Key {
     } else {
       throw new Error('unknown coin: ' + opts.coin);
     }
-
+    if (this.useforElectrum) {
+      if (this.useSegwit) {
+        if (opts.n == 1) {
+          return "m/0'";
+        }
+        return "m/1'";
+      }
+      return 'm';
+    }
     return 'm/' + purpose + "'/" + coinCode + "'/" + opts.account + "'";
   }
 
@@ -328,7 +353,14 @@ export class Key {
 
     let path = this.getBaseAddressDerivationPath(opts);
     let xPrivKey = this.derive(password, path);
-    let requestPrivKey = this.derive(password, Constants.PATHS.REQUEST_KEY).privateKey.toString();
+    let requestKey = Constants.PATHS.REQUEST_KEY;
+    if (this.useforElectrum) {
+      requestKey = Constants.PATHS.REQUEST_ELECTRUM_KEY;
+      if (this.useSegwit) {
+        requestKey = Constants.PATHS.REQUEST_SEGWIT_ELECTRUM_KEY;
+      }
+    }
+    let requestPrivKey = this.derive(password, requestKey).privateKey.toString();
 
     if (opts.network == 'testnet') {
       // Hacky: BTC/BCH xPriv depends on network: This code is to

@@ -4279,7 +4279,7 @@ export class WalletService {
               if (bfind) {
                 next();
               } else {
-                return cb(new Errors('Invalid utxo'));
+                return cb('Invalid utxo');
               }
             }
           );

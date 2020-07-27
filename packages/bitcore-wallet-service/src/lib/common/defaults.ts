@@ -120,7 +120,7 @@ module.exports = {
   },
 
   // john
-  MASTERNODE_STATUS_FETCH_INTERVAL: 1, // In minutes
+  MASTERNODE_STATUS_FETCH_INTERVAL: 5, // In minutes
 
   // How many levels to fallback to if the value returned by the network for a given nbBlocks is -1
   FEE_LEVELS_FALLBACK: 2,

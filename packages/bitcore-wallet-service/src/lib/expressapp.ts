@@ -1134,7 +1134,7 @@ export class ExpressApp {
         const opts: { coin?: string; txid?: string } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.txid) opts.txid = req.query.txid;
-        server.removeMasternodes(req.body, (err, ret) => {
+        server.removeMasternodes(opts, (err, ret) => {
           if (err) return returnError(err, res, req);
           res.json(ret);
         });
