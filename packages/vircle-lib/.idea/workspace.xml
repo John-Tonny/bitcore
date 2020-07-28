@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6c0a651-8669-4f04-a85c-58e0cac558cd" name="Default Changelist" comment="" />
+    <list default="true" id="a6c0a651-8669-4f04-a85c-58e0cac558cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-client/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +39,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/hdprivatekey.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="397" selection-start-line="395" selection-end-line="397" />
+            <state relative-caret-position="74">
+              <caret line="422" column="30" selection-start-line="422" selection-start-column="22" selection-end-line="422" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/hdpublickey.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="463">
@@ -58,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/networks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="2370">
               <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
             </state>
           </provider>
@@ -132,7 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,6 +162,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,17 +207,18 @@
       <workItem from="1595656353222" duration="12444000" />
       <workItem from="1595811559350" duration="2899000" />
       <workItem from="1595821016575" duration="3265000" />
+      <workItem from="1595842459457" duration="92000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50528000" />
+    <option name="totallyTimeSpent" value="50620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="31" width="1536" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29852745" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30254352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -390,15 +393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/networks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="2370">
           <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/hdprivatekey.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="397" selection-start-line="395" selection-end-line="397" />
         </state>
       </provider>
     </entry>
@@ -406,6 +402,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
           <caret line="386" selection-start-line="386" selection-end-line="386" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/hdprivatekey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="422" column="30" selection-start-line="422" selection-start-column="22" selection-end-line="422" selection-end-column="30" />
         </state>
       </provider>
     </entry>

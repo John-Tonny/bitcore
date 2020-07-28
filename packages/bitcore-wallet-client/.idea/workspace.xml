@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f2be851-0c02-4371-aff6-8c0fdb9d9a30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8f2be851-0c02-4371-aff6-8c0fdb9d9a30" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,11 +10,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="618" column="20" selection-start-line="618" selection-start-column="20" selection-end-line="618" selection-end-column="20" />
+            <state relative-caret-position="209">
+              <caret line="2449" column="27" selection-start-line="2449" selection-start-column="10" selection-end-line="2449" selection-end-column="27" />
               <folding>
                 <element signature="e#15#57#0" expanded="true" />
               </folding>
@@ -36,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="362" column="57" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="57" />
+            <state relative-caret-position="285">
+              <caret line="364" column="36" selection-start-line="364" selection-start-column="36" selection-end-line="364" selection-end-column="36" />
               <folding>
                 <element signature="e#61#89#0" expanded="true" />
               </folding>
@@ -61,10 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getRootpath</find>
-      <find>createnew</find>
-      <find>derivationStrategy</find>
-      <find>REQUEST_KEY</find>
       <find>REQUEST_KEY_AUTH</find>
       <find>crypto</find>
       <find>parentFingerPrint</find>
@@ -91,6 +85,10 @@
       <find>createCredentials</find>
       <find>derive</find>
       <find>createCred</find>
+      <find>checkcred</find>
+      <find>checkcre</find>
+      <find>checkcredentials</find>
+      <find>checkcredentials(</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -130,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,6 +157,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -243,19 +241,20 @@
       <workItem from="1595578298928" duration="3459000" />
       <workItem from="1595644408789" duration="16265000" />
       <workItem from="1595819420215" duration="3068000" />
+      <workItem from="1595841280482" duration="673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60774000" />
+    <option name="totallyTimeSpent" value="61447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="31" width="1536" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47383308" visible="true" weight="0.3206158" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47241867" visible="true" weight="0.32463187" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" id="npm" order="2" sideWeight="0.5261669" side_tool="true" visible="true" weight="0.3206158" />
+      <window_info active="true" id="npm" order="2" sideWeight="0.52758133" side_tool="true" visible="true" weight="0.32463187" />
       <window_info id="Grunt " order="3" side_tool="true" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -357,16 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="618" column="20" selection-start-line="618" selection-start-column="20" selection-end-line="618" selection-end-column="20" />
-          <folding>
-            <element signature="e#15#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/credentials.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2175">
@@ -386,10 +375,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="362" column="57" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="57" />
+        <state relative-caret-position="285">
+          <caret line="364" column="36" selection-start-line="364" selection-start-column="36" selection-end-line="364" selection-end-column="36" />
           <folding>
             <element signature="e#61#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="2449" column="27" selection-start-line="2449" selection-start-column="10" selection-end-line="2449" selection-end-column="27" />
+          <folding>
+            <element signature="e#15#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -78,10 +78,13 @@ var Mnemonic = function(data, wordlist, useMulti) {
   this.useSegwit = false;
   // validate phrase and ent
   if (phrase && !Mnemonic.isValid(phrase, wordlist)) {
-    this.useElectrum = false;
-    if (phrase && !Mnemonic.isElectrumValid(phrase, wordlist)) {
-      throw new errors.InvalidMnemonic(phrase);
+    var status = Mnemonic.isElectrumValid(phrase, wordlist);
+    this.useSegwit = status[1];
+    if (phrase && !status[0]) {
+        throw new errors.InvalidMnemonic(phrase);
     }
+  }else {
+    this.useElectrum = false;
   }
   if (ent % 32 !== 0 || ent < 128 || ent > 256) {
     throw new bitcore.errors.InvalidArgument('ENT', 'Values must be ENT > 128 and ENT < 256 and ENT % 32 == 0');
@@ -115,31 +118,30 @@ Mnemonic.Words = require('./words');
  * @returns {boolean}
  */
 Mnemonic.isElectrumValid = function(mnemonic, wordlist) {
-  mnemonic = unorm.nfkd(mnemonic);
-  wordlist = wordlist || Mnemonic._getDictionary(mnemonic);
+    mnemonic = unorm.nfkd(mnemonic);
+    wordlist = wordlist || Mnemonic._getDictionary(mnemonic);
 
-  if (!wordlist) {
-    return false;
-  }
-
-  var words = mnemonic.split(' ');
-  for (var i = 0; i < words.length; i++) {
-    var ind = wordlist.indexOf(words[i]);
-    if (ind < 0) return false;
-  }
-
-  let s = Hash.sha512hmac(new Buffer(mnemonic, 'utf-8'), new Buffer(unorm.nfkd('Seed version'), 'utf-8'));
-  if (s.length === 64) {
-    let ss = s.toString('hex');
-    if (ss.indexOf(SEED_STANDARD_PREFIX) === 0) {
-      this.useSegwit = false;
-      return true;
-    }else if (ss.indexOf(SEED_SEGWIT_PREFIX) === 0) {
-      this.useSegwit = true;
-      return true;
+    if (!wordlist) {
+        return [false, false];
     }
-  }
-  return false;
+
+    var words = mnemonic.split(' ');
+    for (var i = 0; i < words.length; i++) {
+        var ind = wordlist.indexOf(words[i]);
+        if (ind < 0) return [false, false];
+    }
+
+    const seed_prefix = 1;
+    let s = Hash.sha512hmac(new Buffer(mnemonic, 'utf-8'), new Buffer(unorm.nfkd('Seed version'), 'utf-8'));
+    if (s.length === 64) {
+        let ss = s.toString('hex');
+        if (ss.indexOf(SEED_STANDARD_PREFIX) === 0) {
+            return [true, false];
+        }else if (ss.indexOf(SEED_SEGWIT_PREFIX) === 0) {
+            return [true, true];
+        }
+    }
+    return [false, false];
 };
 
 /**
