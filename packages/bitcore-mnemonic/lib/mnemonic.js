@@ -131,7 +131,6 @@ Mnemonic.isElectrumValid = function(mnemonic, wordlist) {
         if (ind < 0) return [false, false];
     }
 
-    const seed_prefix = 1;
     let s = Hash.sha512hmac(new Buffer(mnemonic, 'utf-8'), new Buffer(unorm.nfkd('Seed version'), 'utf-8'));
     if (s.length === 64) {
         let ss = s.toString('hex');

@@ -35,6 +35,7 @@ const deprecatedServerMessage = require('../deprecated-serverMessages');
 const serverMessages = require('../serverMessages');
 
 const COLLATERAL_COIN = 100000000000;
+const MASTERNODE_MIN_CONFIRMATIONS = 15;
 
 log.debug = log.verbose;
 log.disableColor();
@@ -4272,12 +4273,17 @@ export class WalletService {
                   opts.address = utxo.address;
                   opts.publicKeys = utxo.publicKeys;
                   opts.path = utxo.path;
+                  opts.confirmations= utxo.confirmations;
                   bfind = true;
                   return false;
                 }
               });
               if (bfind) {
-                next();
+                if (opts.confirmations >= MASTERNODE_MIN_CONFIRMATIONS) {
+                  next();
+                }else {
+                  return cb('Collateral payment must have at least 15 confirmations');
+                }
               } else {
                 return cb('Invalid utxo');
               }
