@@ -4273,7 +4273,7 @@ export class WalletService {
                   opts.address = utxo.address;
                   opts.publicKeys = utxo.publicKeys;
                   opts.path = utxo.path;
-                  opts.confirmations= utxo.confirmations;
+                  opts.confirmations = utxo.confirmations;
                   bfind = true;
                   return false;
                 }
@@ -4281,7 +4281,7 @@ export class WalletService {
               if (bfind) {
                 if (opts.confirmations >= MASTERNODE_MIN_CONFIRMATIONS) {
                   next();
-                }else {
+                } else {
                   return cb('Collateral payment must have at least 15 confirmations');
                 }
               } else {
