@@ -1,6 +1,10 @@
 #!/bin/bash
 
-cd /home/john/bitcore/packages/insight
+USER_PATH=~
+MODULE_PATH=$USER_PATH/bitcore/packages
+NODE_PATH=$USER_PATH/.nvm/versions/node/v10.5.0/bin
+
+cd $MODULE_PATH/insight
 
 # run_program (pidfile, logfile)
 run_program ()
@@ -14,7 +18,7 @@ run_program ()
     return 0
   fi
 
-  nohup /home/john/.nvm/versions/node/v10.5.0/bin/node /home/john/bitcore/packages/insight/node_modules/.bin/ionic-app-scripts serve --port 8200  >> $logfile 2>&1 &
+  nohup $NODE_PATH/node $MODULE_PATH/insight/node_modules/.bin/ionic-app-scripts serve --port 8200  >> $logfile 2>&1 &
   PID=$!
   if [ $? -eq 0 ]
   then
@@ -27,5 +31,6 @@ run_program ()
   fi
 }
 
+./stop.sh
 run_program insight.pid insight.log
 

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd /home/john/bitcore/packages/bitcore-wallet-service
+USER_PATH=~
+MODULE_PATH=$USER_PATH/bitcore/packages
+NODE_PATH=$USER_PATH/.nvm/versions/node/v10.5.0/bin
+
+cd $MODULE_PATH/bitcore-wallet-service
+
 mkdir -p logs
 mkdir -p pids
 
@@ -17,7 +22,7 @@ run_program ()
     return 0
   fi
 
-  nohup node $nodefile >> $logfile 2>&1 &
+  nohup $NODE_PATH/node $nodefile >> $logfile 2>&1 &
   PID=$!
   if [ $? -eq 0 ]
   then
@@ -30,4 +35,5 @@ run_program ()
   fi
 }
 
+./stop_bws.sh pids/bcmonitor.pid
 run_program ./ts_build/bcmonitor/bcmonitor.js pids/bcmonitor.pid logs/bcmonitor.log

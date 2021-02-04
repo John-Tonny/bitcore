@@ -24,7 +24,9 @@ export class CurrencyProvider {
       currency = chainNetwork.chain.toUpperCase();
     }
     if (currency !== 'USD') {
+      // john
       const chain = chainNetwork.chain.toUpperCase();
+      // const chain = 'RDC';
       this.currencySymbol = currency.startsWith('m') ? 'm' + chain : chain;
     } else {
       this.currencySymbol = 'USD';

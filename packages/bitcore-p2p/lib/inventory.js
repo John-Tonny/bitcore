@@ -7,6 +7,8 @@ var BufferReader = bitcore.encoding.BufferReader;
 var BufferWriter = bitcore.encoding.BufferWriter;
 var _ = bitcore.deps._;
 
+const WITNESS_FLAG = 1 << 30;
+
 /**
  * A constructor for inventory related Bitcoin messages such as
  * "getdata", "inv" and "notfound".
@@ -65,6 +67,14 @@ Inventory.forTransaction = function(hash) {
   return Inventory.forItem(Inventory.TYPE.TX, hash);
 };
 
+Inventory.forMasternodePing = function(hash) {
+  return Inventory.forItem(Inventory.TYPE.MASTERNODE_PING, hash);
+};
+
+Inventory.forMasternodeAnnounce = function(hash) {
+  return Inventory.forItem(Inventory.TYPE.MASTERNODE_ANNOUNCE, hash);
+};
+
 /**
  * @returns {Buffer} - Serialized inventory
  */
@@ -111,6 +121,19 @@ Inventory.TYPE.ERROR = 0;
 Inventory.TYPE.TX = 1;
 Inventory.TYPE.BLOCK = 2;
 Inventory.TYPE.FILTERED_BLOCK = 3;
+Inventory.TYPE.CMPCT_BLOCK = 4;     //!< Defined in BIP152
+Inventory.TYPE.SPORK = 6;
+Inventory.TYPE.MASTERNODE_PAYMENT_VOTE = 7;
+Inventory.TYPE.MASTERNODE_PAYMENT_BLOCK = 8;
+Inventory.TYPE.MASTERNODE_ANNOUNCE = 10;
+Inventory.TYPE.MASTERNODE_PING = 11;
+Inventory.TYPE.GOVERNANCE_OBJECT = 12;
+Inventory.TYPE.GOVERNANCE_OBJECT_VOTE = 13;
+Inventory.TYPE.MASTERNODE_VERIFY = 14;
+Inventory.TYPE.WITNESS_BLOCK = Inventory.TYPE.BLOCK | WITNESS_FLAG; //!< Defined in BIP144
+Inventory.TYPE.WITNESS_TX = Inventory.TYPE.TX | WITNESS_FLAG;       //!< Defined in BIP144
+Inventory.TYPE.FILTERED_WITNESS_BLOCK = Inventory.TYPE.FILTERED_BLOCK | WITNESS_FLAG,
+
 Inventory.TYPE_NAME = [
   'ERROR',
   'TX',

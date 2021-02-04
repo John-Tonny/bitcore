@@ -58,7 +58,9 @@ function builder(options) {
       getblocks: 'GetBlocks',
       getheaders: 'GetHeaders',
       mempool: 'MemPool',
-      getaddr: 'GetAddr'
+      getaddr: 'GetAddr',
+      mnb: 'Mnbroadcast',
+      dseg: 'Dseg'
     },
     commands: {}
   };
@@ -96,6 +98,17 @@ function builder(options) {
     // add forFilteredBlock methods
     exported.commands[command].forFilteredBlock = function forFilteredBlock(hash) {
       return new exported.commands[command]([Inventory.forFilteredBlock(hash)]);
+    };
+
+    // john
+    // add forMasternodePing methods
+    exported.commands[command].forMasternodePing = function forMasternodePing(hash) {
+      return new exported.commands[command]([Inventory.forMasternodePing(hash)]);
+    };
+
+    // add forMasternodeAnnounce methods
+    exported.commands[command].forMasternodeAnnounce = function forMasternodeAnnounce(hash) {
+      return new exported.commands[command]([Inventory.forMasternodeAnnounce(hash)]);
     };
 
   });

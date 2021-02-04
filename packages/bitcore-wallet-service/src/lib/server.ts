@@ -3311,6 +3311,57 @@ export class WalletService {
     }
   }
 
+  // john
+  static _addProposalInfo1(tx: any, proposal: TxProposal, opts: any) {
+    opts = opts || {};
+    if (proposal) {
+      tx.createdOn = proposal.createdOn;
+      tx.proposalId = proposal.id;
+      tx.proposalType = proposal.type;
+      tx.creatorName = proposal.creatorName;
+      tx.message = proposal.message;
+      tx.actions = _.map(proposal.actions, action => {
+        return _.pick(action, ['createdOn', 'type', 'copayerId', 'copayerName', 'comment']);
+      });
+      _.each(tx.outputs, output => {
+        const query = {
+          toAddress: output.address,
+          amount: output.amount
+        };
+        if (proposal.outputs) {
+          const txpOut = proposal.outputs.find(o => o.toAddress === output.address && o.amount === output.amount);
+          output.message = txpOut ? txpOut.message : null;
+        }
+      });
+      tx.customData = proposal.customData;
+
+      tx.createdOn = proposal.createdOn;
+      if (opts.includeExtendedInfo) {
+        tx.raw = proposal.raw;
+      }
+      // .sentTs = proposal.sentTs;
+      // .merchant = proposal.merchant;
+      // .paymentAckMemo = proposal.paymentAckMemo;
+    }
+  }
+
+  // john
+  async addCustomData(tx) {
+    var {err, txs} = await this.storage.fetchTxByHashAsync(tx['txid']);
+    if(err || !txs) return tx;
+    WalletService._addProposalInfo1(tx, txs, {});
+    return tx;
+  }
+
+  async addCustomDatas(txs, res, cb) {
+    var finalTxs = [];
+    for (const tx of txs) {
+      var tx1 = await this.addCustomData(tx);
+      finalTxs.push(tx1);
+    }
+    return cb(null, {finalTxs, res});
+  }
+
   tagLowFeeTxs(wallet: IWallet, txs: any[], cb) {
     const unconfirmed = txs.filter(tx => tx.confirmations === 0);
     if (_.isEmpty(unconfirmed)) return cb();
@@ -3562,7 +3613,7 @@ export class WalletService {
           },
           (txs: { items: Array<{ time: number }> }, next) => {
             if (!txs || _.isEmpty(txs.items)) {
-              return next();
+              return next(new Error('no txs'));
             }
             // TODO optimize this...
             // Fetch all proposals in [t - 7 days, t + 1 day]
@@ -3592,27 +3643,41 @@ export class WalletService {
                 }
               ],
               (err, res) => {
-                return next(err, {
+                if(err) return next(err);
+                return next(null, {
                   txs,
                   txps: res[0],
                   notes: res[1]
                 });
               }
             );
+          },
+          (res:any, next) => {  // john
+            if (!res) return cb(null, []);
+            // TODO we are indexing everything again, each query.
+            const indexedProposals = _.keyBy(res.txps, 'txid');
+            const indexedNotes = _.keyBy(res.notes, 'txid');
+            const finalTxs = _.map(res.txs.items, tx => {
+              WalletService._addProposalInfo(tx, indexedProposals, opts);
+              WalletService._addNotesInfo(tx, indexedNotes);
+              return tx;
+            });
+            next(null, {finalTxs, res});
+          },
+          (ret:any, next) => {  // john
+            this.addCustomDatas(ret.finalTxs, ret.res, next);
           }
         ],
-        (err, res: any) => {
-          if (err) return cb(err);
+        (err, ret: any) => {
+          if (err) {
+            if (err.message == 'no txs'){
+              return cb(null, []);
+            }
+            return cb(err);
+          }
+          var finalTxs = ret.finalTxs;
+          var res = ret.res;
           if (!res) return cb(null, []);
-          // TODO we are indexing everything again, each query.
-          const indexedProposals = _.keyBy(res.txps, 'txid');
-          const indexedNotes = _.keyBy(res.notes, 'txid');
-
-          const finalTxs = _.map(res.txs.items, tx => {
-            WalletService._addProposalInfo(tx, indexedProposals, opts);
-            WalletService._addNotesInfo(tx, indexedNotes);
-            return tx;
-          });
           this.tagLowFeeTxs(wallet, finalTxs, err => {
             if (err) this.logw('Failed to tag unconfirmed with low fee');
 

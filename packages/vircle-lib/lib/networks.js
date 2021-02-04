@@ -162,10 +162,9 @@ addNetwork({
   Yprivkey: 0x0295b005,
   Zpubkey: 0x02aa7ed3,
   Zprivkey: 0x02aa7a99,
-  networkMagic: 0x9a0b9c0d,
-  port: 9902,
+  networkMagic: 0xaeafacad,
+  port: 9804,
   dnsSeeds: [
-    "52.83.40.78"
   ]
 });
 

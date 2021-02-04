@@ -11,6 +11,8 @@ export class DenominationComponent {
   public availableNetworks;
   public currencySymbol;
   public showUnits = false;
+  // john
+  public chain_name = 'RDC';
 
   constructor(
     public viewCtrl: ViewController,
@@ -29,8 +31,11 @@ export class DenominationComponent {
       : false;
     this.units = [
       // 'USD',
+      // john
       this.api.networkSettings.selectedNetwork.chain,
       'm' + this.api.networkSettings.selectedNetwork.chain
+      // 'RDC',
+      // 'mRDC'
     ];
   }
 

@@ -1,6 +1,10 @@
 #!/bin/bash
 
-cd /home/john/bitcore/packages/bitcore-node
+USER_PATH=~
+MODULE_PATH=$USER_PATH/bitcore/packages
+NODE_PATH=$USER_PATH/.nvm/versions/node/v10.5.0/bin
+
+cd $MODULE_PATH/bitcore-node
 
 # run_program (pidfile, logfile)
 run_program ()
@@ -14,7 +18,7 @@ run_program ()
     return 0
   fi
 
-  nohup /home/john/.nvm/versions/node/v10.5.0/bin/node /home/john/bitcore/packages/bitcore-node/build/src/server.js  >> $logfile 2>&1 &
+  nohup $NODE_PATH/node --max_old_space_size=3072  $MODULE_PATH/bitcore-node/build/src/server.js  >> $logfile 2>&1 &
   PID=$!
   if [ $? -eq 0 ]
   then
@@ -26,6 +30,8 @@ run_program ()
     exit 1
   fi
 }
+
+./stop.sh
 
 run_program bitcore-node.pid bitcore-node.log
 

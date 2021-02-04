@@ -113,5 +113,31 @@ module.exports = utils = {
     obj.stop = stop;
 
     return obj;
+  },
+  sanitizeOutpoint: function sanitizeOutpoint(obj) {
+    var hash = obj.hash;
+    if (hash) {
+      if (_.isString(hash) && hash.length === 64 ) {
+        hash = new Buffer(hash, 'hex');
+        hash = BufferUtil.reverse(hash);
+      }else{
+        throw new Error('Invalid hash ' + ' length: ' + hash.length);
+      }
+    }
+
+    var n = obj.n;
+    if (!(_.isUndefined(n))) {
+      if (!(_.isInteger(n))) {
+        throw new Error('Invalid n: ' + n);
+      }
+    }else {
+      if(hash) {
+        throw new Error('Invalid n: ' + n);
+      }
+    }
+    obj.hash = hash;
+    obj.n = n;
+
+    return obj;
   }
 };

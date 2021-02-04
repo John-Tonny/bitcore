@@ -3,6 +3,10 @@ module.exports = {
   disableLogs: false,
   port: 3232,
 
+  // john
+  ignoreRateLimiter: true,
+
+
   // Uncomment to make BWS a forking server
   // cluster: true,
 
