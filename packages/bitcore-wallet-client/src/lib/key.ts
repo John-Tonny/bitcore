@@ -224,15 +224,15 @@ export class Key {
     var xpriv = new Bitcore.HDPrivateKey(derived);
 
     start = start || 0;
-    stop = stop || (start + 100);
+    stop = stop || start + 100;
 
     var privKey;
-    for(var i = start; i < stop;i++) {
+    for (var i = start; i < stop; i++) {
       var path = 'm/0/' + i.toString();
       if (!derived[path]) {
         privKey = xpriv.deriveChild(path).privateKey;
         var address = privKey.publicKey.toAddress().toString();
-        if (address === queryAddress){
+        if (address === queryAddress) {
           return true;
         }
       }

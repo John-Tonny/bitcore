@@ -2267,7 +2267,6 @@ export class WalletService {
               ],
               err => {
                 if (err) return cb(err);
-
                 return cb(null, txp);
               }
             );
@@ -3347,8 +3346,8 @@ export class WalletService {
 
   // john
   async addCustomData(tx) {
-    var {err, txs} = await this.storage.fetchTxByHashAsync(tx['txid']);
-    if(err || !txs) return tx;
+    var { err, txs } = await this.storage.fetchTxByHashAsync(tx['txid']);
+    if (err || !txs) return tx;
     WalletService._addProposalInfo1(tx, txs, {});
     return tx;
   }
@@ -3359,7 +3358,7 @@ export class WalletService {
       var tx1 = await this.addCustomData(tx);
       finalTxs.push(tx1);
     }
-    return cb(null, {finalTxs, res});
+    return cb(null, { finalTxs, res });
   }
 
   tagLowFeeTxs(wallet: IWallet, txs: any[], cb) {
@@ -3643,7 +3642,7 @@ export class WalletService {
                 }
               ],
               (err, res) => {
-                if(err) return next(err);
+                if (err) return next(err);
                 return next(null, {
                   txs,
                   txps: res[0],
@@ -3652,7 +3651,8 @@ export class WalletService {
               }
             );
           },
-          (res:any, next) => {  // john
+          (res: any, next) => {
+            // john
             if (!res) return cb(null, []);
             // TODO we are indexing everything again, each query.
             const indexedProposals = _.keyBy(res.txps, 'txid');
@@ -3662,15 +3662,16 @@ export class WalletService {
               WalletService._addNotesInfo(tx, indexedNotes);
               return tx;
             });
-            next(null, {finalTxs, res});
+            next(null, { finalTxs, res });
           },
-          (ret:any, next) => {  // john
+          (ret: any, next) => {
+            // john
             this.addCustomDatas(ret.finalTxs, ret.res, next);
           }
         ],
         (err, ret: any) => {
           if (err) {
-            if (err.message == 'no txs'){
+            if (err.message == 'no txs') {
               return cb(null, []);
             }
             return cb(err);

@@ -452,9 +452,12 @@ export class VclChain implements IChain {
 
   totalizeUtxos(utxos) {
     // john
-    var totalUnConfirmedAmount = _.sumBy(_.filter(utxos, x => {
-      return x.coinbase  && ( x.confirmations < Defaults.COINBASE_MATURITY_VCL );
-    }), 'satoshis');
+    var totalUnConfirmedAmount = _.sumBy(
+      _.filter(utxos, x => {
+        return x.coinbase && x.confirmations < Defaults.COINBASE_MATURITY_VCL;
+      }),
+      'satoshis'
+    );
     const balance = {
       totalAmount: _.sumBy(utxos, 'satoshis'),
       lockedAmount: _.sumBy(_.filter(utxos, 'locked'), 'satoshis'),
@@ -656,7 +659,7 @@ export class VclChain implements IChain {
 
       // john
       utxos = _.filter(utxos, x => {
-        return (x.coinbase && x.confirmations >= Defaults.COINBASE_MATURITY_VCL) || (!x.coinbase);
+        return (x.coinbase && x.confirmations >= Defaults.COINBASE_MATURITY_VCL) || !x.coinbase;
       });
 
       utxos = sanitizeUtxos(utxos);
