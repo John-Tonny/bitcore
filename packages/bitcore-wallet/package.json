@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "async": "^2.5.0",
-    "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
-    "bitcore-wallet-client": "git+https://github.com/John-Tonny/bitcore-wallet-client",
+    "vircle-lib": "^8.20.4",
+    "bitcore-wallet-client": "^8.20.4",
     "commander": "^2.6.0",
     "lodash": "^3.3.1",
     "moment": "^2.9.0",

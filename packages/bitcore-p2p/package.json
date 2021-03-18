@@ -19,7 +19,7 @@
     "url": "https://github.com/John-Tonny/bitcore-p2p.git"
   },
   "dependencies": {
-    "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
+    "vircle-lib": "^8.20.4",
     "bloom-filter": "^0.2.0",
     "buffers": "bitpay/node-buffers#v0.1.2-bitpay",
     "socks5-client": "^0.3.6"

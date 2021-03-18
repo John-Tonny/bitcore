@@ -43,7 +43,7 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "vircle-lib": "git+https://github.com/John-Tonny/vircle-lib",
+    "vircle-lib": "^8.20.4",
     "unorm": "^1.4.1"
   },
   "peerDependencies": {
