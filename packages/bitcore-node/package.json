@@ -109,6 +109,7 @@
     "source-map-support": "^0.5.13",
     "through2": "2.0.3",
     "underscore": "1.8.3",
+    "vircle-lib": "^8.20.4",
     "web3": "1.2.4",
     "winston": "3.2.0"
   },

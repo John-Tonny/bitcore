@@ -50,6 +50,7 @@
     "socket.io-client": "^2.2.0",
     "source-map-support": "^0.5.13",
     "sticky-session": "^0.1.0",
+    "vircle-lib": "^8.20.4",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
