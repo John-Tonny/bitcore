@@ -275,6 +275,8 @@ export class Utils {
 
       var t = new bitcore.Transaction();
 
+      t.setAtomicSwap(txp.atomicswap);
+	
       if (txp.version >= 4) {
         t.setVersion(2);
       } else {
@@ -282,7 +284,7 @@ export class Utils {
       }
 
       $.checkState(_.includes(_.values(Constants.SCRIPT_TYPES), txp.addressType));
-
+	
       switch (txp.addressType) {
         case Constants.SCRIPT_TYPES.P2WSH:
         case Constants.SCRIPT_TYPES.P2SH:

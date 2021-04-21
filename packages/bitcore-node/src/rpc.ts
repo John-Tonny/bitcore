@@ -118,6 +118,12 @@ export class RPC {
     }
     return ret;
   }
+
+  // john 20210409
+  getRawTransaction(txid: string) {
+    return this.asyncCall('getrawtransaction', [txid, false]);
+  }
+
 }
 
 @LoggifyClass

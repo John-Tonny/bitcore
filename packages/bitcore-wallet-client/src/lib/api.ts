@@ -24,6 +24,8 @@ var Bitcore_ = {
 var Mnemonic = require('bitcore-mnemonic');
 var url = require('url');
 var querystring = require('querystring');
+var JSUtil = Bitcore.util.js;
+var AuditContract = Bitcore.atomicswap.AuditContract;
 
 var log = require('./log');
 const Errors = require('./errors');
@@ -1288,6 +1290,123 @@ export class API extends EventEmitter {
       return cb(null, txp);
     });
   }
+  
+  // john 20210409
+  // /**
+  // * Create a redeem transaction proposal
+  // *
+  // * @param {Object} opts
+  // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
+  // * @param {Array} opts.atomicswap - atomicswap.
+  // * @param {Array} opts.atomicswap.contract - atomicswap contract.
+  // * @param {Array} opts.outputs - List of outputs.
+  // * @param {string} opts.outputs[].toAddress - Destination address.
+  // * @param {string} opts.outputs[].message - A message to attach to this output.
+  // * @param {string} opts.message - A message to attach to this transaction.
+  // * @param {number} opts.feeLevel[='normal'] - Optional. Specify the fee level for this TX ('priority', 'normal', 'economy', 'superEconomy').
+  // * @param {number} opts.feePerKb - Optional. Specify the fee per KB for this TX (in satoshi).
+  // * @param {string} opts.payProUrl - Optional. Paypro URL for peers to verify TX
+  // * @param {Boolean} opts.excludeUnconfirmedUtxos[=false] - Optional. Do not use UTXOs of unconfirmed transactions as inputs
+  // * @param {Boolean} opts.validateOutputs[=true] - Optional. Perform validation on outputs.
+  // * @param {Boolean} opts.dryRun[=false] - Optional. Simulate the action but do not change server state.
+  // * @param {number} opts.fee - Optional. Use an fixed fee for this TX (only when opts.inputs is specified)
+  // * @param {Boolean} opts.noShuffleOutputs - Optional. If set, TX outputs won't be shuffled. Defaults to false
+  // * @param {String} opts.signingMethod - Optional. If set, force signing method (ecdsa or schnorr) otherwise use default for coin
+  // * @returns {Callback} cb - Return error or the transaction proposal
+  // * @param {String} baseUrl - Optional. ONLY FOR TESTING
+  // */
+  createRedeemTxProposal(opts, cb, baseUrl) {
+    $.checkState(this.credentials && this.credentials.isComplete());
+    $.checkState(this.credentials.sharedEncryptingKey);
+    $.checkArgument(opts);
+    
+    // john 20210409
+    $.checkArgument(opts.atomicswap.contract);
+    let cnt = AuditContract(opts.atomicswap.contract);
+    if(!cnt.isAtomicSwap){
+      cb(new Errors('atomicswap contract is invalid'));
+    }
+
+    // BCH schnorr deployment
+    if (!opts.signingMethod && this.credentials.coin == 'bch' && this.credentials.network == 'testnet') {
+      opts.signingMethod = 'schnorr';
+    }
+
+    var args = this._getCreateTxProposalArgs(opts);
+    baseUrl = baseUrl || '/v3/redeemtxproposals/';
+    // baseUrl = baseUrl || '/v4/txproposals/'; // DISABLED 2020-04-07
+
+    this.request.post(baseUrl, args, (err, txp) => {
+      if (err) return cb(err);
+
+      this._processTxps(txp);
+      if (!Verifier.checkProposalCreation(args, txp, this.credentials.sharedEncryptingKey)) {
+        return cb(new Errors.SERVER_COMPROMISED());
+      }
+
+      return cb(null, txp);
+    });
+  }
+
+  // john 20210409
+  // /**
+  // * Create a atomicswap transaction proposal
+  // *
+  // * @param {Object} opts
+  // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
+  // * @param {Array} opts.atomicswap - atomicswap.
+  // * @param {Array} opts.atomicswap.secretHash - atomicswap secretHash.
+  // * @param {Array} opts.atomicswap.initiate - atomicswap initiate.
+  // * @param {Array} opts.outputs - List of outputs.
+  // * @param {string} opts.outputs[].toAddress - Destination address.
+  // * @param {string} opts.outputs[].amount - Destination amount.
+  // * @param {string} opts.outputs[].message - A message to attach to this output.
+  // * @param {string} opts.message - A message to attach to this transaction.
+  // * @param {number} opts.feeLevel[='normal'] - Optional. Specify the fee level for this TX ('priority', 'normal', 'economy', 'superEconomy').
+  // * @param {number} opts.feePerKb - Optional. Specify the fee per KB for this TX (in satoshi).
+  // * @param {string} opts.payProUrl - Optional. Paypro URL for peers to verify TX
+  // * @param {Boolean} opts.excludeUnconfirmedUtxos[=false] - Optional. Do not use UTXOs of unconfirmed transactions as inputs
+  // * @param {Boolean} opts.validateOutputs[=true] - Optional. Perform validation on outputs.
+  // * @param {Boolean} opts.dryRun[=false] - Optional. Simulate the action but do not change server state.
+  // * @param {number} opts.fee - Optional. Use an fixed fee for this TX (only when opts.inputs is specified)
+  // * @param {Boolean} opts.noShuffleOutputs - Optional. If set, TX outputs won't be shuffled. Defaults to false
+  // * @param {String} opts.signingMethod - Optional. If set, force signing method (ecdsa or schnorr) otherwise use default for coin
+  // * @returns {Callback} cb - Return error or the transaction proposal
+  // * @param {String} baseUrl - Optional. ONLY FOR TESTING
+  // */
+  createAtomicSwapTxProposal(opts, cb, baseUrl) {
+    $.checkState(this.credentials && this.credentials.isComplete());
+    $.checkState(this.credentials.sharedEncryptingKey);
+    $.checkArgument(opts);
+   
+    $.checkArgument(opts.atomicswap.secretHash);
+    if(!JSUtil.isHexa(opts.atomicswap.secretHash) && opts.atomicswap.secretHash.length != 64){
+      cb(new Errors('atomicswap secretHash is invalid'));
+    }
+    if(opts.outputs && opts.outputs.length != 1){
+      cb(new Errors('The number of atomicswap outputs must be one'));
+    } 
+
+    // BCH schnorr deployment
+    if (!opts.signingMethod && this.credentials.coin == 'bch' && this.credentials.network == 'testnet') {
+      opts.signingMethod = 'schnorr';
+    }
+
+    var args = this._getCreateTxProposalArgs(opts);
+    baseUrl = baseUrl || '/v3/atomicswaptxproposals/';
+    // baseUrl = baseUrl || '/v4/txproposals/'; // DISABLED 2020-04-07
+
+    this.request.post(baseUrl, args, (err, txp) => {
+      if (err) return cb(err);
+
+      this._processTxps(txp);
+      if (!Verifier.checkProposalCreation(args, txp, this.credentials.sharedEncryptingKey)) {
+        return cb(new Errors.SERVER_COMPROMISED());
+      }
+
+      return cb(null, txp);
+    });
+  }
 
   // /**
   // * Publish a transaction proposal
@@ -1303,6 +1422,15 @@ export class API extends EventEmitter {
     $.checkState(parseInt(opts.txp.version) >= 3);
 
     var t = Utils.buildTx(opts.txp);
+    if(opts.txp.atomicswap && opts.txp.atomicswap.isAtomicSwap && opts.txp.atomicswap.redeem != undefined){
+      t.inputs[0].output.setScript(opts.txp.atomicswap.contract);
+      if(!opts.txp.atomicswap.redeem) {
+        t.lockUntilDate(opts.txp.atomicswap.lockTime);
+      }else{
+        t.nLockTime = opts.txp.atomicswap.lockTime;
+      }
+
+    }
     // john
     var hash = t.uncheckedSerialize1();
     var args = {
@@ -1316,7 +1444,7 @@ export class API extends EventEmitter {
       return cb(null, txp);
     });
   }
-
+  
   // /**
   // * Create a new address
   // *
@@ -1353,6 +1481,7 @@ export class API extends EventEmitter {
   // * Get your main addresses
   // *
   // * @param {Object} opts
+  // * @param {Boolean} opts.address	// john 20210409
   // * @param {Boolean} opts.doNotVerify
   // * @param {Numeric} opts.limit (optional) - Limit the resultset. Return all addresses by default.
   // * @param {Boolean} [opts.reverse=false] (optional) - Reverse the order of returned addresses.
@@ -1367,6 +1496,7 @@ export class API extends EventEmitter {
     var args = [];
     if (opts.limit) args.push('limit=' + opts.limit);
     if (opts.reverse) args.push('reverse=1');
+    if (opts.address) args.push('address=' + opts.address);
     var qs = '';
     if (args.length > 0) {
       qs = '?' + args.join('&');
@@ -1478,6 +1608,62 @@ export class API extends EventEmitter {
     });
   }
 
+  // /**
+  // * Get list of atomicswap transactions proposals
+  // *
+  // * @param {Object} opts
+  // * @param {Boolean} opts.doNotVerify
+  // * @param {Boolean} opts.forAirGapped
+  // * @param {Boolean} opts.doNotEncryptPkr
+  // * @return {Callback} cb - Return error or array of transactions proposals
+  // */
+  getAtomicSwapTxProposals(opts, cb) {
+    $.checkState(this.credentials && this.credentials.isComplete());
+
+    this.request.get('/v2/atomicswaptxproposals/', (err, txps) => {
+      if (err) return cb(err);
+      this._processTxps(txps);
+      async.every(
+        txps,
+        (txp, acb) => {
+          if (opts.doNotVerify) return acb(true);
+          this.getPayProV2(txp)
+            .then(paypro => {
+              var isLegit = Verifier.checkTxProposal(this.credentials, txp, {
+                paypro
+              });
+
+              return acb(isLegit);
+            })
+            .catch(err => {
+              return acb(err);
+            });
+        },
+        isLegit => {
+          if (!isLegit) return cb(new Errors.SERVER_COMPROMISED());
+
+          var result;
+          if (opts.forAirGapped) {
+            result = {
+              txps: JSON.parse(JSON.stringify(txps)),
+              encryptedPkr: opts.doNotEncryptPkr
+                ? null
+                : Utils.encryptMessage(
+                    JSON.stringify(this.credentials.publicKeyRing),
+                    this.credentials.personalEncryptingKey
+                  ),
+              unencryptedPkr: opts.doNotEncryptPkr ? JSON.stringify(this.credentials.publicKeyRing) : null,
+              m: this.credentials.m,
+              n: this.credentials.n
+            };
+          } else {
+            result = txps;
+          }
+          return cb(null, result);
+        }
+      );
+    });
+  }
   // private?
   getPayPro(txp, cb) {
     if (!txp.payProUrl || this.doNotVerifyPayPro) return cb();
@@ -1528,6 +1714,11 @@ export class API extends EventEmitter {
       return cb('No signatures to push. Sign the transaction with Key first');
     }
 
+    // john
+    if ( txp.atomicswap && txp.atomicswap.redeem && (!JSUtil.isHexa(txp.atomicswap.secret) || txp.atomicswap.secret.length != 64)) {
+      return cb('Invalid atomicswap secret');
+    }
+
     this.getPayProV2(txp)
       .then(paypro => {
         var isLegit = Verifier.checkTxProposal(this.credentials, txp, {
@@ -1546,8 +1737,13 @@ export class API extends EventEmitter {
 
         let url = base + txp.id + '/signatures/';
 
+	let atomicswapSecret;
+	if (txp.atomicswap && txp.atomicswap.secret){
+	  atomicswapSecret = txp.atomicswap.secret;
+        }
         var args = {
-          signatures
+          signatures,
+	  atomicswapSecret: atomicswapSecret 	// john 20210409
         };
         this.request.post(url, args, (err, txp) => {
           if (err) return cb(err);
@@ -2876,78 +3072,110 @@ export class API extends EventEmitter {
     }
 
     opts = opts || {};
-    
+
     var coin = opts.coin || 'vcl';
     var network = opts.network || 'livenet';
 
     if (!opts.address) return cb(new Error('Not address'));
- 
-    if (CWC.Validation.validateAddress(coin, network, opts.address)) {    
+
+    if (CWC.Validation.validateAddress(coin, network, opts.address)) {
       return cb(null, true);
     }
     return cb(new Error('Invalid address'), false);
   }
 
+  auditContract(opts, cb) {
+    if (!cb) {
+      cb = opts;
+      opts = {};
+      log.warn('DEPRECATED WARN: isValidAddress should receive 2 parameters.');
+    }
+
+    opts = opts || {};
+
+    var coin = opts.coin || 'vcl';
+    var network = opts.network || 'livenet';
+    
+    if (!opts.contract) return cb(new Error('Not contract'));
+
+    if(!JSUtil.isHexa(opts.contract)){
+      cb(new Error('contract must be hex string'));
+    }
+    
+    let cnt = AuditContract(opts.contract);
+    if(!cnt.isAtomicSwap){
+      cb(new Error('atomicswap contract invalid'));
+    }
+    
+    this.getMainAddresses({coin: coin, network: network, address: cnt.recipientAddr}, (err, addresses) => {
+      if(err) cb(err);
+      if(addresses && addresses.length>0){
+	cb(null, cnt);
+      }
+    });
+    
+  }
+
+
   createReward(opts, cb) {
     async.waterfall(
       [
         next => {
-	  this.openWallet(opts, 
-	    (err, walletStatus) => {
-	      if(err){
-		return next(new Error('open wallet error!'), err);
-	      }
-	      return next(null, walletStatus);
-	    }
-	  );
+          this.openWallet(opts, (err, walletStatus) => {
+            if (err) {
+              return next(new Error('open wallet error!'), err);
+            }
+            return next(null, walletStatus);
+          });
         },
         (walletStatus, next) => {
-          if(walletStatus.wallet.status != 'complete'){
-  	    return next(new Error('wallet no complete!'), walletStatus);
+          if (walletStatus.wallet.status != 'complete') {
+            return next(new Error('wallet no complete!'), walletStatus);
           }
-	  this.createTxProposal(opts, 
-	    function(err, createTxp){
-    	      if(err){
-		return next(new Error('create TxProposal error!'), err);
-	      }
-	      return next(null, createTxp);	  
-	    }
-	  ,'');  
-        },
-	(createTxp, next) => {
-	  this.publishTxProposal({txp:createTxp}, 
-	    (err, publishTxp) => {
-      	      if(err){
-		return next(new Error('publish TxProposal error!'), err);
+          this.createTxProposal(
+            opts,
+            function(err, createTxp) {
+              if (err) {
+                return next(new Error('create TxProposal error!'), err);
               }
-	      return next(null, publishTxp);		
-	    }
+              return next(null, createTxp);
+            },
+            ''
           );
-	},
-	(publishTxp, next) => {
-	  let signatures = opts.key.sign(this.getRootPath(), publishTxp);
-          this.pushSignatures(publishTxp, signatures, 
-	    function(err, rawHex, paypro) {
-              if(err){
-		return next(new Error('push Signatures error!'), err);
+        },
+        (createTxp, next) => {
+          this.publishTxProposal({ txp: createTxp }, (err, publishTxp) => {
+            if (err) {
+              return next(new Error('publish TxProposal error!'), err);
+            }
+            return next(null, publishTxp);
+          });
+        },
+        (publishTxp, next) => {
+          let signatures = opts.key.sign(this.getRootPath(), publishTxp);
+          this.pushSignatures(
+            publishTxp,
+            signatures,
+            function(err, rawHex, paypro) {
+              if (err) {
+                return next(new Error('push Signatures error!'), err);
               }
-	      return next(null, rawHex);
-	    }
-	  ,'');
-	},
-        (rawHex ,next) => {
-	  this.broadcastTxProposal(rawHex, 
-	    (err, zz, memo) => {
-              if(err){
-		return next(new Error('broadcast TxProposal error!'), err);
-	      }
-	      return cb(null, zz.txid);
-     	    }
-	  );
-	}
-      ], 
-      function (err, errMsg) {
-	cb(errMsg, null);
+              return next(null, rawHex);
+            },
+            ''
+          );
+        },
+        (rawHex, next) => {
+          this.broadcastTxProposal(rawHex, (err, zz, memo) => {
+            if (err) {
+              return next(new Error('broadcast TxProposal error!'), err);
+            }
+            return cb(null, zz.txid);
+          });
+        }
+      ],
+      function(err, errMsg) {
+        cb(errMsg, null);
       }
     );
   }

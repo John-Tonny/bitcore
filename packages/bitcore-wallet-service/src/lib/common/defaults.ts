@@ -249,7 +249,7 @@ module.exports = {
     btc: 0.05 * 1e8,
     bch: 0.05 * 1e8,
     eth: 1 * 1e18, // 1 eth
-    vcl: 1 * 1e8,  // 1 vcl john
+    vcl: 1 * 1e8, // 1 vcl john
     xrp: 1 * 1e6 // 1 xrp
   },
 

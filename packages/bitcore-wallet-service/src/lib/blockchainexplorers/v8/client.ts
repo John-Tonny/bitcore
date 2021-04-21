@@ -83,6 +83,15 @@ export class Client {
     });
   }
 
+  async getRawTx(params) {
+    const { txid } = params;
+    const url = `${this.baseUrl}/tx/${txid}/rawhex`;
+    console.log('[client.js.59:url:]', url); // TODO
+    return request.get(url, {
+      json: true
+    });
+  }
+
   async getCoins(params) {
     const { payload, pubKey, includeSpent } = params;
 

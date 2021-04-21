@@ -14,7 +14,7 @@ import {
   GetWalletBalanceParams,
   GetWalletParams,
   IChainStateProvider,
-  IChainStateService,
+  IChainStateService, RawTransactionParams,
   StreamAddressUtxosParams,
   StreamBlocksParams,
   StreamMasternodeStatusParams,
@@ -129,6 +129,12 @@ class ChainStateProxy implements IChainStateProvider {
   async getMasternodeStatus(params: StreamMasternodeStatusParams) {
     return this.get(params).getMasternodeStatus(params);
   }
+
+  // john 20210409
+  getRawTransaction(params: RawTransactionParams) {
+    return this.get(params).getRawTransaction(params);
+  }
+
 
   registerService(currency: string, service: IChainStateService) {
     services[currency] = service;

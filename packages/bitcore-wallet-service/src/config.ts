@@ -6,7 +6,6 @@ module.exports = {
   // john
   ignoreRateLimiter: true,
 
-
   // Uncomment to make BWS a forking server
   // cluster: true,
 

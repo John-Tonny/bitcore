@@ -22,6 +22,13 @@ export interface IChain {
     opts: { excludeUnconfirmedUtxos: string; returnInputs: string; from: string; feePerKb: number } & any,
     cb
   );
+  // john 20210409
+  getRedeemSendMaxInfo(
+      server: WalletService,
+      wallet: IWallet,
+      opts: { excludeUnconfirmedUtxos: string; returnInputs: string; from: string; feePerKb: number, atomicswap: any } & any,
+      cb
+  );
   getDustAmountValue();
   getTransactionCount(server: WalletService, wallet: IWallet, from: string);
   getChangeAddress(server: WalletService, wallet: IWallet, opts: { changeAddress: string } & any);
@@ -77,6 +84,11 @@ class ChainProxy {
 
   getWalletSendMaxInfo(server, wallet, opts, cb) {
     return this.get(wallet.coin).getWalletSendMaxInfo(server, wallet, opts, cb);
+  }
+
+  // john 20210409
+  getRedeemSendMaxInfo(server, wallet, opts, cb) {
+    return this.get(wallet.coin).getRedeemSendMaxInfo(server, wallet, opts, cb);
   }
 
   getDustAmountValue(coin) {

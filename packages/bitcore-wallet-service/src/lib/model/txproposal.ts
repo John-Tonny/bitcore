@@ -69,6 +69,9 @@ export interface ITxProposal {
   destinationTag?: string;
   invoiceID?: string;
   lockUntilBlockHeight?: number;
+  atomicswap?: any;
+  // atomicswapPending?: boolean;
+  atomicswapAddr?: string;
 }
 
 export class TxProposal {
@@ -126,6 +129,9 @@ export class TxProposal {
   destinationTag?: string;
   invoiceID?: string;
   lockUntilBlockHeight?: number;
+  atomicswap?: any;     // john 20210409
+  // atomicswapPending?: boolean;
+  atomicswapAddr?: string;
 
   static create(opts) {
     opts = opts || {};
@@ -199,6 +205,10 @@ export class TxProposal {
     x.destinationTag = opts.destinationTag;
     x.invoiceID = opts.invoiceID;
 
+    // john 20210409
+    x.atomicswap = opts.atomicswap;
+    x.atomicswapAddr = opts.atomicswapAddr;
+
     return x;
   }
 
@@ -264,6 +274,11 @@ export class TxProposal {
       x.raw = obj.raw;
     }
 
+    // john 20210409
+    x.atomicswap = obj.atomicswap;
+    // x.atomicswapPending = obj.atomicswapPending;
+    x.atomicswapAddr = obj.atomicswapAddr;
+
     return x;
   }
 
@@ -310,6 +325,12 @@ export class TxProposal {
   getRawTx1() {
     const t = ChainService.getBitcoreTx(this);
     return t.uncheckedSerialize1();
+  }
+
+  // john
+  getRawAtomicswapTx() {
+    const t = ChainService.getBitcoreTx(this);
+    return t.uncheckedAtomicSwapSerialize();
   }
 
   /**
@@ -384,7 +405,11 @@ export class TxProposal {
       this.addAction(copayerId, 'accept', null, signatures, xpub);
 
       if (this.status == 'accepted') {
-        this.raw = tx.uncheckedSerialize();
+        if(this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.redeem != undefined) {
+          this.raw = tx.uncheckedAtomicSwapSerialize();
+        }else{
+          this.raw = tx.uncheckedSerialize();
+        }
         this.txid = tx.id;
       }
 
@@ -424,6 +449,17 @@ export class TxProposal {
   setBroadcasted() {
     $.checkState(this.txid);
     this.status = 'broadcasted';
+    // john 20210409
+    /*if(this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.initiate != undefined){
+      this.atomicswapPending = true;
+    }*/
     this.broadcastedOn = Math.floor(Date.now() / 1000);
+  }
+
+  // john 20210409
+  setAtomicswaped() {
+    $.checkState(this.txid);
+    // this.atomicswapPending = false;
+    this.atomicswapAddr = null;
   }
 }

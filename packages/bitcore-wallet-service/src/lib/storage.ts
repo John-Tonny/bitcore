@@ -78,6 +78,10 @@ export class Storage {
     db.collection(collections.TXS).createIndex({
       txid: 1
     });
+    db.collection(collections.TXS).createIndex({
+      walletId: 1,
+      atomicswapAddr: 1
+    });
     db.collection(collections.NOTIFICATIONS).createIndex({
       walletId: 1,
       id: 1
@@ -162,8 +166,10 @@ export class Storage {
       config.uri = config.uri + 'readPreference=secondaryPreferred';
       log.info('Read operations set to secondaryPreferred');
     }
+    opts.keepAlive = opts.keepAlive || true;
+    opts.autoReconnect = opts.autoReconnect || true;
 
-    mongodb.MongoClient.connect(config.uri, (err, db) => {
+    mongodb.MongoClient.connect(config.uri, opts,  (err, db) => {
       if (err) {
         log.error('Unable to connect to the mongoDB. Check the credentials.');
         return cb(err);
@@ -367,6 +373,49 @@ export class Storage {
         });
         return this._completeTxData(walletId, txs, cb);
       });
+  }
+
+  // john 20210409
+  fetchAtomicSwapPendingTxs(walletId, cb) {
+    this.db
+        .collection(collections.TXS)
+        .find({
+          walletId,
+          // atomicswapPending: true,
+          atomicswapAddr: {$ne: null},
+          // status: 'broadcasted',
+        })
+        .sort({
+          createdOn: -1
+        })
+        .toArray((err, result) => {
+          if (err) return cb(err);
+          if (!result) return cb();
+          const txs = _.map(result, tx => {
+            return TxProposal.fromObj(tx);
+          });
+          return this._completeTxData(walletId, txs, cb);
+        });
+  }
+
+  fetchAtomicSwapBySecretHash(walletId, txp, cb) {
+    this.db
+        .collection(collections.TXS)
+        .find({
+          walletId,
+          'atomicswap.secretHash': txp.atomicswap.secretHash,
+        })
+        .sort({
+          createdOn: -1
+        })
+        .toArray((err, result) => {
+          if (err) return cb(err);
+          if (!result) return cb();
+          const txs = _.map(result, tx => {
+            return TxProposal.fromObj(tx);
+          });
+          return this._completeTxData(walletId, txs, cb);
+        });
   }
 
   /**
@@ -1654,8 +1703,8 @@ export class Storage {
   }
 
   async _completeTxDataAsync(walletId, txs) {
-    var {err, wallet} = await this.fetchWalletAsync(walletId);
-    if (err) return {err};
+    var { err, wallet } = await this.fetchWalletAsync(walletId);
+    if (err) return { err };
     _.each([].concat(txs), tx => {
       tx.derivationStrategy = wallet.derivationStrategy || 'BIP45';
       tx.creatorName = wallet.getCopayer(tx.creatorId).name;
@@ -1665,22 +1714,21 @@ export class Storage {
 
       if (tx.status == 'accepted') tx.raw = tx.getRawTx();
     });
-    return {'err':null, 'txs': txs};
+    return { err: null, txs };
   }
 
   async fetchWalletAsync(id) {
-    if (!this.db) return  {'err': 'not ready'};
-    var result = await this.db.collection(collections.WALLETS).findOne({id});
-    if (!result) return  {'err': 'not result'};
-    return {'err':null, 'wallet': Wallet.fromObj(result)};
+    if (!this.db) return { err: 'not ready' };
+    var result = await this.db.collection(collections.WALLETS).findOne({ id });
+    if (!result) return { err: 'not result' };
+    return { err: null, wallet: Wallet.fromObj(result) };
   }
 
   async fetchTxByHashAsync(hash) {
-    if (!this.db) return {'err': 'not ready'};
+    if (!this.db) return { err: 'not ready' };
 
-    var result = await this.db.collection(collections.TXS).findOne({txid: hash});
-    if (!result) return {'err': 'not result'};
+    var result = await this.db.collection(collections.TXS).findOne({ txid: hash });
+    if (!result) return { err: 'not result' };
     return await this._completeTxDataAsync(result.walletId, TxProposal.fromObj(result));
   }
-
 }

@@ -224,15 +224,15 @@ export class Key {
     var xpriv = new Bitcore.HDPrivateKey(derived);
 
     start = start || 0;
-    stop = stop || (start + 100);
+    stop = stop || start + 100;
 
     var privKey;
-    for(var i = start; i < stop;i++) {
+    for (var i = start; i < stop; i++) {
       var path = 'm/0/' + i.toString();
       if (!derived[path]) {
         privKey = xpriv.deriveChild(path).privateKey;
         var address = privKey.publicKey.toAddress().toString();
-        if (address === queryAddress){
+        if (address === queryAddress) {
           return true;
         }
       }
@@ -470,6 +470,14 @@ export class Key {
     var xpriv = new Bitcore.HDPrivateKey(derived);
 
     var t = Utils.buildTx(txp);
+    if(txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem != undefined){
+      t.inputs[0].output.setScript(txp.atomicswap.contract);
+      if(!txp.atomicswap.redeem) {
+        t.lockUntilDate(txp.atomicswap.lockTime);
+      }else{
+        t.nLockTime = txp.atomicswap.lockTime;
+      }	
+    }
 
     if (Constants.UTXO_COINS.includes(txp.coin)) {
       _.each(txp.inputs, function(i) {
@@ -509,4 +517,27 @@ export class Key {
       return signatures;
     }
   };
+  
+  // john 20210409
+  signAtomicSwap = function(privKey, txp, cb) {
+    var t = Utils.buildTx(txp);
+    
+    t.inputs[0].output.setScript(txp.contract);
+    t.lockUntilDate(txp.lockTime);
+    var privs = [];
+
+    if (Constants.UTXO_COINS.includes(txp.coin)) {
+      privs.push(new Bitcore.PrivateKey(privKey));
+
+      var signatures = _.map(privs, function(priv, i) {
+        return t.getSignatures(priv, undefined, txp.signingMethod);
+      });
+
+      signatures = _.map(_.sortBy(_.flatten(signatures), 'inputIndex'), function(s) {
+        return s.signature.toDER(txp.signingMethod).toString('hex');
+      });
+
+      return signatures;
+    }
+  };    
 }

@@ -139,6 +139,92 @@ export class VclChain implements IChain {
     });
   }
 
+  // john 20210409
+  getRedeemSendMaxInfo(server, wallet, opts, cb) {
+    server.getUtxosForCurrentWallet({}, (err, utxos) => {
+      if (err) return cb(err);
+      console.log(utxos);
+    });
+    const MAX_TX_SIZE_IN_KB = Defaults.MAX_TX_SIZE_IN_KB_BTC;
+
+    const info = {
+      size: 0,
+      amount: 0,
+      fee: 0,
+      feePerKb: 0,
+      inputs: [],
+      utxosBelowFee: 0,
+      amountBelowFee: 0,
+      utxosAboveMaxSize: 0,
+      amountAboveMaxSize: 0
+    };
+
+    let inputs = _.reject(opts.atomicswap.utxos, 'locked');
+    // john 20210409
+
+    if (!!opts.excludeUnconfirmedUtxos) {
+      inputs = _.filter(inputs, 'confirmations');
+    }
+    inputs = _.sortBy(inputs, input => {
+      return -input.satoshis;
+    });
+
+    if (_.isEmpty(inputs)) return cb(null, info);
+
+    server._getFeePerKb(wallet, opts, (err, feePerKb) => {
+      if (err) return cb(err);
+
+      info.feePerKb = feePerKb;
+
+      const txp = TxProposal.create({
+        walletId: server.walletId,
+        coin: wallet.coin,
+        network: wallet.network,
+        walletM: wallet.m,
+        walletN: wallet.n,
+        feePerKb
+      });
+      const baseTxpSize = this.getEstimatedSize(txp);
+      const sizePerInput = this.getEstimatedSizeForSingleInput(txp);
+      const feePerInput = (sizePerInput * txp.feePerKb) / 1000;
+
+      const partitionedByAmount = _.partition(inputs, input => {
+        return input.satoshis > feePerInput;
+      });
+
+      info.utxosBelowFee = partitionedByAmount[1].length;
+      info.amountBelowFee = _.sumBy(partitionedByAmount[1], 'satoshis');
+      inputs = partitionedByAmount[0];
+
+      _.each(inputs, (input, i) => {
+        const sizeInKb = (baseTxpSize + (i + 1) * sizePerInput) / 1000;
+        if (sizeInKb > MAX_TX_SIZE_IN_KB) {
+          info.utxosAboveMaxSize = inputs.length - i;
+          info.amountAboveMaxSize = _.sumBy(_.slice(inputs, i), 'satoshis');
+          return false;
+        }
+        txp.inputs.push(input);
+      });
+
+      if (_.isEmpty(txp.inputs)) return cb(null, info);
+
+      const fee = this.getEstimatedFee(txp);
+      const amount = _.sumBy(txp.inputs, 'satoshis') - fee;
+
+      if (amount < Defaults.MIN_OUTPUT_AMOUNT) return cb(null, info);
+
+      info.size = this.getEstimatedSize(txp);
+      info.fee = fee;
+      info.amount = amount;
+
+      if (opts.returnInputs) {
+        info.inputs = _.shuffle(txp.inputs);
+      }
+
+      return cb(null, info);
+    });
+  }
+
   getDustAmountValue() {
     return this.bitcoreLib.Transaction.DUST_AMOUNT;
   }
@@ -357,6 +443,17 @@ export class VclChain implements IChain {
 
     t.fee(txp.fee);
 
+    // john 20210409
+    if(txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem!=undefined){
+      t.inputs[0].output.setScript(txp.atomicswap.contract);
+      t.atomicswap = txp.atomicswap;
+      if(!txp.atomicswap.redeem) {
+        t.lockUntilDate(txp.atomicswap.lockTime);
+      }else{
+        t.nLockTime = txp.atomicswap.lockTime;
+      }
+    }
+
     if (txp.changeAddress) {
       t.change(txp.changeAddress.address);
     }
@@ -387,6 +484,7 @@ export class VclChain implements IChain {
         this.addSignaturesToBitcoreTx(t, txp.inputs, txp.inputPaths, x.signatures, x.xpub, txp.signingMethod);
       });
     }
+
     return t;
   }
 
@@ -452,9 +550,12 @@ export class VclChain implements IChain {
 
   totalizeUtxos(utxos) {
     // john
-    var totalUnConfirmedAmount = _.sumBy(_.filter(utxos, x => {
-      return x.coinbase  && ( x.confirmations < Defaults.COINBASE_MATURITY_VCL );
-    }), 'satoshis');
+    var totalUnConfirmedAmount = _.sumBy(
+      _.filter(utxos, x => {
+        return x.coinbase && x.confirmations < Defaults.COINBASE_MATURITY_VCL;
+      }),
+      'satoshis'
+    );
     const balance = {
       totalAmount: _.sumBy(utxos, 'satoshis'),
       lockedAmount: _.sumBy(_.filter(utxos, 'locked'), 'satoshis'),
@@ -656,7 +757,7 @@ export class VclChain implements IChain {
 
       // john
       utxos = _.filter(utxos, x => {
-        return (x.coinbase && x.confirmations >= Defaults.COINBASE_MATURITY_VCL) || (!x.coinbase);
+        return (x.coinbase && x.confirmations >= Defaults.COINBASE_MATURITY_VCL) || !x.coinbase;
       });
 
       utxos = sanitizeUtxos(utxos);

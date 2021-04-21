@@ -86,6 +86,7 @@ var sighash = function sighash(transaction, sighashType, inputNumber, subscript)
     .toBuffer();
   var ret = Hash.sha256sha256(buf);
   ret = new BufferReader(ret).readReverse();
+  console.log("buf:", buf.toString('hex'));
   return ret;
 };
 
