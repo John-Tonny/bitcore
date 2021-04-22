@@ -402,7 +402,7 @@ export class Storage {
       .collection(collections.TXS)
       .find({
         walletId,
-        'atomicswapSecretHash': txp.atomicswapSecretHash
+        atomicswapSecretHash: txp.atomicswapSecretHash
       })
       .sort({
         createdOn: -1

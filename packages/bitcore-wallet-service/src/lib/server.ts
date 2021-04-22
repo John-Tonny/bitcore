@@ -2787,7 +2787,7 @@ export class WalletService {
                     signingMethod: opts.signingMethod,
                     atomicswap: opts.atomicswap, // john 20210409
                     atomicswapAddr: opts.atomicswapAddr,
-                    atomicswapSecretHash: opts.atomicswapSecretHash,
+                    atomicswapSecretHash: opts.atomicswapSecretHash
                   };
                   txp = TxProposal.create(txOpts);
                   next();

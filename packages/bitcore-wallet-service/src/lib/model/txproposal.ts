@@ -71,7 +71,8 @@ export interface ITxProposal {
   lockUntilBlockHeight?: number;
   atomicswap?: any;
   atomicswapAddr?: string;
-  atomicswapSecretHash?; string;
+  atomicswapSecretHash?;
+  string;
 }
 
 export class TxProposal {
