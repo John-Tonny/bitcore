@@ -71,6 +71,7 @@ export interface ITxProposal {
   lockUntilBlockHeight?: number;
   atomicswap?: any;
   atomicswapAddr?: string;
+  atomicswapSecretHash?; string;
 }
 
 export class TxProposal {
@@ -130,6 +131,7 @@ export class TxProposal {
   lockUntilBlockHeight?: number;
   atomicswap?: any; // john 20210409
   atomicswapAddr?: string;
+  atomicswapSecretHash?: string;
 
   static create(opts) {
     opts = opts || {};
@@ -206,6 +208,7 @@ export class TxProposal {
     // john 20210409
     x.atomicswap = opts.atomicswap;
     x.atomicswapAddr = opts.atomicswapAddr;
+    x.atomicswapSecretHash = opts.atomicswapSecretHash;
 
     return x;
   }
@@ -275,6 +278,7 @@ export class TxProposal {
     // john 20210409
     x.atomicswap = obj.atomicswap;
     x.atomicswapAddr = obj.atomicswapAddr;
+    x.atomicswapSecretHash = obj.atomicswapSecretHash;
 
     return x;
   }

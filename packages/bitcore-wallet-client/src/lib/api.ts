@@ -1717,7 +1717,7 @@ export class API extends EventEmitter {
     if (
       txp.atomicswap &&
       txp.atomicswap.redeem &&
-      (!JSUtil.isHexa(txp.atomicswap.secret) || txp.atomicswap.secret.length != 64)
+      (!JSUtil.isHexa(txp.atomicswap.secret) || txp.atomicswap.secret.length != 64  || txp.atomicswapSecretHash != Bitcore.crypto.Hash.sha256(Buffer.from(txp.atomicswap.secret, 'hex')).toString('hex'))
     ) {
       return cb('Invalid atomicswap secret');
     }

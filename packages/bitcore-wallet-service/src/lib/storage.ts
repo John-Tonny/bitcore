@@ -80,7 +80,8 @@ export class Storage {
     });
     db.collection(collections.TXS).createIndex({
       walletId: 1,
-      atomicswapAddr: 1
+      atomicswapAddr: 1,
+      atomicswapSecretHash: 1
     });
     db.collection(collections.NOTIFICATIONS).createIndex({
       walletId: 1,
@@ -401,7 +402,7 @@ export class Storage {
       .collection(collections.TXS)
       .find({
         walletId,
-        'atomicswap.secretHash': txp.atomicswap.secretHash
+        'atomicswapSecretHash': txp.atomicswapSecretHash
       })
       .sort({
         createdOn: -1

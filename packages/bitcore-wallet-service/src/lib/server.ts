@@ -2421,6 +2421,7 @@ export class WalletService {
                   opts.atomicswap.lockTime = cnt.lockTime;
                   opts.atomicswap.isAtomicSwap = true;
                   opts.atomicswapAddr = cnt.contractAddr;
+                  opts.atomicswapSecretHash = cnt.secretHash;
                   let signAddr;
                   if (opts.atomicswap.redeem) {
                     signAddr = cnt.recipientAddr;
@@ -2544,7 +2545,9 @@ export class WalletService {
                     destinationTag: opts.destinationTag,
                     invoiceID: opts.invoiceID,
                     signingMethod: opts.signingMethod,
-                    atomicswap: opts.atomicswap // john 20210409
+                    atomicswap: opts.atomicswap, // john 20210409
+                    atomicswapAddr: opts.atomicswapAddr,
+                    atomicswapSecretHash: opts.atomicswapSecretHash
                   };
                   txp = TxProposal.create(txOpts);
                   next();
@@ -2701,6 +2704,7 @@ export class WalletService {
                     opts.outputs[0].toAddress = cnt.contractAddr;
                     opts.atomicswap.contract = contract.hex;
                     opts.atomicswapAddr = cnt.contractAddr;
+                    opts.atomicswapSecretHash = cnt.secretHash;
                   } catch (error) {
                     return next(error);
                   }
@@ -2781,7 +2785,9 @@ export class WalletService {
                     destinationTag: opts.destinationTag,
                     invoiceID: opts.invoiceID,
                     signingMethod: opts.signingMethod,
-                    atomicswap: opts.atomicswap // john 20210409
+                    atomicswap: opts.atomicswap, // john 20210409
+                    atomicswapAddr: opts.atomicswapAddr,
+                    atomicswapSecretHash: opts.atomicswapSecretHash,
                   };
                   txp = TxProposal.create(txOpts);
                   next();
@@ -2841,9 +2847,7 @@ export class WalletService {
               if (cnt.isAtomicSwap) {
                 txp.atomicswap.isAtomicSwap = cnt.isAtomicSwap;
                 txp.atomicswapAddr = cnt.contractAddr;
-                /*txp.atomicswap.refundAddr = cnt.refundAddr;
-                txp.atomicswap.recipientAddr = cnt.recipientAddr;
-                txp.atomicswap.secretHash = cnt.secretHash;*/
+                txp.atomicswapSecretHash = cnt.secretHash;
               }
             }
             if (!txp.atomicswap.isAtomicSwap) {
@@ -3255,10 +3259,7 @@ export class WalletService {
               if (cnt.isAtomicSwap) {
                 txp.atomicswap.isAtomicSwap = cnt.isAtomicSwap;
                 txp.atomicswapAddr = cnt.contractAddr;
-                txp.atomicswap.secretHash = cnt.secretHash;
-                /*txp.atomicswap.refundAddr = cnt.refundAddr;
-                txp.atomicswap.recipientAddr = cnt.recipientAddr;
-                txp.atomicswap.secretHash = cnt.secretHash;*/
+                txp.atomicswapSecretHash = cnt.secretHash;
               }
             }
             if (!txp.atomicswap.isAtomicSwap) {
@@ -3270,7 +3271,7 @@ export class WalletService {
 
             if (opts.atomicswapSecret && opts.atomicswapSecret.length == 64) {
               if (
-                txp.atomicswap.secretHash !=
+                txp.atomicswapSecretHash !=
                 new Bitcore.crypto.Hash.sha256(Buffer.from(opts.atomicswapSecret, 'hex')).toString('hex')
               ) {
                 cb(new Error('atomicswap secret is invalid'));
