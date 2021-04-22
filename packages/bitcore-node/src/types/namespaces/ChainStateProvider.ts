@@ -148,10 +148,9 @@ export type StreamMasternodeStatusParams = ChainNetwork & {
 // john 20210409
 export type RawTransactionParams = ChainNetwork & {
   chain: string;
-  network:string;
+  network: string;
   txId: string;
 };
-
 
 export interface GetCoinsForTxParams {
   chain: string;

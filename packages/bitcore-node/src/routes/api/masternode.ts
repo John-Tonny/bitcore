@@ -19,7 +19,8 @@ router.get('/status', async (req, res) => {
     let utxo = '';
     let ret;
     let infos = await ChainStateProvider.getMasternodeStatus({ chain, network, utxo });
-    var infos_sort =  _.sortBy(infos, function(item) {      // john
+    var infos_sort = _.sortBy(infos, function(item) {
+      // john
       return -item.lastseen;
     });
     if (typeof txid !== 'undefined') {

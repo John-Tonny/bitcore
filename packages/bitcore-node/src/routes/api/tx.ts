@@ -80,7 +80,6 @@ router.get('/:txId/rawhex', async (req, res) => {
   }
 });
 
-
 // Get transaction with input and outputs, assigned to key coins
 router.get('/:txId/populated', async (req, res) => {
   let { chain, network, txId } = req.params;

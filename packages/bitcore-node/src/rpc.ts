@@ -123,7 +123,6 @@ export class RPC {
   getRawTransaction(txid: string) {
     return this.asyncCall('getrawtransaction', [txid, false]);
   }
-
 }
 
 @LoggifyClass

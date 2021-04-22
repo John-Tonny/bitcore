@@ -22,7 +22,6 @@ import {
   BroadcastMasternodeParams,
   // john
   BroadcastTransactionParams,
-  RawTransactionParams,
   CreateWalletParams,
   DailyTransactionsParams,
   GetBalanceForAddressParams,
@@ -32,6 +31,7 @@ import {
   GetWalletBalanceParams,
   GetWalletParams,
   IChainStateService,
+  RawTransactionParams,
   StreamAddressUtxosParams,
   StreamTransactionsParams,
   StreamWalletAddressesParams,
@@ -496,7 +496,6 @@ export class InternalStateProvider implements IChainStateService {
     const { chain, network, txId } = params;
     return await this.getRPC(chain, network).getRawTransaction(txId);
   }
-
 
   async getCoinsForTx({ chain, network, txid }: { chain: string; network: string; txid: string }) {
     const tx = await TransactionStorage.collection.countDocuments({ txid });
