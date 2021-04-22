@@ -500,26 +500,26 @@ export class ExpressApp {
     });
 
 */
-  // john 20210409
-  router.post('/v3/redeemtxproposals/', (req, res) => {
-    getServerWithAuth(req, res, server => {
-      req.body.txpVersion = 3;
-      server.createRedeemTx(req.body, (err, txp) => {
-        if (err) return returnError(err, res, req);
-        res.json(txp);
+    // john 20210409
+    router.post('/v3/redeemtxproposals/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        req.body.txpVersion = 3;
+        server.createRedeemTx(req.body, (err, txp) => {
+          if (err) return returnError(err, res, req);
+          res.json(txp);
+        });
       });
     });
-  });
 
-  router.post('/v3/atomicswaptxproposals/', (req, res) => {
-    getServerWithAuth(req, res, server => {
-      req.body.txpVersion = 3;
-      server.createAtomicSwapTx(req.body, (err, txp) => {
-        if (err) return returnError(err, res, req);
-        res.json(txp);
+    router.post('/v3/atomicswaptxproposals/', (req, res) => {
+      getServerWithAuth(req, res, server => {
+        req.body.txpVersion = 3;
+        server.createAtomicSwapTx(req.body, (err, txp) => {
+          if (err) return returnError(err, res, req);
+          res.json(txp);
+        });
       });
     });
-  });
 
     // DEPRECATED
     router.post('/v1/addresses/', (req, res) => {
@@ -577,10 +577,10 @@ export class ExpressApp {
 
     router.get('/v1/addresses/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { limit?: number; reverse?: boolean; address?: string; } = {};
+        const opts: { limit?: number; reverse?: boolean; address?: string } = {};
         if (req.query.limit) opts.limit = +req.query.limit;
         opts.reverse = req.query.reverse == '1';
-        if(req.query.address) opts.address = req.query.address;   // john 20210409
+        if (req.query.address) opts.address = req.query.address; // john 20210409
 
         server.getMainAddresses(opts, (err, addresses) => {
           if (err) return returnError(err, res, req);

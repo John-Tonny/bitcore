@@ -470,13 +470,13 @@ export class Key {
     var xpriv = new Bitcore.HDPrivateKey(derived);
 
     var t = Utils.buildTx(txp);
-    if(txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem != undefined){
+    if (txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem != undefined) {
       t.inputs[0].output.setScript(txp.atomicswap.contract);
-      if(!txp.atomicswap.redeem) {
+      if (!txp.atomicswap.redeem) {
         t.lockUntilDate(txp.atomicswap.lockTime);
-      }else{
+      } else {
         t.nLockTime = txp.atomicswap.lockTime;
-      }	
+      }
     }
 
     if (Constants.UTXO_COINS.includes(txp.coin)) {
@@ -517,11 +517,11 @@ export class Key {
       return signatures;
     }
   };
-  
+
   // john 20210409
   signAtomicSwap = function(privKey, txp, cb) {
     var t = Utils.buildTx(txp);
-    
+
     t.inputs[0].output.setScript(txp.contract);
     t.lockUntilDate(txp.lockTime);
     var privs = [];
@@ -539,5 +539,5 @@ export class Key {
 
       return signatures;
     }
-  };    
+  };
 }

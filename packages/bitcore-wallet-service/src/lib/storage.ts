@@ -169,7 +169,7 @@ export class Storage {
     opts.keepAlive = opts.keepAlive || true;
     opts.autoReconnect = opts.autoReconnect || true;
 
-    mongodb.MongoClient.connect(config.uri, opts,  (err, db) => {
+    mongodb.MongoClient.connect(config.uri, opts, (err, db) => {
       if (err) {
         log.error('Unable to connect to the mongoDB. Check the credentials.');
         return cb(err);
@@ -378,44 +378,42 @@ export class Storage {
   // john 20210409
   fetchAtomicSwapPendingTxs(walletId, cb) {
     this.db
-        .collection(collections.TXS)
-        .find({
-          walletId,
-          // atomicswapPending: true,
-          atomicswapAddr: {$ne: null},
-          // status: 'broadcasted',
-        })
-        .sort({
-          createdOn: -1
-        })
-        .toArray((err, result) => {
-          if (err) return cb(err);
-          if (!result) return cb();
-          const txs = _.map(result, tx => {
-            return TxProposal.fromObj(tx);
-          });
-          return this._completeTxData(walletId, txs, cb);
+      .collection(collections.TXS)
+      .find({
+        walletId,
+        atomicswapAddr: { $ne: null }
+      })
+      .sort({
+        createdOn: -1
+      })
+      .toArray((err, result) => {
+        if (err) return cb(err);
+        if (!result) return cb();
+        const txs = _.map(result, tx => {
+          return TxProposal.fromObj(tx);
         });
+        return this._completeTxData(walletId, txs, cb);
+      });
   }
 
   fetchAtomicSwapBySecretHash(walletId, txp, cb) {
     this.db
-        .collection(collections.TXS)
-        .find({
-          walletId,
-          'atomicswap.secretHash': txp.atomicswap.secretHash,
-        })
-        .sort({
-          createdOn: -1
-        })
-        .toArray((err, result) => {
-          if (err) return cb(err);
-          if (!result) return cb();
-          const txs = _.map(result, tx => {
-            return TxProposal.fromObj(tx);
-          });
-          return this._completeTxData(walletId, txs, cb);
+      .collection(collections.TXS)
+      .find({
+        walletId,
+        'atomicswap.secretHash': txp.atomicswap.secretHash
+      })
+      .sort({
+        createdOn: -1
+      })
+      .toArray((err, result) => {
+        if (err) return cb(err);
+        if (!result) return cb();
+        const txs = _.map(result, tx => {
+          return TxProposal.fromObj(tx);
         });
+        return this._completeTxData(walletId, txs, cb);
+      });
   }
 
   /**

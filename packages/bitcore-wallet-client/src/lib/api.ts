@@ -1290,7 +1290,7 @@ export class API extends EventEmitter {
       return cb(null, txp);
     });
   }
-  
+
   // john 20210409
   // /**
   // * Create a redeem transaction proposal
@@ -1319,11 +1319,11 @@ export class API extends EventEmitter {
     $.checkState(this.credentials && this.credentials.isComplete());
     $.checkState(this.credentials.sharedEncryptingKey);
     $.checkArgument(opts);
-    
+
     // john 20210409
     $.checkArgument(opts.atomicswap.contract);
     let cnt = AuditContract(opts.atomicswap.contract);
-    if(!cnt.isAtomicSwap){
+    if (!cnt.isAtomicSwap) {
       cb(new Errors('atomicswap contract is invalid'));
     }
 
@@ -1378,14 +1378,14 @@ export class API extends EventEmitter {
     $.checkState(this.credentials && this.credentials.isComplete());
     $.checkState(this.credentials.sharedEncryptingKey);
     $.checkArgument(opts);
-   
+
     $.checkArgument(opts.atomicswap.secretHash);
-    if(!JSUtil.isHexa(opts.atomicswap.secretHash) && opts.atomicswap.secretHash.length != 64){
+    if (!JSUtil.isHexa(opts.atomicswap.secretHash) && opts.atomicswap.secretHash.length != 64) {
       cb(new Errors('atomicswap secretHash is invalid'));
     }
-    if(opts.outputs && opts.outputs.length != 1){
+    if (opts.outputs && opts.outputs.length != 1) {
       cb(new Errors('The number of atomicswap outputs must be one'));
-    } 
+    }
 
     // BCH schnorr deployment
     if (!opts.signingMethod && this.credentials.coin == 'bch' && this.credentials.network == 'testnet') {
@@ -1422,14 +1422,13 @@ export class API extends EventEmitter {
     $.checkState(parseInt(opts.txp.version) >= 3);
 
     var t = Utils.buildTx(opts.txp);
-    if(opts.txp.atomicswap && opts.txp.atomicswap.isAtomicSwap && opts.txp.atomicswap.redeem != undefined){
+    if (opts.txp.atomicswap && opts.txp.atomicswap.isAtomicSwap && opts.txp.atomicswap.redeem != undefined) {
       t.inputs[0].output.setScript(opts.txp.atomicswap.contract);
-      if(!opts.txp.atomicswap.redeem) {
+      if (!opts.txp.atomicswap.redeem) {
         t.lockUntilDate(opts.txp.atomicswap.lockTime);
-      }else{
+      } else {
         t.nLockTime = opts.txp.atomicswap.lockTime;
       }
-
     }
     // john
     var hash = t.uncheckedSerialize1();
@@ -1444,7 +1443,7 @@ export class API extends EventEmitter {
       return cb(null, txp);
     });
   }
-  
+
   // /**
   // * Create a new address
   // *
@@ -1715,7 +1714,11 @@ export class API extends EventEmitter {
     }
 
     // john
-    if ( txp.atomicswap && txp.atomicswap.redeem && (!JSUtil.isHexa(txp.atomicswap.secret) || txp.atomicswap.secret.length != 64)) {
+    if (
+      txp.atomicswap &&
+      txp.atomicswap.redeem &&
+      (!JSUtil.isHexa(txp.atomicswap.secret) || txp.atomicswap.secret.length != 64)
+    ) {
       return cb('Invalid atomicswap secret');
     }
 
@@ -1737,13 +1740,13 @@ export class API extends EventEmitter {
 
         let url = base + txp.id + '/signatures/';
 
-	let atomicswapSecret;
-	if (txp.atomicswap && txp.atomicswap.secret){
-	  atomicswapSecret = txp.atomicswap.secret;
+        let atomicswapSecret;
+        if (txp.atomicswap && txp.atomicswap.secret) {
+          atomicswapSecret = txp.atomicswap.secret;
         }
         var args = {
           signatures,
-	  atomicswapSecret: atomicswapSecret 	// john 20210409
+          atomicswapSecret // john 20210409
         };
         this.request.post(url, args, (err, txp) => {
           if (err) return cb(err);
@@ -3095,27 +3098,25 @@ export class API extends EventEmitter {
 
     var coin = opts.coin || 'vcl';
     var network = opts.network || 'livenet';
-    
+
     if (!opts.contract) return cb(new Error('Not contract'));
 
-    if(!JSUtil.isHexa(opts.contract)){
+    if (!JSUtil.isHexa(opts.contract)) {
       cb(new Error('contract must be hex string'));
     }
-    
+
     let cnt = AuditContract(opts.contract);
-    if(!cnt.isAtomicSwap){
+    if (!cnt.isAtomicSwap) {
       cb(new Error('atomicswap contract invalid'));
     }
-    
-    this.getMainAddresses({coin: coin, network: network, address: cnt.recipientAddr}, (err, addresses) => {
-      if(err) cb(err);
-      if(addresses && addresses.length>0){
-	cb(null, cnt);
+
+    this.getMainAddresses({ coin, network, address: cnt.recipientAddr }, (err, addresses) => {
+      if (err) cb(err);
+      if (addresses && addresses.length > 0) {
+        cb(null, cnt);
       }
     });
-    
   }
-
 
   createReward(opts, cb) {
     async.waterfall(

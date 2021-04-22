@@ -444,12 +444,12 @@ export class VclChain implements IChain {
     t.fee(txp.fee);
 
     // john 20210409
-    if(txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem!=undefined){
+    if (txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem != undefined) {
       t.inputs[0].output.setScript(txp.atomicswap.contract);
       t.atomicswap = txp.atomicswap;
-      if(!txp.atomicswap.redeem) {
+      if (!txp.atomicswap.redeem) {
         t.lockUntilDate(txp.atomicswap.lockTime);
-      }else{
+      } else {
         t.nLockTime = txp.atomicswap.lockTime;
       }
     }

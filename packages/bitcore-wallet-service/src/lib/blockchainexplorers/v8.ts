@@ -173,30 +173,26 @@ export class V8 {
   // john 20210409
   _transformTx(txs, bcheight) {
     $.checkState(bcheight > 0, 'No BC height passed to _transformTx');
-    const ret = _.map(
-        txs,
-        x => {
-          const u = {
-            address: x.address,
-            satoshis: x.value,
-            amount: x.value / 1e8,
-            scriptPubKey: x.script,
-            mintTxid: x.mintTxid,
-            mintIndex: x.mintIndex,
-            spentTxid: x.spentTxid,
-            locked: false,
-            coinbase: x.coinbase,
-            mintConfirmations: x.mintHeight > 0 && bcheight >= x.mintHeight ? bcheight - x.mintHeight + 1 : 0,
-            spentConfirmations: x.spentHeight > 0 && bcheight >= x.spentHeight ? bcheight - x.spentHeight + 1 : 0
-          };
-          // v8 field name differences
-          return u;
-        }
-    );
+    const ret = _.map(txs, x => {
+      const u = {
+        address: x.address,
+        satoshis: x.value,
+        amount: x.value / 1e8,
+        scriptPubKey: x.script,
+        mintTxid: x.mintTxid,
+        mintIndex: x.mintIndex,
+        spentTxid: x.spentTxid,
+        locked: false,
+        coinbase: x.coinbase,
+        mintConfirmations: x.mintHeight > 0 && bcheight >= x.mintHeight ? bcheight - x.mintHeight + 1 : 0,
+        spentConfirmations: x.spentHeight > 0 && bcheight >= x.spentHeight ? bcheight - x.spentHeight + 1 : 0
+      };
+      // v8 field name differences
+      return u;
+    });
 
     return ret;
   }
-
 
   /**
    * Retrieve a list of unspent outputs associated with an address or set of addresses
@@ -306,18 +302,18 @@ export class V8 {
     console.log('[v8.js.207] GET TX', txid); // TODO
     const client = this._getClient();
     client
-        .getRawTx({ txid })
-        .then(tx => {
-          return cb(null, tx);
-        })
-        .catch(err => {
-          // The TX was not found
-          if (err.statusCode == '404') {
-            return cb();
-          } else {
-            return cb(err);
-          }
-        });
+      .getRawTx({ txid })
+      .then(tx => {
+        return cb(null, tx);
+      })
+      .catch(err => {
+        // The TX was not found
+        if (err.statusCode == '404') {
+          return cb();
+        } else {
+          return cb(err);
+        }
+      });
   }
 
   getAddressUtxos(address, height, cb) {
@@ -338,13 +334,12 @@ export class V8 {
     const client = this._getClient();
 
     client
-        .getAddressTxos({ address })
-        .then(utxos => {
-          return cb(null, this._transformTx(utxos, height));
-        })
-        .catch(cb);
+      .getAddressTxos({ address })
+      .then(utxos => {
+        return cb(null, this._transformTx(utxos, height));
+      })
+      .catch(cb);
   }
-
 
   getTransactions(wallet, startBlock, cb) {
     console.time('V8 getTxs');

@@ -70,7 +70,6 @@ export interface ITxProposal {
   invoiceID?: string;
   lockUntilBlockHeight?: number;
   atomicswap?: any;
-  // atomicswapPending?: boolean;
   atomicswapAddr?: string;
 }
 
@@ -129,8 +128,7 @@ export class TxProposal {
   destinationTag?: string;
   invoiceID?: string;
   lockUntilBlockHeight?: number;
-  atomicswap?: any;     // john 20210409
-  // atomicswapPending?: boolean;
+  atomicswap?: any; // john 20210409
   atomicswapAddr?: string;
 
   static create(opts) {
@@ -276,7 +274,6 @@ export class TxProposal {
 
     // john 20210409
     x.atomicswap = obj.atomicswap;
-    // x.atomicswapPending = obj.atomicswapPending;
     x.atomicswapAddr = obj.atomicswapAddr;
 
     return x;
@@ -318,6 +315,9 @@ export class TxProposal {
 
   getRawTx() {
     const t = ChainService.getBitcoreTx(this);
+    if (this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.redeem != undefined) {
+      return t.uncheckedAtomicSwapSerialize();
+    }
     return t.uncheckedSerialize();
   }
 
@@ -405,9 +405,9 @@ export class TxProposal {
       this.addAction(copayerId, 'accept', null, signatures, xpub);
 
       if (this.status == 'accepted') {
-        if(this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.redeem != undefined) {
+        if (this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.redeem != undefined) {
           this.raw = tx.uncheckedAtomicSwapSerialize();
-        }else{
+        } else {
           this.raw = tx.uncheckedSerialize();
         }
         this.txid = tx.id;
@@ -449,17 +449,12 @@ export class TxProposal {
   setBroadcasted() {
     $.checkState(this.txid);
     this.status = 'broadcasted';
-    // john 20210409
-    /*if(this.atomicswap && this.atomicswap.isAtomicSwap && this.atomicswap.initiate != undefined){
-      this.atomicswapPending = true;
-    }*/
     this.broadcastedOn = Math.floor(Date.now() / 1000);
   }
 
   // john 20210409
   setAtomicswaped() {
     $.checkState(this.txid);
-    // this.atomicswapPending = false;
     this.atomicswapAddr = null;
   }
 }

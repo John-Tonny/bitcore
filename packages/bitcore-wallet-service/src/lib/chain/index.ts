@@ -24,10 +24,16 @@ export interface IChain {
   );
   // john 20210409
   getRedeemSendMaxInfo(
-      server: WalletService,
-      wallet: IWallet,
-      opts: { excludeUnconfirmedUtxos: string; returnInputs: string; from: string; feePerKb: number, atomicswap: any } & any,
-      cb
+    server: WalletService,
+    wallet: IWallet,
+    opts: {
+      excludeUnconfirmedUtxos: string;
+      returnInputs: string;
+      from: string;
+      feePerKb: number;
+      atomicswap: any;
+    } & any,
+    cb
   );
   getDustAmountValue();
   getTransactionCount(server: WalletService, wallet: IWallet, from: string);

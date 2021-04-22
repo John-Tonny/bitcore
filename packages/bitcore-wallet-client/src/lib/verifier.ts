@@ -102,11 +102,11 @@ export class Verifier {
       var o1 = txp.outputs[i];
       var o2 = args.outputs[i];
       // john 20210409
-      if(!txp.atomicswap || txp.atomicswap.isAtomicSwap){
+      if (!txp.atomicswap || txp.atomicswap.isAtomicSwap) {
         if (!strEqual(o1.toAddress, o2.toAddress)) return false;
         if (!strEqual(o1.script, o2.script)) return false;
       }
-      if (!args.sendMax && (txp.atomicswap && !txp.atomicswap.isAtomicSwap)) {
+      if (!args.sendMax && txp.atomicswap && !txp.atomicswap.isAtomicSwap) {
         if (o1.amount != o2.amount) return false;
       }
       var decryptedMessage = null;
@@ -165,10 +165,10 @@ export class Verifier {
     if (parseInt(txp.version) >= 3) {
       var t = Utils.buildTx(txp);
       if (txp.atomicswap && txp.atomicswap.isAtomicSwap && txp.atomicswap.redeem != undefined) {
-        t.inputs[0].output.setScript(txp.atomicswap.contract);  
-	if(!txp.atomicswap.redeem) {
+        t.inputs[0].output.setScript(txp.atomicswap.contract);
+        if (!txp.atomicswap.redeem) {
           t.lockUntilDate(txp.atomicswap.lockTime);
-        }else{
+        } else {
           t.nLockTime = txp.atomicswap.lockTime;
         }
       }
@@ -180,11 +180,11 @@ export class Verifier {
 
     log.debug('Regenerating & verifying tx proposal hash -> Hash: ', hash, ' Signature: ', txp.proposalSignature);
     if (!Utils.verifyMessage(hash, txp.proposalSignature, creatorSigningPubKey)) return false;
-    
+
     // john 20210409
-    if (Constants.UTXO_COINS.includes(txp.coin)){
-      if(txp.changeAddress !=undefined){
-        if ((!txp.atomicswap || txp.atomicswap.isAtomicSwap) && !this.checkAddress(credentials, txp.changeAddress)){
+    if (Constants.UTXO_COINS.includes(txp.coin)) {
+      if (txp.changeAddress != undefined) {
+        if ((!txp.atomicswap || txp.atomicswap.isAtomicSwap) && !this.checkAddress(credentials, txp.changeAddress)) {
           return false;
         }
       }
