@@ -1293,7 +1293,76 @@ export class API extends EventEmitter {
 
   // john 20210409
   // /**
-  // * Create a redeem transaction proposal
+  // * Create a atomicswap redeem transaction proposal
+  // *
+  // * @param {Object} opts
+  // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
+  // * @param {Array} opts.atomicswap - atomicswap.
+  // * @param {Array} opts.atomicswap.contract - atomicswap contract.
+  // * @param {Array} opts.atomicswap.secret - atomicswap secret.
+  // * @param {Array} opts.outputs - List of outputs.
+  // * @param {string} opts.outputs[].toAddress - Destination address.
+  // * @param {string} opts.outputs[].message - A message to attach to this output.
+  // * @param {string} opts.message - A message to attach to this transaction.
+  // * @param {number} opts.feeLevel[='normal'] - Optional. Specify the fee level for this TX ('priority', 'normal', 'economy', 'superEconomy').
+  // * @param {number} opts.feePerKb - Optional. Specify the fee per KB for this TX (in satoshi).
+  // * @param {string} opts.payProUrl - Optional. Paypro URL for peers to verify TX
+  // * @param {Boolean} opts.excludeUnconfirmedUtxos[=false] - Optional. Do not use UTXOs of unconfirmed transactions as inputs
+  // * @param {Boolean} opts.validateOutputs[=true] - Optional. Perform validation on outputs.
+  // * @param {Boolean} opts.dryRun[=false] - Optional. Simulate the action but do not change server state.
+  // * @param {number} opts.fee - Optional. Use an fixed fee for this TX (only when opts.inputs is specified)
+  // * @param {Boolean} opts.noShuffleOutputs - Optional. If set, TX outputs won't be shuffled. Defaults to false
+  // * @param {String} opts.signingMethod - Optional. If set, force signing method (ecdsa or schnorr) otherwise use default for coin
+  // * @returns {Callback} cb - Return error or the transaction proposal
+  // * @param {String} baseUrl - Optional. ONLY FOR TESTING
+  // */
+  createAtomicswapRedeemTxProposal(opts, cb, baseUrl) {
+    $.checkState(this.credentials && this.credentials.isComplete());
+    $.checkState(this.credentials.sharedEncryptingKey);
+    $.checkArgument(opts);
+
+    // john 20210409
+    $.checkArgument(opts.atomicswap.contract);
+    let cnt = AuditContract(opts.atomicswap.contract);
+    if (!cnt.isAtomicSwap) {
+      cb(new Errors('atomicswap contract is invalid'));
+    }
+
+    let curTime = Math.round(new Date().getTime() / 1000);
+    let lockTime = cnt.lockTime;
+    if (lockTime > curTime) {
+      cb(new Errors('The lock time has not expired'));
+    }
+
+    $.checkArgument(opts.atomicswap.secret);
+    if (!JSUtil.isHexa(opts.atomicswap.secret) && opts.atomicswap.secret.length != 64) {
+      cb(new Errors('atomicswap secret is invalid'));
+    }
+    opts.atomicswap.redeem = true;
+    // BCH schnorr deployment
+    if (!opts.signingMethod && this.credentials.coin == 'bch' && this.credentials.network == 'testnet') {
+      opts.signingMethod = 'schnorr';
+    }
+
+    var args = this._getCreateTxProposalArgs(opts);
+    baseUrl = baseUrl || '/v3/redeemtxproposals/';
+    // baseUrl = baseUrl || '/v4/txproposals/'; // DISABLED 2020-04-07
+
+    this.request.post(baseUrl, args, (err, txp) => {
+      if (err) return cb(err);
+
+      this._processTxps(txp);
+      if (!Verifier.checkProposalCreation(args, txp, this.credentials.sharedEncryptingKey)) {
+        return cb(new Errors.SERVER_COMPROMISED());
+      }
+
+      return cb(null, txp);
+    });
+  }
+
+  // john 20210409
+  // /**
+  // * Create a atomicswap refunc transaction proposal
   // *
   // * @param {Object} opts
   // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
@@ -1315,7 +1384,7 @@ export class API extends EventEmitter {
   // * @returns {Callback} cb - Return error or the transaction proposal
   // * @param {String} baseUrl - Optional. ONLY FOR TESTING
   // */
-  createRedeemTxProposal(opts, cb, baseUrl) {
+  createAtomicswapRefundTxProposal(opts, cb, baseUrl) {
     $.checkState(this.credentials && this.credentials.isComplete());
     $.checkState(this.credentials.sharedEncryptingKey);
     $.checkArgument(opts);
@@ -1325,6 +1394,13 @@ export class API extends EventEmitter {
     let cnt = AuditContract(opts.atomicswap.contract);
     if (!cnt.isAtomicSwap) {
       cb(new Errors('atomicswap contract is invalid'));
+    }
+    opts.atomicswap.redeem = false;
+
+    let curTime = Math.round(new Date().getTime() / 1000);
+    let lockTime = cnt.lockTime;
+    if (lockTime > curTime) {
+      cb(new Errors('The lock time has not expired'));
     }
 
     // BCH schnorr deployment
@@ -1350,13 +1426,12 @@ export class API extends EventEmitter {
 
   // john 20210409
   // /**
-  // * Create a atomicswap transaction proposal
+  // * Create a atomicswap initiate transaction proposal
   // *
   // * @param {Object} opts
   // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
   // * @param {Array} opts.atomicswap - atomicswap.
   // * @param {Array} opts.atomicswap.secretHash - atomicswap secretHash.
-  // * @param {Array} opts.atomicswap.initiate - atomicswap initiate.
   // * @param {Array} opts.outputs - List of outputs.
   // * @param {string} opts.outputs[].toAddress - Destination address.
   // * @param {string} opts.outputs[].amount - Destination amount.
@@ -1374,7 +1449,7 @@ export class API extends EventEmitter {
   // * @returns {Callback} cb - Return error or the transaction proposal
   // * @param {String} baseUrl - Optional. ONLY FOR TESTING
   // */
-  createAtomicSwapTxProposal(opts, cb, baseUrl) {
+  createAtomicSwapInitiateTxProposal(opts, cb, baseUrl) {
     $.checkState(this.credentials && this.credentials.isComplete());
     $.checkState(this.credentials.sharedEncryptingKey);
     $.checkArgument(opts);
@@ -1383,6 +1458,67 @@ export class API extends EventEmitter {
     if (!JSUtil.isHexa(opts.atomicswap.secretHash) && opts.atomicswap.secretHash.length != 64) {
       cb(new Errors('atomicswap secretHash is invalid'));
     }
+    opts.atomicswap.initiate = true;
+    if (opts.outputs && opts.outputs.length != 1) {
+      cb(new Errors('The number of atomicswap outputs must be one'));
+    }
+
+    // BCH schnorr deployment
+    if (!opts.signingMethod && this.credentials.coin == 'bch' && this.credentials.network == 'testnet') {
+      opts.signingMethod = 'schnorr';
+    }
+
+    var args = this._getCreateTxProposalArgs(opts);
+    baseUrl = baseUrl || '/v3/atomicswaptxproposals/';
+    // baseUrl = baseUrl || '/v4/txproposals/'; // DISABLED 2020-04-07
+
+    this.request.post(baseUrl, args, (err, txp) => {
+      if (err) return cb(err);
+
+      this._processTxps(txp);
+      if (!Verifier.checkProposalCreation(args, txp, this.credentials.sharedEncryptingKey)) {
+        return cb(new Errors.SERVER_COMPROMISED());
+      }
+
+      return cb(null, txp);
+    });
+  }
+
+  // john 20210409
+  // /**
+  // * Create a atomicswap participate transaction proposal
+  // *
+  // * @param {Object} opts
+  // * @param {string} opts.txProposalId - Optional. If provided it will be used as this TX proposal ID. Should be unique in the scope of the wallet.
+  // * @param {Array} opts.atomicswap - atomicswap.
+  // * @param {Array} opts.atomicswap.secretHash - atomicswap secretHash.
+  // * @param {Array} opts.outputs - List of outputs.
+  // * @param {string} opts.outputs[].toAddress - Destination address.
+  // * @param {string} opts.outputs[].amount - Destination amount.
+  // * @param {string} opts.outputs[].message - A message to attach to this output.
+  // * @param {string} opts.message - A message to attach to this transaction.
+  // * @param {number} opts.feeLevel[='normal'] - Optional. Specify the fee level for this TX ('priority', 'normal', 'economy', 'superEconomy').
+  // * @param {number} opts.feePerKb - Optional. Specify the fee per KB for this TX (in satoshi).
+  // * @param {string} opts.payProUrl - Optional. Paypro URL for peers to verify TX
+  // * @param {Boolean} opts.excludeUnconfirmedUtxos[=false] - Optional. Do not use UTXOs of unconfirmed transactions as inputs
+  // * @param {Boolean} opts.validateOutputs[=true] - Optional. Perform validation on outputs.
+  // * @param {Boolean} opts.dryRun[=false] - Optional. Simulate the action but do not change server state.
+  // * @param {number} opts.fee - Optional. Use an fixed fee for this TX (only when opts.inputs is specified)
+  // * @param {Boolean} opts.noShuffleOutputs - Optional. If set, TX outputs won't be shuffled. Defaults to false
+  // * @param {String} opts.signingMethod - Optional. If set, force signing method (ecdsa or schnorr) otherwise use default for coin
+  // * @returns {Callback} cb - Return error or the transaction proposal
+  // * @param {String} baseUrl - Optional. ONLY FOR TESTING
+  // */
+  createAtomicSwapParticipateTxProposal(opts, cb, baseUrl) {
+    $.checkState(this.credentials && this.credentials.isComplete());
+    $.checkState(this.credentials.sharedEncryptingKey);
+    $.checkArgument(opts);
+
+    $.checkArgument(opts.atomicswap.secretHash);
+    if (!JSUtil.isHexa(opts.atomicswap.secretHash) && opts.atomicswap.secretHash.length != 64) {
+      cb(new Errors('atomicswap secretHash is invalid'));
+    }
+    opts.atomicswap.initiate = false;
     if (opts.outputs && opts.outputs.length != 1) {
       cb(new Errors('The number of atomicswap outputs must be one'));
     }
@@ -2981,6 +3117,8 @@ export class API extends EventEmitter {
 
     if (!opts.masternodeKey) return cb(new Error('Not masternode private key'));
     args.masternodeKey = opts.masternodeKey;
+
+    if (opts.jsonHeader) args.jsonHeader = opts.jsonHeader;
 
     var url = '/v1/masternode/broadcast/';
     this.request.post(url, args, (err, body) => {

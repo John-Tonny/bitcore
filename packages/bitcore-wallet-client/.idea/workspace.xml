@@ -2,30 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f2be851-0c02-4371-aff6-8c0fdb9d9a30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/commands/dseg.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-node/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-node/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/inventory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-p2p/lib/messages/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/masternode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/masternode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/common/defaults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_bcmonitor.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_bcmonitor.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_bws.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_bws.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_emailservice.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_emailservice.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_fiatrateservice.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_fiatrateservice.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_masternodeservice.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_masternodeservice.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_messagebroker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_messagebroker.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/start_pushnotificationsservice.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/start_pushnotificationsservice.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../insight/insight.pid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../insight/src/components/denomination/denomination.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/components/denomination/denomination.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../insight/src/providers/currency/currency.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/src/providers/currency/currency.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../insight/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../insight/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vircle-lib/lib/networks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/lib/networks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/expressapp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../bitcore-wallet-service/src/lib/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/auditcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/auditcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/createcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/createcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/redeemcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vircle-lib/lib/atomicswap/redeemcontract.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
-              <caret line="139" column="22" selection-start-line="139" selection-start-column="22" selection-end-line="139" selection-end-column="22" />
+            <state relative-caret-position="358">
+              <caret line="1517" column="5" lean-forward="true" selection-start-line="1517" selection-start-column="5" selection-end-line="1517" selection-end-column="5" />
               <folding>
                 <element signature="e#15#57#0" expanded="true" />
               </folding>
@@ -71,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="434">
-              <caret line="442" column="24" selection-start-line="442" selection-start-column="24" selection-end-line="442" selection-end-column="24" />
+              <caret line="442" selection-start-line="442" selection-end-line="442" />
               <folding>
                 <element signature="e#61#89#0" expanded="true" />
               </folding>
@@ -96,8 +80,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>useforseg</find>
-      <find>createcr</find>
       <find>gettx</find>
       <find>fromSeed</find>
       <find>fromMn</find>
@@ -126,6 +108,8 @@
       <find>get_int32</find>
       <find>startscan</find>
       <find>notifications</find>
+      <find>createRed</find>
+      <find>Bitcore_</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -148,14 +132,13 @@
         <option value="$PROJECT_DIR$/src/lib/credentials.ts" />
         <option value="$PROJECT_DIR$/src/lib/common/constants.ts" />
         <option value="$PROJECT_DIR$/src/lib/key.ts" />
-        <option value="$PROJECT_DIR$/src/lib/api.ts" />
         <option value="$PROJECT_DIR$/src/lib/masternode.ts" />
+        <option value="$PROJECT_DIR$/src/lib/api.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
-    <option name="y" value="31" />
+    <option name="y" value="23" />
     <option name="width" value="1536" />
     <option name="height" value="801" />
   </component>
@@ -286,17 +269,18 @@
       <workItem from="1600911082761" duration="77000" />
       <workItem from="1601875556111" duration="124000" />
       <workItem from="1601881170778" duration="33000" />
+      <workItem from="1621823087069" duration="2770000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68515000" />
+    <option name="totallyTimeSpent" value="71285000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="31" width="1536" height="801" extended-state="0" />
+    <frame x="0" y="23" width="1536" height="801" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56577086" visible="true" weight="0.33601072" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.56577086" visible="true" weight="0.34069613" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.43361583" side_tool="true" weight="0.32797858" />
       <window_info id="Grunt " order="3" side_tool="true" />
@@ -407,16 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="139" column="22" selection-start-line="139" selection-start-column="22" selection-end-line="139" selection-end-column="22" />
-          <folding>
-            <element signature="e#15#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/masternode.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
@@ -447,9 +421,19 @@
     <entry file="file://$PROJECT_DIR$/src/lib/key.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
-          <caret line="442" column="24" selection-start-line="442" selection-start-column="24" selection-end-line="442" selection-end-column="24" />
+          <caret line="442" selection-start-line="442" selection-end-line="442" />
           <folding>
             <element signature="e#61#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/api.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="1517" column="5" lean-forward="true" selection-start-line="1517" selection-start-column="5" selection-end-line="1517" selection-end-column="5" />
+          <folding>
+            <element signature="e#15#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

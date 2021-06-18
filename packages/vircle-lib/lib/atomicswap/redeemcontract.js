@@ -22,6 +22,10 @@ function RedeemContract(contract, sigAndPubkey, secret) {
     throw new TypeError('secret must be string for hex');
   }
 
+  if(secret.length != 64) {
+    throw new TypeError('The length at secret must be 64');
+  }
+
   if(!JSUtil.isHexa(sigAndPubkey)) {
     throw new TypeError('sig must be string for hex');
   }

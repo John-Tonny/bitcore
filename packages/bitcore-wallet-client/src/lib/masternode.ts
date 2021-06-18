@@ -198,7 +198,7 @@ export class Masternode {
     sresult += this.hash_decode();
     sresult += pingTime;
 
-    sresult += this.get_varintNum(sig.length / 2);
+    sresult += this.get_varintNum(pingSig.length / 2);
     sresult += pingSig;
 
     sresult += '01';

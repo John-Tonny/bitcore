@@ -57,7 +57,7 @@ export class VclChain implements IChain {
   }
   // john 20210527
   getWalletSendMaxInfo(server, wallet, opts, cb) {
-    server.getUtxosForCurrentWallet({excludeMasternode: opts.excludeMasternode}, (err, utxos) => {
+    server.getUtxosForCurrentWallet({ excludeMasternode: opts.excludeMasternode }, (err, utxos) => {
       if (err) return cb(err);
 
       const MAX_TX_SIZE_IN_KB = Defaults.MAX_TX_SIZE_IN_KB_BTC;
@@ -141,7 +141,7 @@ export class VclChain implements IChain {
 
   // john 20210409
   getRedeemSendMaxInfo(server, wallet, opts, cb) {
-    server.getUtxosForCurrentWallet({excludeMasternode: opts.excludeMasternode}, (err, utxos) => {
+    server.getUtxosForCurrentWallet({ excludeMasternode: opts.excludeMasternode }, (err, utxos) => {
       if (err) return cb(err);
       console.log(utxos);
     });

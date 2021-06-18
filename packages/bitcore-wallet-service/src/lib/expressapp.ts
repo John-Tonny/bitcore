@@ -25,8 +25,8 @@ export class ExpressApp {
   constructor() {
     this.app = express();
 
-    this.app.use(bodyParser.json({limit: Defaults.MAX_POST_SIZE}));
-    this.app.use(bodyParser.urlencoded({limit: Defaults.MAX_POST_SIZE, extended: true}));
+    this.app.use(bodyParser.json({ limit: Defaults.MAX_POST_SIZE }));
+    this.app.use(bodyParser.urlencoded({ limit: Defaults.MAX_POST_SIZE, extended: true }));
   }
   /**
    * start
@@ -1156,7 +1156,7 @@ export class ExpressApp {
 
     router.post('/v1/masternode/broadcast/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; raw?: string, jsonHeader?: boolean } = {};
+        const opts: { coin?: string; raw?: string; jsonHeader?: boolean } = {};
         if (req.query.coin) opts.coin = req.query.coin;
         if (req.query.jsonHeader) opts.jsonHeader = req.query.jsonHeader;
         server.broadcastMasternode(req.body, (err, ret) => {

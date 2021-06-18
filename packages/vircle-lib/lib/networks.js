@@ -165,7 +165,7 @@ addNetwork({
   networkMagic: 0x9a0b9c0d,
   port: 9900,
   dnsSeeds: [
-    
+    '52.83.40.78'
   ]
 });
 

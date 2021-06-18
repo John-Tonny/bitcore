@@ -875,24 +875,24 @@ export class WalletService {
     }
 
     var data;
-    if(txp.atomicswap.secret) {
+    if (txp.atomicswap.secret) {
       const data = _.assign(
-          {
-            txProposalId: txp.id,
-            creatorId: txp.creatorId,
-            amount: txp.getTotalAmount(),
-            secret: txp.atomicswap.secret,
-          },
-          extraArgs
+        {
+          txProposalId: txp.id,
+          creatorId: txp.creatorId,
+          amount: txp.getTotalAmount(),
+          secret: txp.atomicswap.secret
+        },
+        extraArgs
       );
-    }else {
+    } else {
       const data = _.assign(
-          {
-            txProposalId: txp.id,
-            creatorId: txp.creatorId,
-            amount: txp.getTotalAmount(),
-          },
-          extraArgs
+        {
+          txProposalId: txp.id,
+          creatorId: txp.creatorId,
+          amount: txp.getTotalAmount()
+        },
+        extraArgs
       );
     }
     this._notify(type, data, {}, cb);
@@ -2443,8 +2443,8 @@ export class WalletService {
                   } else {
                     signAddr = cnt.refundAddr;
                   }
-                  let curTime = Math.round(new Date().getTime()/1000);
-                  if(cnt.lockTime> curTime) {
+                  let curTime = Math.round(new Date().getTime() / 1000);
+                  if (cnt.lockTime > curTime) {
                     next(new Error('the lock time is no expired'));
                   }
                   this.storage.fetchAddressByWalletId(this.walletId, signAddr, (err, address) => {
@@ -5183,11 +5183,11 @@ export class WalletService {
             }
           });
         }
-	if(opts.jsonHeader){
-          return cb(null, {"response":ret});
-	}else{
+        if (opts.jsonHeader) {
+          return cb(null, { response: ret });
+        } else {
           return cb(null, ret);
-	}
+        }
       });
     });
   }

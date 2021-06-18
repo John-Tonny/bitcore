@@ -90,7 +90,7 @@ function canonicalPush(pop) {
   }
 
   if (opcode < Opcode.OP_PUSHDATA1 && opcode > Opcode.OP_0 && (dataLen == 1 && data[0] <= 16)) {
-    return falsae;
+    return false;
   }
   if (opcode == Opcode.OP_PUSHDATA1 && dataLen < Opcode.OP_PUSHDATA1) {
     return false;

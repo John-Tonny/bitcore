@@ -24,6 +24,9 @@ function CreateContract(secretHash, themAddr, meAddr, initiate, lockTime, networ
   if(!JSUtil.isHexa(secretHash)) {
     throw new TypeError('secretHash must be string for hex');
   }
+  if(secretHash.length != 64) {
+    throw new TypeError('The length at secretHash must be 64');
+  }
   
   let s = new Script();
 
