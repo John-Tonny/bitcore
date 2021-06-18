@@ -262,5 +262,9 @@ module.exports = {
 
   // john
   //  Coinbase transaction outputs can only be spent after this number of new blocks (network rule)
-  COINBASE_MATURITY_VCL: 100
+  COINBASE_MATURITY_VCL: 100,
+
+  MAX_POST_SIZE: '1000mb',
+
+  DATA_OUTPUT_LEN: 80
 };

@@ -24,6 +24,9 @@ export class ExpressApp {
 
   constructor() {
     this.app = express();
+
+    this.app.use(bodyParser.json({limit: Defaults.MAX_POST_SIZE}));
+    this.app.use(bodyParser.urlencoded({limit: Defaults.MAX_POST_SIZE, extended: true}));
   }
   /**
    * start
@@ -675,11 +678,13 @@ export class ExpressApp {
           feeLevel?: number;
           returnInputs?: boolean;
           excludeUnconfirmedUtxos?: boolean;
+          excludeMasternode?: boolean;
         } = {};
         if (q.feePerKb) opts.feePerKb = +q.feePerKb;
         if (q.feeLevel) opts.feeLevel = q.feeLevel;
         if (q.excludeUnconfirmedUtxos == '1') opts.excludeUnconfirmedUtxos = true;
         if (q.returnInputs == '1') opts.returnInputs = true;
+        if (q.excludeMasternode == '1') opts.excludeMasternode = true;
         server.getSendMaxInfo(opts, (err, info) => {
           if (err) return returnError(err, res, req);
           res.json(info);
@@ -1151,8 +1156,9 @@ export class ExpressApp {
 
     router.post('/v1/masternode/broadcast/', (req, res) => {
       getServerWithAuth(req, res, server => {
-        const opts: { coin?: string; raw?: string } = {};
+        const opts: { coin?: string; raw?: string, jsonHeader?: boolean } = {};
         if (req.query.coin) opts.coin = req.query.coin;
+        if (req.query.jsonHeader) opts.jsonHeader = req.query.jsonHeader;
         server.broadcastMasternode(req.body, (err, ret) => {
           if (err) return returnError(err, res, req);
           res.json(ret);

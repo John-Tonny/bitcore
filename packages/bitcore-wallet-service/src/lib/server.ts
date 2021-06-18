@@ -874,15 +874,27 @@ export class WalletService {
       extraArgs = {};
     }
 
-    const data = _.assign(
-      {
-        txProposalId: txp.id,
-        creatorId: txp.creatorId,
-        amount: txp.getTotalAmount(),
-        secret: txp.atomicswap.secret
-      },
-      extraArgs
-    );
+    var data;
+    if(txp.atomicswap.secret) {
+      const data = _.assign(
+          {
+            txProposalId: txp.id,
+            creatorId: txp.creatorId,
+            amount: txp.getTotalAmount(),
+            secret: txp.atomicswap.secret,
+          },
+          extraArgs
+      );
+    }else {
+      const data = _.assign(
+          {
+            txProposalId: txp.id,
+            creatorId: txp.creatorId,
+            amount: txp.getTotalAmount(),
+          },
+          extraArgs
+      );
+    }
     this._notify(type, data, {}, cb);
   }
   _addCopayerToWallet(wallet, opts, cb) {
@@ -1796,6 +1808,7 @@ export class WalletService {
    * @param {string} opts.excludeUnconfirmedUtxos[=false] - Optional. Do not use UTXOs of unconfirmed transactions as inputs
    * @param {string} opts.returnInputs[=false] - Optional. Return the list of UTXOs that would be included in the tx.
    * @param {string} opts.from - Optional. Specify the sender ETH address.
+   * @param {string} opts.excludeMasternode[=false] - Optional. Do not use UTXOs of masternode transactions as inputs
    * @returns {Object} sendMaxInfo
    */
   getSendMaxInfo(opts, cb) {
@@ -2073,6 +2086,7 @@ export class WalletService {
               feePerKb: opts.feePerKb,
               excludeUnconfirmedUtxos: !!opts.excludeUnconfirmedUtxos,
               returnInputs: true,
+              excludeMasternode: !!opts.excludeMasternode,
               atomicswap: opts.atomicswap
             },
             (err, info) => {
@@ -2415,6 +2429,7 @@ export class WalletService {
               [
                 next => {
                   // john 20210409
+                  delete opts.outputs[0].amount;
                   opts.sendMax = true;
                   let cnt = new Bitcore.atomicswap.AuditContract(opts.atomicswap.contract);
                   if (!cnt.isAtomicSwap) return next(new Error('atomicswap contract is invalid'));
@@ -2427,6 +2442,10 @@ export class WalletService {
                     signAddr = cnt.recipientAddr;
                   } else {
                     signAddr = cnt.refundAddr;
+                  }
+                  let curTime = Math.round(new Date().getTime()/1000);
+                  if(cnt.lockTime> curTime) {
+                    next(new Error('the lock time is no expired'));
                   }
                   this.storage.fetchAddressByWalletId(this.walletId, signAddr, (err, address) => {
                     if (err || !address) return next(new Error('atomicswap signAddr is invalid'));
@@ -4322,7 +4341,7 @@ export class WalletService {
           }
 
           const startBlock = cacheStatus.updatedHeight || 0;
-          log.debug(' ########### GET HISTORY v8 startBlock/bcH]', startBlock, bcHeight); // TODO
+          log.debug(' GET HISTORY v8 startBlock/bcH]', startBlock, bcHeight); // TODO
 
           bc.getTransactions(wallet, startBlock, (err, txs) => {
             if (err) return cb(err);
@@ -5164,7 +5183,11 @@ export class WalletService {
             }
           });
         }
-        return cb(null, ret);
+	if(opts.jsonHeader){
+          return cb(null, {"response":ret});
+	}else{
+          return cb(null, ret);
+	}
       });
     });
   }

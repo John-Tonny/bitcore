@@ -19,7 +19,7 @@ export interface IChain {
   getWalletSendMaxInfo(
     server: WalletService,
     wallet: IWallet,
-    opts: { excludeUnconfirmedUtxos: string; returnInputs: string; from: string; feePerKb: number } & any,
+    opts: { excludeUnconfirmedUtxos: string; returnInputs: string; from: string; feePerKb: number; excludeMasternode: string } & any,
     cb
   );
   // john 20210409
