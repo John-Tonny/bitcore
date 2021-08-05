@@ -1,8 +1,8 @@
 #!/bin/bash
 
-USER_PATH=~
+USER_PATH=/mnt/ethereum
 MODULE_PATH=$USER_PATH/bitcore/packages
-NODE_PATH=$USER_PATH/.nvm/versions/node/v10.5.0/bin
+NODE_PATH=/home/john/.nvm/versions/node/v10.5.0/bin
 
 cd $MODULE_PATH/bitcore-node
 

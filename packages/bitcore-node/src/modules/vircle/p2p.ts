@@ -158,6 +158,7 @@ export class BitcoinP2PWorker extends BaseP2PWorker<IBtcBlock> {
     });
 
     // john
+    /*
     this.pool.on('peermnp', async (peer, message) => {
       console.log(peer);
       console.log(message);
@@ -182,6 +183,7 @@ export class BitcoinP2PWorker extends BaseP2PWorker<IBtcBlock> {
       console.log(peer);
       console.log(message);
     });
+    */
   }
 
   async connect() {

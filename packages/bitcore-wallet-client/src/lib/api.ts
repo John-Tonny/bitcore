@@ -3321,4 +3321,9 @@ export class API extends EventEmitter {
       }
     );
   }
+
+  decryMessage(msg, key, cb) {
+    var ret = Utils.decryptMessage(msg, key);
+    return cb(null, ret);
+  }
 }
