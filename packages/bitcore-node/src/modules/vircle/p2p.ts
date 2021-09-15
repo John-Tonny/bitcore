@@ -188,13 +188,12 @@ export class BitcoinP2PWorker extends BaseP2PWorker<IBtcBlock> {
 
   async connect() {
     this.setupListeners();
-    this.pool.connect()
+    this.pool.connect();
     this.connectInterval = setInterval(this.pool.connect.bind(this.pool), 5000);
     return new Promise<void>(resolve => {
       this.pool.once('peerready', () => resolve());
     });
   }
-
 
   async disconnect() {
     this.pool.removeAllListeners();
