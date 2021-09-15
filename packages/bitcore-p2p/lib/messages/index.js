@@ -97,11 +97,6 @@ Messages.prototype._discardUntilNextMessage = function(dataBuffer) {
 };
 
 Messages.prototype._buildFromBuffer = function(command, payload) {
-  if( command == 'mnp'){
-    console.log(command, payload);
-  }else if( command == 'mnw') {
-    console.log(command, payload);
-  }
   if (!this.builder.commands[command]) {
     throw new Error('Unsupported message command: ' + command);
   }
