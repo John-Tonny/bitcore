@@ -60,6 +60,8 @@ function builder(options) {
       mempool: 'MemPool',
       getaddr: 'GetAddr',
       mnb: 'Mnbroadcast',
+      mnp: 'Mnping',
+      mnw: 'Mnw',
       dseg: 'Dseg'
     },
     commands: {}
