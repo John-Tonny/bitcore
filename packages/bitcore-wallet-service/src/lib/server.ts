@@ -1769,7 +1769,7 @@ export class WalletService {
     if (opts.coin) {
       return cb(new ClientError('coin is not longer supported in getBalance'));
     }
-    opts.excludeMasternode = opts.excludeMasternode || true;  // john 20210916
+    opts.excludeMasternode = opts.excludeMasternode || true; // john 20210916
 
     let wallet = opts.wallet;
 

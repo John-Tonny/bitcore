@@ -26,7 +26,7 @@ export class VclChain implements IChain {
       {
         coin: opts.coin,
         addresses: opts.addresses,
-        excludeMasternode: opts.excludeMasternode,  // john 20210916
+        excludeMasternode: opts.excludeMasternode // john 20210916
       },
       (err, utxos) => {
         if (err) return cb(err);
