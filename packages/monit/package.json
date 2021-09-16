@@ -14,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.1",
     "babel-cli": "^6.26.0",
     "mongodb": "^4.1.0",
-    "request": "^2.88.2"
+    "nodemailer": "^6.6.3",
+    "request": "^2.88.2",
+    "silly-datetime": "^0.1.2"
   }
 }

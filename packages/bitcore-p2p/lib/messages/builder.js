@@ -62,6 +62,14 @@ function builder(options) {
       mnb: 'Mnbroadcast',
       mnp: 'Mnping',
       mnw: 'Mnw',
+      mnv: "Mnv',
+      mnget: 'Mnget',
+      spork: 'Spork',
+      getsporks: 'Getsporks',
+      ssc: 'Ssc',
+      govsync: 'Govsync',
+      govobj: 'Govobj',
+      govobjvote: 'Govobjvote',
       dseg: 'Dseg'
     },
     commands: {}

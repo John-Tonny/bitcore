@@ -15,26 +15,26 @@ var BufferReader = bitcore.encoding.BufferReader;
  * @extends Message
  * @constructor
  */
-function DsegMessage(arg, options) {
+function MngetMessage(arg, options) {
   Message.call(this, options);
-  this.command = 'dseg';
+  this.command = 'mnget';
   $.checkArgument(
       _.isUndefined(arg) || (BufferUtil.isBuffer(arg) && arg.length === 387),
       'First argument is expected to be an 387 byte buffer'
   );
   this.raw = arg;
 }
-inherits(DsegMessage, Message);
+inherits(MngetMessage, Message);
 
-DsegMessage.prototype.setPayload = function(payload) {
+MngetMessage.prototype.setPayload = function(payload) {
   var parser = new BufferReader(payload);
   this.raw = parser.readAll();
 
   utils.checkFinished(parser);
 };
 
-DsegMessage.prototype.getPayload = function() {
+MngetMessage.prototype.getPayload = function() {
   return this.raw;
 };
 
-module.exports = DsegMessage;
+module.exports = MngetMessage;

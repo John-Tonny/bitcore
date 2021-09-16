@@ -25,7 +25,8 @@ export class VclChain implements IChain {
     server.getUtxosForCurrentWallet(
       {
         coin: opts.coin,
-        addresses: opts.addresses
+        addresses: opts.addresses,
+        excludeMasternode: opts.excludeMasternode,  // john 20210916
       },
       (err, utxos) => {
         if (err) return cb(err);

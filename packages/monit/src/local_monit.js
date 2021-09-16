@@ -9,7 +9,7 @@ const async = require('async')
 const fs = require('fs')
 const request = require('request');
 
-const work_path = '/root/monit/';
+const work_path = '/home/john/bitcore/packages/monit/';
 const file_name = 'status.txt';
 
 const word = 'bone casual observe virus prepare system aunt bamboo horror police vault floor';
@@ -149,6 +149,8 @@ function startMonit(){
         }else{
           restartMongod()
         }
+      }else{
+	console.log("getStatus error:", err);
       }
     }else{
       console.log(sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss'),"wallet service is good！");

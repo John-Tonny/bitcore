@@ -15,26 +15,26 @@ var BufferReader = bitcore.encoding.BufferReader;
  * @extends Message
  * @constructor
  */
-function DsegMessage(arg, options) {
+function SscMessage(arg, options) {
   Message.call(this, options);
-  this.command = 'dseg';
+  this.command = 'ssc';
   $.checkArgument(
       _.isUndefined(arg) || (BufferUtil.isBuffer(arg) && arg.length === 387),
       'First argument is expected to be an 387 byte buffer'
   );
   this.raw = arg;
 }
-inherits(DsegMessage, Message);
+inherits(SscMessage, Message);
 
-DsegMessage.prototype.setPayload = function(payload) {
+SscMessage.prototype.setPayload = function(payload) {
   var parser = new BufferReader(payload);
   this.raw = parser.readAll();
 
   utils.checkFinished(parser);
 };
 
-DsegMessage.prototype.getPayload = function() {
+SscMessage.prototype.getPayload = function() {
   return this.raw;
 };
 
-module.exports = DsegMessage;
+module.exports = SscMessage;
