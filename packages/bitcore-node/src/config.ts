@@ -84,7 +84,7 @@ const Config = function(): ConfigType {
       },
       storage: {},
       masternode: {},
-      rpc: {},
+      rpc: {}
     }
   };
 
@@ -97,12 +97,14 @@ const Config = function(): ConfigType {
         mainnet: {
           chainSource: 'p2p',
           trustedPeers: [{ host: '127.0.0.1', port: 9900 }],
-          rpc: [{
-            host: '127.0.0.1',
-            port: 9902,
-            username: 'vircle',
-            password: 'vircle'
-          }]
+          rpc: [
+            {
+              host: '127.0.0.1',
+              port: 9902,
+              username: 'vircle',
+              password: 'vircle'
+            }
+          ]
         }
       }
     });

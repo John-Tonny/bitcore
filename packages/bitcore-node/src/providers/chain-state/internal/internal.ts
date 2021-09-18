@@ -14,6 +14,7 @@ import { StateStorage } from '../../../models/state';
 import { ITransaction, TransactionStorage } from '../../../models/transaction';
 import { IWallet, WalletStorage } from '../../../models/wallet';
 import { IWalletAddress, WalletAddressStorage } from '../../../models/walletAddress';
+import app from '../../../routes';
 import { RPC } from '../../../rpc';
 import { Config } from '../../../services/config';
 import { Storage } from '../../../services/storage';
@@ -44,7 +45,6 @@ import {
 import { TransactionJSON } from '../../../types/Transaction';
 import { StringifyJsonStream } from '../../../utils/stringifyJsonStream';
 import { ListTransactionsStream } from './transforms';
-import app from '../../../routes';
 
 @LoggifyClass
 export class InternalStateProvider implements IChainStateService {

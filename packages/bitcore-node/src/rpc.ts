@@ -126,7 +126,7 @@ export class RPC {
   }
 
   getHostAndPort() {
-    return this.host + ":" + this.port.toString();
+    return this.host + ':' + this.port.toString();
   }
 }
 

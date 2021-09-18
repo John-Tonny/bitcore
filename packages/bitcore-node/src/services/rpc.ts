@@ -3,9 +3,9 @@ import * as _ from 'lodash';
 import { LoggifyClass } from '../decorators/Loggify';
 import logger from '../logger';
 import app from '../routes';
+import { RPC } from '../rpc';
 import { wait } from '../utils/wait';
 import { Config, ConfigService } from './config';
-import {RPC} from "../rpc";
 
 @LoggifyClass
 export class RpcService {
@@ -29,7 +29,7 @@ export class RpcService {
         this.chain = chain;
         this.network = network;
 
-        if(this.configService.chainConfig({chain,network})['rpc']  instanceof Array){
+        if (this.configService.chainConfig({ chain, network })['rpc'] instanceof Array) {
           this.getCfgRpcArray();
         }
       }
@@ -46,7 +46,7 @@ export class RpcService {
       return;
     }
 
-    if(this.cfgRpcArr.length < 1) {
+    if (this.cfgRpcArr.length < 1) {
       return;
     }
 
@@ -59,82 +59,81 @@ export class RpcService {
       let maxHeight = 0;
       let index = -1;
       let bValid = false;
-      for(let i=0; i< rets.length; i++){
-        if(rets[i]['err']){
+      for (let i = 0; i < rets.length; i++) {
+        if (rets[i]['err']) {
           this.removeArr.push(rets[i]['host']);
-        }else{
-          if(rets[i]['data'] > 0) {
-            if(this.cfgRpcArr[app.get('rpcIndex')].getHostAndPort() ==  rets[i]['host']){
+        } else {
+          if (rets[i]['data'] > 0) {
+            if (this.cfgRpcArr[app.get('rpcIndex')].getHostAndPort() == rets[i]['host']) {
               bValid = true;
             }
-            if(rets[i]['data'] > maxHeight){
+            if (rets[i]['data'] > maxHeight) {
               maxHeight = rets[i]['data'];
               index = i;
             }
           }
         }
       }
-      if(index != -1 && bValid == false){
+      if (index != -1 && bValid == false) {
         let pos = this.findCfgRpc(rets[index]['host']);
-        if(pos != -1){
+        if (pos != -1) {
           app.set('rpcIndex', pos);
         }
       }
 
       this.removeRpcArray();
 
-      retrys ++;
-      if(retrys>=12){
+      retrys++;
+      if (retrys >= 12) {
         retrys = 0;
         this.getRpcArray();
       }
       await wait(5 * 1000);
-      console.log("---------time:", new Date());
-
+      console.log('---------time:', new Date());
     }
   }
 
-  getCfgRpcArray(){
+  getCfgRpcArray() {
     let chain = this.chain;
     let network = this.network;
-    let nums = this.configService.chainConfig({chain, network})['rpc'].length;
-    for(let i = 0; i < nums; i++) {
+    let nums = this.configService.chainConfig({ chain, network })['rpc'].length;
+    for (let i = 0; i < nums; i++) {
       this.cfgRpcArr[i] = this.getRPC(this.chain, this.network, i);
     }
   }
 
-  getRpcArray(){
-    for(let i = 0; i < this.cfgRpcArr.length; i++) {
+  getRpcArray() {
+    for (let i = 0; i < this.cfgRpcArr.length; i++) {
       this.rpcArr[i] = this.getRPC(this.chain, this.network, i);
     }
   }
 
-  removeRpcArray(){
-    for(let i=0; i< this.removeArr.length; i++) {
+  removeRpcArray() {
+    for (let i = 0; i < this.removeArr.length; i++) {
       let pos = this.findRpc(this.removeArr[i]);
       if (pos != -1) {
         this.rpcArr.splice(pos, 1);
       }
     }
-    this.removeArr.splice(0,this.removeArr.length);
+    this.removeArr.splice(0, this.removeArr.length);
 
-    if(this.rpcArr.length == 0) {
+    if (this.rpcArr.length == 0) {
       this.getRpcArray();
     }
   }
 
-  findCfgRpc(hostAndPort: string){
-    for(let i = 0; i < this.cfgRpcArr.length; i++) {
-      if(this.cfgRpcArr[i].getHostAndPort() == hostAndPort){
+  findCfgRpc(hostAndPort: string) {
+    for (let i = 0; i < this.cfgRpcArr.length; i++) {
+      if (this.cfgRpcArr[i].getHostAndPort() == hostAndPort) {
         return i;
       }
     }
     return -1;
   }
 
-  findRpc(hostAndPort: string){
-    for(let i = 0; i < this.rpcArr.length; i++) {
-      if(this.rpcArr[i].getHostAndPort() == hostAndPort){
+  findRpc(hostAndPort: string) {
+    for (let i = 0; i < this.rpcArr.length; i++) {
+      if (this.rpcArr[i].getHostAndPort() == hostAndPort) {
         return i;
       }
     }
@@ -142,29 +141,29 @@ export class RpcService {
   }
 
   isRemoveArr(index) {
-    if(this.removeArr.length==0){
+    if (this.removeArr.length == 0) {
       return false;
     }
-    for(let i=0; i<this.removeArr.length; i++){
-      if(this.removeArr[i] == index){
+    for (let i = 0; i < this.removeArr.length; i++) {
+      if (this.removeArr[i] == index) {
         return true;
       }
     }
     return false;
   }
 
-  async asyncGetAllBlockHeight(rpcArr)  {
+  async asyncGetAllBlockHeight(rpcArr) {
     const unresolvedPromises = rpcArr.map(rpc => this.getBlockHeight(rpc));
     return await Promise.all(unresolvedPromises);
-  };
+  }
 
-  async getBlockHeight(rpc: RPC){
-    let resp = {err: null};
-    resp['host'] = rpc.getHostAndPort()
+  async getBlockHeight(rpc: RPC) {
+    let resp = { err: null };
+    resp['host'] = rpc.getHostAndPort();
     try {
       resp['data'] = await rpc.getBlockHeight();
-    }catch(e){
-      resp['err']= e;
+    } catch (e) {
+      resp['err'] = e;
     }
     return resp;
   }
@@ -174,7 +173,6 @@ export class RpcService {
     await wait(1000);
   }
 
-
   getRPC(chain: string, network: string, index) {
     const RPC_PEER = Config.get().chains[chain][network].rpc[index];
     if (!RPC_PEER) {
@@ -183,10 +181,7 @@ export class RpcService {
     const { username, password, host, port } = RPC_PEER;
     return new RPC(username, password, host, port);
   }
-
-
 }
-
 
 // TOOO: choose a place in the config for the API timeout and include it here
 export const RpcSrv = new RpcService({});
