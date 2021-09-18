@@ -62,7 +62,7 @@ function builder(options) {
       mnb: 'Mnbroadcast',
       mnp: 'Mnping',
       mnw: 'Mnw',
-      mnv: "Mnv',
+      mnv: 'Mnv',
       mnget: 'Mnget',
       spork: 'Spork',
       getsporks: 'Getsporks',

@@ -132,7 +132,7 @@ class ChainStateProxy implements IChainStateProvider {
   }
 
   // john 20210409
-  getRawTransaction(params: RawTransactionParams) {
+  async getRawTransaction(params: RawTransactionParams) {
     return this.get(params).getRawTransaction(params);
   }
 

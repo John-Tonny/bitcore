@@ -1,6 +1,7 @@
 import request = require('request');
 import { LoggifyClass } from './decorators/Loggify';
 type CallbackType = (err: any, data?: any) => any;
+// import * as async from 'async';
 
 @LoggifyClass
 export class RPC {
@@ -122,6 +123,10 @@ export class RPC {
   // john 20210409
   getRawTransaction(txid: string) {
     return this.asyncCall('getrawtransaction', [txid, false]);
+  }
+
+  getHostAndPort() {
+    return this.host + ":" + this.port.toString();
   }
 }
 

@@ -43,5 +43,8 @@ export interface ConfigType {
     masternode: {
       disabled?: boolean;
     };
+    rpc: {
+      disabled?: boolean;
+    };
   };
 }

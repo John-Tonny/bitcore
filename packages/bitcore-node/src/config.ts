@@ -83,7 +83,8 @@ const Config = function(): ConfigType {
         bwsKeys: ['02ba37ec8d97f5ce1db8040919b402f1b758a67dfab822b92d8c4a4e8239bd9923']
       },
       storage: {},
-      masternode: {}
+      masternode: {},
+      rpc: {},
     }
   };
 
@@ -96,12 +97,12 @@ const Config = function(): ConfigType {
         mainnet: {
           chainSource: 'p2p',
           trustedPeers: [{ host: '127.0.0.1', port: 9900 }],
-          rpc: {
+          rpc: [{
             host: '127.0.0.1',
             port: 9902,
             username: 'vircle',
             password: 'vircle'
-          }
+          }]
         }
       }
     });

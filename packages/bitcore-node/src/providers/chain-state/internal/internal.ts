@@ -44,6 +44,7 @@ import {
 import { TransactionJSON } from '../../../types/Transaction';
 import { StringifyJsonStream } from '../../../utils/stringifyJsonStream';
 import { ListTransactionsStream } from './transforms';
+import app from '../../../routes';
 
 @LoggifyClass
 export class InternalStateProvider implements IChainStateService {
@@ -54,7 +55,8 @@ export class InternalStateProvider implements IChainStateService {
   }
 
   getRPC(chain: string, network: string) {
-    const RPC_PEER = Config.get().chains[chain][network].rpc;
+    const index = app.get('rpcIndex') || 0;
+    const RPC_PEER = Config.get().chains[chain][network].rpc[index];
     if (!RPC_PEER) {
       throw new Error(`RPC not configured for ${chain} ${network}`);
     }
