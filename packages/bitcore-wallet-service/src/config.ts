@@ -1,3 +1,7 @@
+let dbUrl = 'mongodb://localhost:27017/bws';
+if(process.env.DB_URL){
+  dbUrl = process.env.DB_URL + '/bws';
+}
 module.exports = {
   basePath: '/bws/api',
   disableLogs: false,
@@ -24,7 +28,8 @@ module.exports = {
 
   storageOpts: {
     mongoDb: {
-      uri: 'mongodb://localhost:27017/bws'
+      uri: dbUrl
+      // uri:  process.env.DB_URL + '/bws' || 'mongodb://localhost:27017/bws'
     }
   },
   messageBrokerOpts: {
