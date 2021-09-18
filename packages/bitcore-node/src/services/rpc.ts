@@ -89,7 +89,6 @@ export class RpcService {
         this.getRpcArray();
       }
       await wait(5 * 1000);
-      console.log('---------time:', new Date());
     }
   }
 
