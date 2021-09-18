@@ -52,13 +52,13 @@ function setTrustedPeers(config: ConfigType): ConfigType {
 }
 const Config = function(): ConfigType {
   let dbUrl = '';
-  if(process.env.DB_URL){
+  if (process.env.DB_URL) {
     dbUrl = process.env.DB_URL + '/bitcore?socketTimeoutMS=3600000&noDelay=true';
   }
   let config: ConfigType = {
     maxPoolSize: 50,
     port: 3000,
-    dbUrl: dbUrl,
+    dbUrl,
     dbHost: process.env.DB_HOST || '127.0.0.1',
     dbName: process.env.DB_NAME || 'bitcore',
     dbPort: process.env.DB_PORT || '27017',

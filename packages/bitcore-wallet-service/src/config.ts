@@ -1,5 +1,5 @@
 let dbUrl = 'mongodb://localhost:27017/bws';
-if(process.env.DB_URL){
+if (process.env.DB_URL) {
   dbUrl = process.env.DB_URL + '/bws';
 }
 module.exports = {
