@@ -64,8 +64,11 @@ export class RpcService {
           this.removeArr.push(rets[i]['host']);
         } else {
           if (rets[i]['data'] > 0) {
-            if (this.cfgRpcArr[app.get('rpcIndex')].getHostAndPort() == rets[i]['host']) {
-              bValid = true;
+            let rpcIndex = app.get('rpcIndex') || 0;
+            if(rpcIndex <= this.cfgRpcArr.length-1) {
+              if (this.cfgRpcArr[rpcIndex].getHostAndPort() == rets[i]['host']) {
+                bValid = true;
+              }
             }
             if (rets[i]['data'] > maxHeight) {
               maxHeight = rets[i]['data'];
