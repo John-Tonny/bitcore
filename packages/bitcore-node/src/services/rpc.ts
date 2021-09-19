@@ -65,7 +65,7 @@ export class RpcService {
         } else {
           if (rets[i]['data'] > 0) {
             let rpcIndex = app.get('rpcIndex') || 0;
-            if(rpcIndex <= this.cfgRpcArr.length-1) {
+            if (rpcIndex <= this.cfgRpcArr.length - 1) {
               if (this.cfgRpcArr[rpcIndex].getHostAndPort() == rets[i]['host']) {
                 bValid = true;
               }
