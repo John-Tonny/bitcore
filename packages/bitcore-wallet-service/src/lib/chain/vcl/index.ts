@@ -571,7 +571,8 @@ export class VclChain implements IChain {
     balance.availableConfirmedAmountExcludeMasternode = balance.totalConfirmedAmount - balance.lockedConfirmedAmount;
     var lockedMasternodeAmount = _.sumBy(_.filter(utxos, 'isMasternode'), 'satoshis');
     balance.availableAmount = balance.totalAmount - balance.lockedAmount + lockedMasternodeAmount;
-    balance.availableConfirmedAmount = balance.totalConfirmedAmount - balance.lockedConfirmedAmount + lockedMasternodeAmount;
+    balance.availableConfirmedAmount =
+      balance.totalConfirmedAmount - balance.lockedConfirmedAmount + lockedMasternodeAmount;
 
     return balance;
   }
