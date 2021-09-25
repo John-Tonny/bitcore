@@ -1599,6 +1599,7 @@ export class WalletService {
             _.each(lockedInputs1, input => {
               if (utxoIndex[input]) {
                 utxoIndex[input].locked = true;
+                utxoIndex[input].isMasternode = true;
               }
             });
             log.debug(`Got  ${masternodes.length} locked masternode utxos`);
@@ -1790,7 +1791,9 @@ export class WalletService {
           totalConfirmedAmount: 0,
           lockedConfirmedAmount: 0,
           availableAmount: 0,
-          availableConfirmedAmount: 0
+          availableConfirmedAmount: 0,
+          availableAmountExcludeMasternode: 0,
+          availableConfirmedAmountExcludeMasternode: 0
         };
         return cb(null, emptyBalance);
       }

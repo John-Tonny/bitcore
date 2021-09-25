@@ -3,6 +3,7 @@
 USER_PATH=/mnt/ethereum
 MODULE_PATH=$USER_PATH/bitcore/packages
 NODE_PATH=/home/john/.nvm/versions/node/v10.5.0/bin
+LOG_PATH=$USER_PATH/bitcore/logs
 
 cd $MODULE_PATH/bitcore-node
 
@@ -36,5 +37,5 @@ run_program ()
 
 ./stop.sh
 
-run_program bitcore-node.pid bitcore-node.log
+run_program bitcore-node.pid $LOG_PATH/bitcore-node.log
 

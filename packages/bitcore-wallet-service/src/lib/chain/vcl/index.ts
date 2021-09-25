@@ -563,10 +563,15 @@ export class VclChain implements IChain {
       totalConfirmedAmount: _.sumBy(_.filter(utxos, 'confirmations'), 'satoshis'),
       lockedConfirmedAmount: _.sumBy(_.filter(_.filter(utxos, 'locked'), 'confirmations'), 'satoshis'),
       availableAmount: undefined,
-      availableConfirmedAmount: undefined
+      availableConfirmedAmount: undefined,
+      availableAmountExcludeMasternode: undefined,
+      availableConfirmedAmountExcludeMasternode: undefined
     };
-    balance.availableAmount = balance.totalAmount - balance.lockedAmount;
-    balance.availableConfirmedAmount = balance.totalConfirmedAmount - balance.lockedConfirmedAmount;
+    balance.availableAmountExcludeMasternode = balance.totalAmount - balance.lockedAmount;
+    balance.availableConfirmedAmountExcludeMasternode = balance.totalConfirmedAmount - balance.lockedConfirmedAmount;
+    var lockedMasternodeAmount = _.sumBy(_.filter(utxos, 'isMasternode'), 'satoshis');
+    balance.availableAmount = balance.totalAmount - balance.lockedAmount + lockedMasternodeAmount;
+    balance.availableConfirmedAmount = balance.totalConfirmedAmount - balance.lockedConfirmedAmount + lockedMasternodeAmount;
 
     return balance;
   }

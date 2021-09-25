@@ -88,6 +88,7 @@
     "bitcore-p2p": "^8.20.4",
     "bitcore-p2p-cash": "^8.20.4",
     "bitcore-wallet-client": "^8.20.4",
+    "bn.js": "^5.2.0",
     "body-parser": "1.18.3",
     "cors": "2.8.4",
     "crypto-rpc": "^1.1.0",
