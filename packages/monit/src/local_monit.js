@@ -1,6 +1,6 @@
 #!/home/john/.nvm/versions/node/v10.5.0/bin/node
 
-const UpdateNode = require("./updateNode");
+// const UpdateNode = require("./updateNode");
 const Client = require('bitcore-wallet-client/index').default;
 const nodemailer = require("nodemailer");
 const sd = require('silly-datetime');
@@ -9,20 +9,28 @@ const async = require('async')
 const fs = require('fs')
 const request = require('request');
 
-const work_path = '/home/john/bitcore/packages/monit/';
+const work_path = "/mnt/ethereum/bitcore/packages/monit/src/";
+let rawdata = fs.readFileSync(work_path + 'config.json');
+let config = JSON.parse(rawdata);
+
 const file_name = 'status.txt';
 
 const word = 'bone casual observe virus prepare system aunt bamboo horror police vault floor';
 const bwsUrl = 'http://127.0.0.1:3232/bws/api';
-const bwsUrl1 = '47.114.57.42';
-const name = 'gdl';
+const bwsUrl1 = config.bitcore_external_host;
+const name = config.chain_name;
 
 const explorerUrl = 'http://127.0.0.1:8200/api/VCL/mainnet/block/tip';
 
-const smtp = "smtp.tom.com";
+// const smtp = "smtp.tom.com";
 // var mailFrom = "jlw2020@tom.com";
-const mailFrom = "jlwkk99@tom.com";
-const mailPwd = "jlw9090";
+// const mailFrom = "jlwkk99@tom.com";
+// const mailPwd = "jlw9090";
+const mailFrom = config.mail_user;
+const mailPwd = config.mail_pwd;
+
+console.log(bwsUrl1, name, mailFrom, mailPwd);
+
 
 const block_delay = 900;
 
@@ -205,7 +213,7 @@ function restartMongod(){
 }
 
 async function restartMonit(){
-  await UpdateNode.updateNode();
+  // await UpdateNode.updateNode();
   process.exec('monit restart all',function (error, stdout, stderr) {
     if (error) {
       restartMonitNums+= 1;
