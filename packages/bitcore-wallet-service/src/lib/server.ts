@@ -875,7 +875,8 @@ export class WalletService {
     }
 
     var data;
-    if (txp.atomicswap.secret) {
+    // john 20211026
+    if (txp.atomicswap && txp.atomicswap.secret) {
       const data = _.assign(
         {
           txProposalId: txp.id,
@@ -2416,6 +2417,9 @@ export class WalletService {
       this.storage.fetchTx(this.walletId, txProposalId, cb);
     };
 
+    // john 20211026
+    if (!opts.atomicswap || !opts.atomicswap.contract) return cb(new Error('atomicswap contract is required'));
+
     this._runLocked(
       cb,
       cb => {
@@ -3211,7 +3215,8 @@ export class WalletService {
                 delete txp.atomicswapRewardAddr;
                 if (err) cb(err);
                 if (!addresses) {
-                  if (txp.atomicswap.initiate) {
+		  // john 20211026
+                  if (txp.atomicswap && txp.atomicswap.initiate) {
                     txp.atomicswapStatus = 'finished';
                   } else {
                     txp.atomicswapStatus = 'notify';
