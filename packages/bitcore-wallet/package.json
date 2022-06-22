@@ -17,7 +17,7 @@
     "url": "https://github.com/John-Tonny/bitcore-wallet/issues"
   },
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^3.2.2",
     "vircle-lib": "^8.20.4",
     "bitcore-wallet-client": "^8.20.4",
     "commander": "^2.6.0",
